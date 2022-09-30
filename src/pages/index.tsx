@@ -1,22 +1,18 @@
-import { Button, Text } from '@chakra-ui/react';
+import { Box, Button, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
+import Head from 'next/head';
 
 const Home: NextPage = () => {
   return (
     <>
-      <Text layerStyle={'heading'}>امید فاریابی</Text>
-      <Text fontSize="40" fontWeight="bold">
-        امید فاریابی
-      </Text>
-      <Button bgColor="primary.400" color="white">
-        امید فاریابی
-      </Button>
-      <Button
-        bgGradient={'linear(180deg, primary.500 0%, #F5F9FF 100%)'}
-        color="white"
-      >
-        امید فاریابی
-      </Button>
+      <Head>
+        <title>آرتامارت</title>
+        <meta content="فروشگاه" name="description" />
+        <meta name="robots" content="follow, index" />
+      </Head>
+      <Box layerStyle="base">
+        <Text textStyle={'bold36'}>امید فاریابی</Text>
+      </Box>
     </>
   );
 };
