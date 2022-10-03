@@ -1,3 +1,15 @@
+export const styles = {
+  global: (props: any) => ({
+    'html , body , #__next ': {
+      w: '100%',
+      h: '100%',
+    },
+    body: {
+      bgGradient: 'linear(180deg, #FFF5F7 0%, #F5F9FF 100%)',
+    },
+  }),
+};
+
 export const textStyles = {
   regular10: {
     fontSize: '0.625rem',
