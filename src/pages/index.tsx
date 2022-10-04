@@ -1,10 +1,5 @@
 import { Box, Button, Text } from '@chakra-ui/react';
-import {
-  AngleDownIcon,
-  PhoneIcon,
-  ShoppingBagIcon,
-  UserIcon,
-} from 'components/common/Icons';
+import { AngleDownIcon } from 'components/common/Icons';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';

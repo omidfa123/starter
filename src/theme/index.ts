@@ -1,3 +1,5 @@
+import { List } from './components/list';
+import { Button } from './components/button';
 import { layerStyles, textStyles, styles } from './styles';
 import { colors, fonts, fontSizes, config } from './foundations/index';
 import { extendTheme, withDefaultColorScheme } from '@chakra-ui/react';
@@ -12,6 +14,10 @@ const overrides = {
   styles,
   // layerStyles,
   textStyles,
+  components: {
+    List,
+    Button,
+  },
 };
 
 export default extendTheme(

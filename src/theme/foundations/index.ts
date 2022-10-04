@@ -47,6 +47,7 @@ export const colors = {
   boxBg: '#F5F5F5',
   description: '#ADADAD',
   disableButton: '#D9D9D9',
+  disableText: '#CACACA',
   discount: '#ff5e5e',
   ratings: '#FFC700',
   comparison: '#98AFFF',
