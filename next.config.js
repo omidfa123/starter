@@ -2,6 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  webpack: config => {
+    config.optimization.mergeDuplicateChunks = true;
+
+    return config;
+  },
 
   async headers() {
     return [
