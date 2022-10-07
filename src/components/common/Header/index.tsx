@@ -1,15 +1,14 @@
 import {
   Box,
+  Divider,
   HStack,
   Input,
   InputGroup,
   InputLeftElement,
-  InputRightElement,
   Link,
   List,
   ListIcon,
   ListItem,
-  Text,
 } from '@chakra-ui/react';
 import NextLink from 'components/custom/NextLink';
 import {
@@ -66,14 +65,16 @@ export default function Header() {
             </NextLink>
           </ListItem>
         </List>
-        <HStack>
-          <Text textStyle="regular14">۰۲۱-۷۷۶۰۲۲۵</Text>
-          <TelIcon boxSize={7} />
-        </HStack>
+        <Link href="tel:0217760225" variant="link">
+          <Box as="span" textStyle={'regular14'}>
+            ۰۲۱-۷۷۶۰۲۲۵
+          </Box>
+          <TelIcon boxSize={7} mr={2} />
+        </Link>
       </HStack>
-      <Box pb={6} />
-      <HStack px={32} justifyContent="space-between">
-        <MenuIcon />
+      <Box pb={[8, null, 6]} />
+      <HStack px={[6, null, 32]} justifyContent="space-between">
+        <MenuIcon display={['block', null, 'none']} />
         <NextLink passHref={false}>
           <Box as="span">
             <Image
@@ -84,6 +85,9 @@ export default function Header() {
             />
           </Box>
         </NextLink>
+        <Link href="tel:0217760225" display={['block', null, 'none']}>
+          <TelIcon boxSize={7} mr={2} />
+        </Link>
         <List
           display={['none', null, 'flex']}
           textStyle="medium14"
@@ -115,13 +119,14 @@ export default function Header() {
             <ListIcon as={AngleDownIcon} boxSize={2.5} />
           </ListItem>
         </List>
+
         <HStack>
           <ShoppingBagIcon boxSize={9} cursor="pointer" />
           <UserIcon boxSize={9} cursor="pointer" />
         </HStack>
       </HStack>
-      <Box pb={8} />
-      <Box px={32}>
+      <Divider my={4} borderColor={['divider', null, 'transparent']} />
+      <Box px={[6, null, 32]}>
         <InputGroup>
           <InputLeftElement
             bgColor="primary.500"
@@ -144,6 +149,7 @@ export default function Header() {
           />
         </InputGroup>
       </Box>
+      <Divider my={4} borderColor={['divider', null, 'transparent']} />
     </Box>
   );
 }

@@ -6,6 +6,7 @@ export const styles = {
     },
     body: {
       bgGradient: 'linear(180deg, #FFF5F7 0%, #F5F9FF 100%)',
+      color: 'text',
     },
   }),
 };
@@ -98,11 +99,9 @@ export const textStyles = {
 };
 
 export const layerStyles = {
-  base: {
-    color: 'primary.500',
-    backgroundColor: 'secondary.500',
-    border: '1px solid  #fefefe',
-    opacity: '.8',
-    p: '2rem',
+  container: {
+    maxW: '1280px',
+    mx: 'auto',
+    px: [6, 20, 24, 28, 32],
   },
 };

@@ -48,9 +48,12 @@ export const colors = {
   description: '#ADADAD',
   disableButton: '#D9D9D9',
   disableText: '#CACACA',
+  disableUl: '#B8B8B8',
   discount: '#ff5e5e',
   ratings: '#FFC700',
   comparison: '#98AFFF',
+  break: '#AFAFAF',
+  divider: '#eee',
 };
 export const fonts = {
   body: `IranSansXV,${theme.fonts.body}`,
@@ -70,6 +73,11 @@ export const fontSizes = {
   '32': '2rem',
   '36': '2.25rem',
   '40': '2.5rem',
+};
+export const breakpoints = {
+  sm: '24em',
+  md: '50em',
+  lg: '80em',
 };
 export const config = {
   cssVarPrefix: 'artamart',

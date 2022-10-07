@@ -2,6 +2,7 @@ import { Box, Container } from '@chakra-ui/react';
 import { useLoadingProgress } from 'components/custom/LoadingProgress';
 import { Router } from 'next/router';
 import { ReactNode, useEffect } from 'react';
+import Footer from '../Footer';
 import Header from '../Header';
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -29,9 +30,10 @@ export default function Layout({ children }: { children: ReactNode }) {
     };
   }, []);
   return (
-    <Container maxW="1280px" centerContent>
+    <>
       <Header />
       {children}
-    </Container>
+      <Footer />
+    </>
   );
 }
