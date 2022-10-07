@@ -1,4 +1,3 @@
-import { Box, Container } from '@chakra-ui/react';
 import { useLoadingProgress } from 'components/custom/LoadingProgress';
 import { Router } from 'next/router';
 import { ReactNode, useEffect } from 'react';
