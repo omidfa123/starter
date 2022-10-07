@@ -159,7 +159,17 @@ export default function Footer() {
                   `${[pic.w[2]]}`,
                 ]}
               >
-                <Image src={pic.src} alt={pic.alt} fill />
+                <Image
+                  src={pic.src}
+                  alt={pic.alt}
+                  fill
+                  sizes={`
+                 (min-width: 30em ) ${[pic.w[0]]}
+                 (min-width: 48em)  ${[pic.h[1]]}
+                 (min-width: 62em)  ${[pic.h[1]]}
+                 (min-width: 80em)  ${[pic.h[2]]}
+                 `}
+                />
               </Box>
             </Center>
           ))}
@@ -182,6 +192,10 @@ export default function Footer() {
                 src="/images/atramart_logo.png"
                 alt="لوگو سایت آترامارت"
                 fill
+                sizes="
+                (min-width: 30em ) 138px
+               (min-width: 48em)  154px
+                "
               />
             </Box>
           </NextLink>

@@ -125,6 +125,11 @@ export default function Header() {
               src="/images/atramart_logo.png"
               alt="لوگو سایت آترامارت"
               fill
+              priority={true}
+              sizes="
+               (min-width: 30em ) 138px
+               (min-width: 48em)  154px
+              "
             />
           </Box>
         </NextLink>
