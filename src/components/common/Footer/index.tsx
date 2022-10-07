@@ -52,19 +52,19 @@ const footerList = [
 
 const EnamadPics = [
   {
-    src: '/images/enamad3.png',
+    src: '/images/e3.png',
     alt: 'اینماد',
     h: ['59px', null, '98px'],
     w: ['53px', null, '89px'],
   },
   {
-    src: '/images/enamad2.png',
+    src: '/images/e2.png',
     alt: 'اینماد',
     h: ['59px', null, '90px'],
     w: ['61px', null, '94px'],
   },
   {
-    src: '/images/enamad.png',
+    src: '/images/e.png',
     alt: 'اینماد',
     h: ['52px', null, '85px'],
     w: ['66px', null, '108px'],
