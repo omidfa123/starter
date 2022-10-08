@@ -2,7 +2,7 @@ import { theme } from '@chakra-ui/react';
 
 export const colors = {
   primary: {
-    '50': '#FFF5E5',
+    '50 ': '#FFF5E5',
     '100': '#FFE2B8',
     '200': '#FFD08A',
     '300': '#FFBE5C',
@@ -14,7 +14,7 @@ export const colors = {
     '900': '#331F00',
   },
   secondary: {
-    '50': '#ECE5FF',
+    '50 ': '#ECE5FF',
     '100': '#CAB8FF',
     '200': '#A88AFF',
     '300': '#865CFF',
@@ -47,7 +47,7 @@ export const colors = {
   boxBg: '#F5F5F5',
   description: '#ADADAD',
   disableButton: '#D9D9D9',
-  disableText: '#727272',
+  disableText: '#545456',
   disableUl: '#B8B8B8',
   discount: '#ff5e5e',
   ratings: '#FFC700',

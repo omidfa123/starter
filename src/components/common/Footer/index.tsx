@@ -9,6 +9,7 @@ import {
   ListItem,
   Text,
 } from '@chakra-ui/react';
+import Logo from 'components/custom/Logo';
 import NextLink from 'components/custom/NextLink';
 import Image from 'next/future/image';
 import { EnvelopIcon, TelIcon } from '../Icons';
@@ -54,20 +55,20 @@ const EnamadPics = [
   {
     src: '/images/e3.png',
     alt: 'اینماد',
-    h: ['59px', null, '98px'],
-    w: ['53px', null, '89px'],
+    h: ['59px', '44px', '98px'],
+    w: ['53px', '56px', '89px'],
   },
   {
     src: '/images/e2.png',
     alt: 'اینماد',
-    h: ['59px', null, '90px'],
-    w: ['61px', null, '94px'],
+    h: ['59px', '50px', '90px'],
+    w: ['61px', '52px', '94px'],
   },
   {
     src: '/images/e.png',
     alt: 'اینماد',
-    h: ['52px', null, '85px'],
-    w: ['66px', null, '108px'],
+    h: ['52px', '52px', '85px'],
+    w: ['66px', '47px', '108px'],
   },
 ];
 
@@ -180,25 +181,7 @@ export default function Footer() {
           w={['95%', '99%', '100%']}
         />
         <Flex gap={4} gridArea={'about'} flexDir="column">
-          <NextLink passHref={false}>
-            <Box
-              as="span"
-              pos="relative"
-              alignSelf="start"
-              width={['138px', '154px']}
-              height={['30px', '34px']}
-            >
-              <Image
-                src="/images/atramart_logo.png"
-                alt="لوگو سایت آترامارت"
-                fill
-                sizes="
-                (min-width: 30em ) 138px
-               (min-width: 48em)  154px
-                "
-              />
-            </Box>
-          </NextLink>
+          <Logo />
           <Text
             textStyle={['regular10', 'regular14', 'regular16']}
             lineHeight={[4, 5, 6]}

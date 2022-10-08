@@ -2,6 +2,116 @@
 import { Icon } from '@chakra-ui/react';
 import type { IconProps } from '@chakra-ui/react';
 
+export const WavesIcon = (props: IconProps) => (
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 304 106"
+    {...props}
+  >
+    <path
+      fill="#9773FF"
+      d="M20.572 51.458c0-8.82 4.848-17.775 13.659-18.174 13.92-.63 27.33 6.974 56.761-5.931 32.826-14.395 110.198 23.399 177.37 17.488 16.843-1.482 34.209 10.576 34.209 27.484V89.51H44.572c-13.255 0-24-10.745-24-24V51.458Z"
+    />
+
+    <path
+      fill="#FFA826"
+      d="M20.572 63.944c0-8.82 4.848-17.775 13.659-18.174 13.92-.63 27.33 6.974 56.761-5.931 32.826-14.395 110.198 23.4 177.37 17.488 16.843-1.482 34.209 10.577 34.209 27.484v17.186H44.572c-13.255 0-24-10.746-24-24V63.944Z"
+    />
+
+    <path
+      fill="#FF5E5E"
+      d="M20.572 78.419c0-9.592 5.893-18.817 15.485-18.799 13.298.026 26.792 4.856 54.935-4.439 33.26-10.984 112.25 18.383 180.027 12.978 15.982-1.274 31.552 10.47 31.552 26.503v7.335H44.151c-13.023 0-23.579-10.556-23.579-23.578Z"
+    />
+
+    <defs>
+      <filter
+        id="a"
+        width="321.999"
+        height="105.452"
+        x=".572"
+        y=".058"
+        color-interpolation-filters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feColorMatrix
+          in="SourceAlpha"
+          result="hardAlpha"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        />
+        <feOffset dy="-4" />
+        <feGaussianBlur stdDeviation="10" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0" />
+        <feBlend
+          in2="BackgroundImageFix"
+          result="effect1_dropShadow_383_28006"
+        />
+        <feBlend
+          in="SourceGraphic"
+          in2="effect1_dropShadow_383_28006"
+          result="shape"
+        />
+        <feColorMatrix
+          in="SourceAlpha"
+          result="hardAlpha"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        />
+        <feOffset />
+        <feGaussianBlur stdDeviation="8" />
+        <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic" />
+        <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.16 0" />
+        <feBlend in2="shape" result="effect2_innerShadow_383_28006" />
+      </filter>
+      <filter
+        id="b"
+        width="281.999"
+        height="65.452"
+        x="20.572"
+        y="36.544"
+        color-interpolation-filters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feColorMatrix
+          in="SourceAlpha"
+          result="hardAlpha"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        />
+        <feOffset />
+        <feGaussianBlur stdDeviation="8" />
+        <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic" />
+        <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.16 0" />
+        <feBlend in2="shape" result="effect1_innerShadow_383_28006" />
+      </filter>
+      <filter
+        id="c"
+        width="281.999"
+        height="49.296"
+        x="20.572"
+        y="52.7"
+        color-interpolation-filters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feColorMatrix
+          in="SourceAlpha"
+          result="hardAlpha"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        />
+        <feOffset />
+        <feGaussianBlur stdDeviation="7" />
+        <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic" />
+        <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.16 0" />
+        <feBlend in2="shape" result="effect1_innerShadow_383_28006" />
+      </filter>
+    </defs>
+  </Icon>
+);
+
 export const TelIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"

@@ -4,7 +4,7 @@ import type { CSSProperties, ReactNode } from 'react';
 export default function NextLink({
   children,
   href = '/',
-  as = { href },
+  as = null,
   passHref = true,
   style,
 }: {
