@@ -2,11 +2,12 @@ export const styles = {
   global: (props: any) => ({
     'html , body , #__next ': {
       w: '100%',
-      h: '100%',
+      minH: 'max-content',
     },
     body: {
       bgGradient: 'linear(180deg, #FFF5F7 0%, #F5F9FF 100%)',
       color: 'text',
+      bgRepeat: 'no-repeat',
     },
   }),
 };

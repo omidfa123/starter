@@ -1,5 +1,3 @@
-//TODO  add hamburger menu ,  submenu ,  shopping list
-
 import {
   Box,
   Divider,
@@ -9,15 +7,11 @@ import {
   InputGroup,
   InputLeftElement,
   Link,
-  List,
-  ListIcon,
-  ListItem,
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
 import NextLink from 'components/custom/NextLink';
 import {
-  AngleDownIcon,
   MenuIcon,
   SearchIcon,
   ShoppingBagIcon,
@@ -58,7 +52,6 @@ export default function Header() {
             `
           " menu     logo     tel"
           " search   search   bag "
-          " divider  divider  divider"
          `,
             `
          " menu     logo     tel"
@@ -106,7 +99,11 @@ export default function Header() {
             align={['center', 'center', 'start']}
           >
             <ShoppingBagIcon boxSize={[7, 9]} cursor="pointer" />
-            <UserIcon boxSize={[7, 9]} cursor="pointer" />
+            <NextLink href="/users/login">
+              <Link variant="list">
+                <UserIcon boxSize={[7, 9]} />
+              </Link>
+            </NextLink>
           </Flex>
           <InputGroup gridArea="search">
             <InputLeftElement
@@ -134,7 +131,7 @@ export default function Header() {
             />
           </InputGroup>
           <Divider
-            display={['block', 'block', 'none']}
+            display={['none', 'block', 'none']}
             borderColor="divider"
             gridArea="divider"
           />

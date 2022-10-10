@@ -1,4 +1,4 @@
-import { ChakraProvider, ScaleFade } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import type { AppProps } from 'next/app';
 import theme from 'theme';
 import 'styles/global.css';
@@ -10,9 +10,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <ChakraProvider theme={theme}>
       <LoadingProgressProvider>
         <Layout>
-          <ScaleFade key={router.route} initialScale={0.9} in>
-            <Component {...pageProps} />
-          </ScaleFade>
+          <Component {...pageProps} />
         </Layout>
       </LoadingProgressProvider>
     </ChakraProvider>

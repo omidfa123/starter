@@ -13,7 +13,9 @@ import Logo from 'components/custom/Logo';
 import NextLink from 'components/custom/NextLink';
 import Image from 'next/future/image';
 import { EnvelopIcon, TelIcon } from '../Icons';
-import FooterCopyRights from './FooterCopyRights';
+import dynamic from 'next/dynamic';
+
+const CopyRights = dynamic(() => import('./FooterCopyRights'), { ssr: false });
 
 const footerList = [
   {
@@ -83,23 +85,27 @@ export default function Footer() {
         ]}
         gridTemplateAreas={[
           `
+        "divider2 divider2"
         "list0   list1"
         "list2   number"
         "divider divider"
         "about   pics"`,
           `
+        "divider2 divider2 divider2"
         "list0   list1   list2"
         "divider divider divider"
         "about   about   pics"`,
           `
+        "divider2 divider2 divider2 divider2"
         "list0   list1   list2   pics"
         "divider divider divider divider"
         "about   about   about   number "`,
         ]}
-        py={[8, 12, 10]}
+        pb={[8, 12, 10]}
         layerStyle="container"
         rowGap={[8, 8, 10]}
         columnGap={[5]}
+        justifyItems={{ base: 'center', md: 'start' }}
       >
         {footerList.map((list, index) => (
           <Flex
@@ -180,6 +186,11 @@ export default function Footer() {
           gridArea="divider"
           w={['95%', '99%', '100%']}
         />
+        <Divider
+          borderColor="break"
+          gridArea="divider2"
+          w={['95%', '99%', '100%']}
+        />
         <Flex gap={4} gridArea={'about'} flexDir="column">
           <Logo />
           <Text
@@ -213,7 +224,7 @@ export default function Footer() {
             ۰۲۱-۷۷۶۰۲۲۵۰ ۰۹۳۳۱۸۰۹۸۹۷
           </Link>
           <Link
-            href="mail:omidfa1234@gmail.com"
+            href="mailto :omidfa1234@gmail.com"
             variant="link"
             display="flex"
             alignItems="center"
@@ -223,7 +234,7 @@ export default function Footer() {
           </Link>
         </Box>
       </Grid>
-      <FooterCopyRights />
+      <CopyRights />
     </Box>
   );
 }

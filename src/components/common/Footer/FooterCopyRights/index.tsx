@@ -2,8 +2,12 @@ import { Box, Center, Grid } from '@chakra-ui/react';
 import { InstagramIcon, LinkedinIcon, WhatsappIcon } from '../../Icons';
 
 export default function FooterCopyRights() {
+  const bgColor =
+    location.pathname !== '/users/login'
+      ? ['primary.500', 'black']
+      : ['secondary.500', 'white'];
   return (
-    <Box bgColor={['transparent', 'transparent', 'primary.500']}>
+    <Box bgColor={['transparent', 'transparent', bgColor[0]]}>
       <Grid
         gridTemplateColumns="max-content max-content"
         gridTemplateRows={['20px 40px', '40px']}
@@ -21,9 +25,10 @@ export default function FooterCopyRights() {
           gridColumn={['-1', '-1', '1']}
           textStyle={['regular11', 'regular16']}
           textAlign="center"
-          bgColor={'primary.500'}
+          bgColor={bgColor[0]}
           w="full"
           h={['full', 10]}
+          color={bgColor[1]}
         >
           تمامی حقوق مادی و معنوی این وبسایت برای آترامارت محفوظ می باشد
         </Center>
@@ -32,7 +37,7 @@ export default function FooterCopyRights() {
           rounded="16px 16px 0px 0px"
           justifySelf={['center', 'center', 'end']}
           bgColor={['black', 'black', 'transparent']}
-          color={['white', 'white', 'black']}
+          color={['white', 'white', bgColor[1]]}
           px={[6, 8, 0]}
           gap={[3, 4, 6]}
           py={[2]}
