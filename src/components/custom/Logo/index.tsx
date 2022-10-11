@@ -8,7 +8,6 @@ export default function Logo() {
       <Box
         as="span"
         pos="relative"
-        alignSelf="start"
         width={['138px', '154px']}
         height={['30px', '34px']}
         gridArea="logo"
