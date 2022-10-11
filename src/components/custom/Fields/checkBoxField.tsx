@@ -8,8 +8,9 @@ export default function CheckBoxField({ ...props }) {
       isInvalid={
         (meta.error as boolean | undefined) && (meta.touched as boolean)
       }
+      gridArea={props.gridArea}
     >
-      <Field as={Checkbox} {...field} {...props} />
+      <Field as={Checkbox} {...field} {...props} colorScheme="secondary" />
     </FormControl>
   );
 }

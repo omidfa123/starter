@@ -8,6 +8,7 @@ export default function TextField({ ...props }) {
       isInvalid={
         (meta.error as boolean | undefined) && (meta.touched as boolean)
       }
+      gridArea={props.gridArea}
     >
       <Field as={Input} {...field} {...props} />
       <FormErrorMessage>{meta.error}</FormErrorMessage>

@@ -1,3 +1,4 @@
+import { Checkbox } from './components/checkbox';
 import { Input } from './components/input';
 import { PinInput } from './components/pinInput';
 import { Link } from './components/link';
@@ -25,6 +26,7 @@ const overrides = {
     Link,
     PinInput,
     Input,
+    Checkbox,
   },
 };
 
