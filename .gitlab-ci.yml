@@ -40,7 +40,6 @@ testserver-job:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - ssh-keyscan $MS7_HOST_ADDR >> ~/.ssh/known_hosts
-    - echo "Key is:"  ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
     - echo "Success run before_script"
   script:
