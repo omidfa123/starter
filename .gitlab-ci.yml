@@ -46,7 +46,7 @@ testserver-job:
     - echo "Start clone with gitlab repository "
     - ssh root@$MS7_HOST_ADDR -p 22109 "hostname && echo 'Welcome!!!' > welcome.txt"
     #- git clone http://gitlab-ci-token:${ms7_gitlab_token}@lab.rixoshop.com/atramart/ms7.git
-    - git remote set-url origin ssh://ms@"${MS7_HOST_ADDR}":22109/opt/git/ms5
+    - git remote set-url origin ssh://root@"${MS7_HOST_ADDR}":22109/opt/git/ms5
     - git checkout -b master
     - git push origin master
     - echo "push success"
