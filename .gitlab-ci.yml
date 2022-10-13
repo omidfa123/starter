@@ -43,7 +43,7 @@ testserver-job:
     - chmod 644 ~/.ssh/known_hosts
     - echo "Success run before_script"
   script:
-    - echo "Start clone with gitlab repository"
+    - echo "Start clone with gitlab repository "
     - ssh root@$MS7_HOST_ADDR "hostname && echo 'Welcome!!!' > welcome.txt"
     #- git clone http://gitlab-ci-token:${ms7_gitlab_token}@lab.rixoshop.com/atramart/ms7.git
     - git remote set-url origin ssh://ms@"${MS7_HOST_ADDR}":22/opt/git/ms5
