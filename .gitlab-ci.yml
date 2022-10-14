@@ -4,7 +4,6 @@ stages:
   - deploy
   - testserver
   - production
-
 build-job:
   image: npm:latest
   stage: build
