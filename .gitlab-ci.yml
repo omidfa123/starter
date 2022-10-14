@@ -13,9 +13,9 @@ build-job:
     paths:
       - .next/
   script:
-    #- yarn install
-    #- yarn run build
-    #- echo "Compile complete."
+    - yarn install
+    - yarn run build
+    - echo "Compile complete."
     - echo "Success build"
 
 unit-test-job:
