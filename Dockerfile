@@ -1,2 +1,2 @@
-FROM npm:latest
+FROM node:latest
 RUN yurn install
