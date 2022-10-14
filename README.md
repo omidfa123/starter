@@ -1,34 +1,145 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center"><a href=""><img src="https://www.atramart.com/uploads/images/variables/atramart_logo.png" width="400"></a></p>
 
-## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Atramart Api Documentation
+### [User]()
+  - ### [Create]()
+    - [URL: ]() /api/v1/auth/register `#f03c15`
+    - [Method: ]() POST
+    - [Params]()
+      - mobile
+        - [validation]() ( required|numeric|regex:/(09)[0-9][0-9]/|digits:11|unique )
+      - password and password_confirmation
+        - [validation]() ( required|string|confirmed|min:8)
+    - [Error Response]()
+      - mobile is required
+      - mobile is numeric
+      - mobile format invalid
+      - mobile number invalid
+      - mobile is unique
+      - password is required
+      - password not mache
+    - [Success Response]()
+      - status => success
+      - message => successfully send verify code
+      - code => sms send code
+  - ### [Verify after send register data]()
+      - [URL: ]() /api/v1/auth/verify
+      - [Method: ]() POST
+      - [Params]()
+          - mobile
+          - verify_code
+              - [validation]() ( required)
+      - [Error Response]()
+          - verify code is required
+          - invalid verify code
+      - [Success Response]()
+          - status => success,
+          - message => User successfully registered,
+          - user => User data,
+          - token => token
+  - ### [Login]()
+    - [URL: ]() /api/v1/auth/login
+    - [Method: ]() POST
+    - [Params]()
+        - mobile
+            - [validation]() ( required|numeric|regex:/(09)[0-9]{9}/|digits:11 )
+        - password
+            - [validation]() ( required|string|confirmed|min:8)
+    - [Error Response]()
+        - status => error,
+        - message => invalid verify code,
+    - [Success Response]()
+        - status => success
+        - message' => Login successful
+        - token_type' => user
+        - access_token' => token
+        - expires_at => token expire date time
+  - ### [Update]()
+    - [URL: ]() /api/v1/user/user
+    - [Method: ]() PATCH/PUT
+    - [Params]()
+        - id
+        - mobile
+            - [validation]() ( required|numeric|regex:/(09)[0-9][0-9]/|digits:11|unique )
+        - first_name
+            - [validation]() ( required|string )
+        - last_name
+            - [validation]() ( required|string )
+        - telephone
+            - [validation]() ( required|numeric|regex:/^0[0-9]{2,}[0-9]{7,}$/|digits:11|unique:users,telephone )
+        - gender
+            - [validation]() ( required )
+        - national_code
+            - [validation]() ( required )
+        - password and password_confirmation
+            - [validation]() ( required|string|confirmed|min:8)
+    - [Error Response]()
+        - 'mail.regex => email is invalid
+        - email.unique => email is unique,
+        - first_name.required => first name is required
+        - last_name.required => last name is required
+        - telephone.required => telephone is required
+        - national_code.required => national code is required
+    - [Success Response]()
+        - status => update
+        - message => User successfully update
+        - user => user info
+  - ### [Get]()
+    - [URL: ]() /api/v1/user/user
+    - [Method: ]() GET
+    - [Params]()
+        - id
+    - [Success Response]()
+        - status => success
+        - message => Get successfully detail
+        - user => 
+          - detail
+          - address
+          - orders
+          - wishlist
+          - comments
+          - wallet history
+### [Address]()
+  - ### [Create]()
+    - [URL: ]() /api/v1/user/address
+    - [Method: ]() POST
+    - [Params]()
+        - mobile
+            - [validation]() ( required|numeric|regex:/(09)[0-9]{9}/|digits:11 )
+        - password
+            - [validation]() ( required|string|confirmed|min:8)
+    - [Error Response]()
+        - status => error,
+        - message => invalid verify code,
+    - [Success Response]()
+        - status => success
+        - message' => Login successful
+        - token_type' => user
+        - access_token' => token
+        - expires_at => token expire date time
+  - ### [Update]()
+    - [URL: ]() /api/v1/user/address/{id}
+    - [Method: ]() PATCH/PUT
+    - [Params]()
+        - mobile
+            - [validation]() ( required|numeric|regex:/(09)[0-9]{9}/|digits:11 )
+        - password
+            - [validation]() ( required|string|confirmed|min:8)
+    - [Error Response]()
+        - status => error,
+        - message => invalid verify code,
+    - [Success Response]()
+        - status => success
+        - message' => Login successful
+        - token_type' => user
+        - access_token' => token
+        - expires_at => token expire date time
+  - ### [Delete]()
+      - [URL: ]() /api/v1/user/address
+      - [Method: ]() DELETE
+      - [Success Response]()
+        - status => success
+        - message => Address successfully remove
+        - address => Address Collection | empty
+       
