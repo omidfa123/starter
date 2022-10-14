@@ -1,2 +1,2 @@
 FROM node:latest
-RUN yurn install
+RUN yarn install
