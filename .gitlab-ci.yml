@@ -1,8 +1,13 @@
-some-test-job:
-  image: python:3.10
+some test job:
+  image: npm:latest
   script:
-    - python --version
-    - pip --versdion
-    - pip install pytest
-    - pytest --version
-    - echo "Done"
+    - node --version
+    - yarn install
+build image:
+  image: docker
+  services:
+    - docker:dind
+  script:
+    - echo $CI_REGISTRY_PASSWORD | docker login -U $CI_REGISTRY_USERNAME $CI_REGISTRY --password-stdin
+    - docker build -t $CU_REGISTRY_IMAGE .
+    - docker push $CU_REGISTRY_IMAGE
