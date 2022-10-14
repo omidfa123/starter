@@ -5,23 +5,30 @@ stages:
   - testserver
   - production
 build-job:
-  image: node:latest
-  stage: build
-  cache:
-    paths:
-    - node_modules/
-    - .yarn
-  artifacts:
-    name: "artifacts"
-    paths:
-      - .next/
+  image: docker
+  services:
+    - docker:dind
   before_script:
-    - apt-get update -qq && apt-get install -qy libelf1
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
   script:
-    - yarn install
-    - yarn run build
-    - echo "Compile complete."
-    - echo "Success build"
+    - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+    - docker push "$CI_REGISTRY_IMAGE"
+
+#  image: node:latest
+#  stage: build
+#  cache:
+#    paths:
+#    - node_modules/
+#    - .yarn
+#  artifacts:
+#    name: "artifacts"
+#    paths:
+#      - .next/
+#  script:
+#    - yarn install
+#    - yarn run build
+#    - echo "Compile complete."
+#    - echo "Success build"
 
 unit-test-job:
   stage: test
