@@ -44,10 +44,10 @@ testserver-job:
     - echo "Success run before_script"
   script:
     - echo "Start clone with gitlab repository "
-    - ssh -oStrictHostKeyChecking=no root@$MS7_HOST_ADDR -p 22109 "hostname && echo 'Welcome!!!' > welcome.txt"
+    - ssh -oStrictHostKeyChecking=no $SSH_USER@$MS7_HOST_ADDR -p $SSH_PORT "hostname && echo 'Welcome!!!' > welcome.txt"
     - echo "ssh success"
     #- git clone http://gitlab-ci-token:${ms7_gitlab_token}@lab.rixoshop.com/atramart/ms7.git
-    - git remote set-url origin ssh://root@"${MS7_HOST_ADDR}":22109/opt/git/ms5
+    - git remote set-url origin ssh://"${SSH_USER}"@"${MS7_HOST_ADDR}":"${SSH_PORT}""${REPOSITORY_PATH}"
     - git checkout -b master
     - git push origin master
     - echo "push success"
