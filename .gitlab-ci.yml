@@ -1,13 +1,79 @@
-some test job:
+stages:
+  - build
+  - test
+  - deploy
+  - testserver
+  - production
+build-job:
   image: npm:latest
+  stage: build
+  cache:
+    paths:
+    - node_modules/
+    - .yarn
+  artifacts:
+    name: "artifacts"
+    paths:
+      - .next/
+  before_script:
+    - apt-get update -qq && apt-get install -qy libelf1
   script:
-    - node --version
     - yarn install
-build image:
-  image: docker
-  services:
-    - docker:dind
+    - yarn run build
+    - echo "Compile complete."
+    - echo "Success build"
+
+unit-test-job:
+  stage: test
   script:
-    - echo $CI_REGISTRY_PASSWORD | docker login -U $CI_REGISTRY_USERNAME $CI_REGISTRY --password-stdin
-    - docker build -t $CU_REGISTRY_IMAGE .
-    - docker push $CU_REGISTRY_IMAGE
+    - echo "Running unit tests... This will take about 60 seconds."
+    - echo "Code coverage is 90%"
+
+deploy-job:
+  stage: deploy
+  environment: production
+  script:
+    - echo "Deploying application..."
+    - echo "Application successfully deployed."
+testserver-job:
+  image: alpine:latest
+  stage: testserver
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
+    - eval $(ssh-agent -s)
+    - echo "${SSH_PRIVATE_KEY}" | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan $MS7_HOST_ADDR >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - echo "Success run before_script"
+  script:
+    - echo "Start clone with gitlab repository "
+    - ssh -oStrictHostKeyChecking=no $SSH_USER@$MS7_HOST_ADDR -p $SSH_PORT "hostname && echo 'Welcome!!!' > gitlab.txt"
+    - echo "SSH verify keys success"
+  allow_failure: false
+  when : on_success
+  environment:
+    name: root
+    url: "${MS7_HOST_ADDR}"
+  only:
+    - main
+production-job:
+  stage: production
+  extends: testserver-job
+  script:
+    - echo "Start clone with gitlab repository "
+    - ssh -oStrictHostKeyChecking=no $SSH_USER@$MS7_HOST_ADDR -p $SSH_PORT "hostname && echo 'Welcome!!!' > gitlab.txt"
+    - echo "ssh success"
+    #- git clone http://gitlab-ci-token:${ms7_gitlab_token}@lab.rixoshop.com/atramart/ms7.git
+    # - git pull origin master
+    - git remote set-url origin ssh://"${SSH_USER}"@"${MS7_HOST_ADDR}":"${SSH_PORT}""${REPOSITORY_PATH}"
+    - git checkout -b master
+    - git push -f origin master
+    - echo "push success"
+  when : on_success
+  environment:
+     name: root
+     url: "${MS7_HOST_ADDR}"
+  only:
+     - main
