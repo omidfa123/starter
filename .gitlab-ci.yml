@@ -54,7 +54,6 @@ testserver-job:
   only:
     - main
 production-job:
-  image: alpine:latest
   stage: production
   extends: testserver-job
   script:
@@ -67,9 +66,9 @@ production-job:
     - git checkout -b master
     - git push -f origin master
     - echo "push success"
-   when : on_success
-   environment:
+  when : on_success
+  environment:
      name: root
      url: "${MS7_HOST_ADDR}"
-   only:
+  only:
      - main
