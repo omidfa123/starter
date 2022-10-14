@@ -5,7 +5,7 @@ stages:
   - testserver
   - production
 build-job:
-  image: npm:latest
+  image: node:latest
   stage: build
   cache:
     paths:
