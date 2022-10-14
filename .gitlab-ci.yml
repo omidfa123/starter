@@ -7,10 +7,16 @@ stages:
 build-job:
   image: npm:latest
   stage: build
+  cache:
+    paths:
+    - node_modules/
+    - .yarn
   artifacts:
     name: "artifacts"
     paths:
       - .next/
+  before_script:
+    - apt-get update -qq && apt-get install -qy libelf1
   script:
     - yarn install
     - yarn run build
