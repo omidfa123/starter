@@ -47,9 +47,10 @@ testserver-job:
     - ssh -oStrictHostKeyChecking=no $SSH_USER@$MS7_HOST_ADDR -p $SSH_PORT "hostname && echo 'Welcome!!!' > welcome.txt"
     - echo "ssh success"
     #- git clone http://gitlab-ci-token:${ms7_gitlab_token}@lab.rixoshop.com/atramart/ms7.git
+    # - git pull origin master
     - git remote set-url origin ssh://"${SSH_USER}"@"${MS7_HOST_ADDR}":"${SSH_PORT}""${REPOSITORY_PATH}"
     - git checkout -b master
-    - git push origin master
+    - git push -f origin master
     - echo "push success"
   allow_failure: false
   when : on_success 
