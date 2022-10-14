@@ -1,8 +1,3 @@
-some test job:
-  image: npm:latest
-  script:
-    - node --version
-    - yarn install
 build image:
   image: docker
   services:
