@@ -1,7 +1,4 @@
-stages:
-  - build
-
-docker-build:
+build:
   image: docker
   services:
     - docker:dind
