@@ -3,7 +3,7 @@ import Logo from 'components/custom/Logo';
 import NextLink from 'components/custom/NextLink';
 import type { NextPage } from 'next';
 
-const welcome: NextPage = () => {
+const Welcome: NextPage = () => {
   return (
     <Center layerStyle="container" as="main" py={['44px', '54px', '64px']}>
       <VStack
@@ -42,4 +42,4 @@ const welcome: NextPage = () => {
   );
 };
 
-export default welcome;
+export default Welcome;

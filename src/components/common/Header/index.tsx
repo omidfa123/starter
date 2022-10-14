@@ -59,7 +59,7 @@ export default function Header() {
          " divider  divider  divider"
         `,
             `
-         " navLinks navLinks .......  ......  tel"
+         " navLinks navLinks navLinks   ......  tel"
          " logo     navList  navList  navList   bag"
          " search   search   search   search  search"
         `,

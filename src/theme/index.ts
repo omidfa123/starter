@@ -1,3 +1,4 @@
+import { Tabs } from './components/Tabs';
 import { Checkbox } from './components/checkbox';
 import { Input } from './components/input';
 import { PinInput } from './components/pinInput';
@@ -27,6 +28,7 @@ const overrides = {
     PinInput,
     Input,
     Checkbox,
+    Tabs,
   },
 };
 
