@@ -44,20 +44,57 @@
   - ### [Login]()
     - [URL: ]() /api/v1/auth/login
     - [Method: ]() POST
-    - [Params]()
-        - mobile
-            - [validation]() ( required|numeric|regex:/(09)[0-9]{9}/|digits:11 )
-        - password
-            - [validation]() ( required|string|confirmed|min:8)
-    - [Error Response]()
-        - status => error,
-        - message => invalid verify code,
-    - [Success Response]()
-        - status => success
-        - message' => Login successful
-        - token_type' => user
-        - access_token' => token
-        - expires_at => token expire date time
+    - [type static]()
+      - [Params]()
+          - type
+              - [value]() (static) 
+              - [validation]() ( required|string )
+          - mobile
+              - [validation]() ( required|numeric|regex:/(09)[0-9]{9}/|digits:11 )
+          - password
+              - [validation]() ( required|string|confirmed|min:8)
+      - [Error Response]()
+          - status => error,
+          - message => Invalid Credentials,
+      - [Success Response]()
+          - status => success
+          - message' => Login successful
+          - token_type' => user
+          - access_token' => token
+          - expires_at => token expire date time
+    - [type verify]()
+        - [mode verify]()
+          - [Params]()
+              - mode
+                  - [value]() (verify)
+                  - [validation]() ( required|string )
+              - mobile
+                  - [validation]() ( required|numeric|regex:/(09)[0-9]{9}/|digits:11 )
+          - [Error Response]()
+              - status => error,
+              - message => invalid verify code,
+          - [Success Response]()
+              - status => success
+              - message' => successfully send verify code
+        - [mode login]()
+            - [Params]()
+                - mode
+                    - [value]() (login)
+                    - [validation]() ( required|string )
+                - mobile
+                    - [validation]() ( required|numeric|regex:/(09)[0-9]{9}/|digits:11 )
+                - code
+                    - [validation]() ( required|numeric )
+            - [Error Response]()
+                - status => error,
+                - message user login error => Invalid Credentials
+                - message verify code => invalid verify code
+                - message verify type key => Invalid type
+                - message verify mode key =>  Invalid mode
+                - message not exist user => user not exist
+            - [Success Response]()
+                - status => success
+                - message' => successfully send verify code
   - ### [Update]()
     - [URL: ]() /api/v1/user/user
     - [Method: ]() PATCH/PUT
