@@ -1,8 +1,9 @@
 import { FormControl, Checkbox } from '@chakra-ui/react';
-import { Field, useField } from 'formik';
+import { FastField, useField } from 'formik';
 
 export default function CheckBoxField({ ...props }) {
   const [field, meta] = useField(props as any);
+
   return (
     <FormControl
       isInvalid={
@@ -10,7 +11,7 @@ export default function CheckBoxField({ ...props }) {
       }
       gridArea={props.gridArea}
     >
-      <Field as={Checkbox} {...field} {...props} colorScheme="secondary" />
+      <FastField as={Checkbox} {...field} {...props} colorScheme="secondary" />
     </FormControl>
   );
 }

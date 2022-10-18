@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Heading } from '@chakra-ui/react';
-import { RegisterVector } from 'components/common/Icons';
+import { RegisterVector } from 'components/common/Icons/Vectors';
 import { PinFrom, SingUpForm } from 'components/custom/Forms/SingUpForm';
 import NextLink from 'components/custom/NextLink';
 import type { NextPage } from 'next';

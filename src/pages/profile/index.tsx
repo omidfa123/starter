@@ -10,11 +10,13 @@ import {
   Tabs,
 } from '@chakra-ui/react';
 import NextLink from 'components/custom/NextLink';
+import Select from 'components/custom/Select';
 import type { NextPage } from 'next';
+import ProfileForm from '../../components/custom/Forms/ProfileForm';
 
 const Profile: NextPage = () => {
   return (
-    <Box as="main" layerStyle="container">
+    <Box as="main" layerStyle="container" mb="124px">
       <Breadcrumb
         as="section"
         color="disableText"
@@ -52,15 +54,12 @@ const Profile: NextPage = () => {
         <TabPanels
           bg="white"
           boxShadow="0px 0px 16px rgba(0, 0, 0, 0.08)"
-          h="452px"
           roundedBottom={32}
         >
           <TabPanel>
-            <p>one!</p>
+            <ProfileForm />
           </TabPanel>
-          <TabPanel>
-            <p>two!</p>
-          </TabPanel>
+          <TabPanel></TabPanel>
           <TabPanel>
             <p>three!</p>
           </TabPanel>

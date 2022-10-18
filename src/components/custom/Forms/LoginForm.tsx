@@ -54,6 +54,7 @@ export default function LoginForm() {
             placeholder="شماره تلفن همراه"
             type="tel"
             gridArea="tel"
+            maxLength={11}
           />
           <TextField
             name="password"

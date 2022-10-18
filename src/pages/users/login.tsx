@@ -1,5 +1,6 @@
-import { Box, Button, Grid, Heading, Link } from '@chakra-ui/react';
-import { LoginVector } from 'components/common/Icons';
+import { Box, Button, Grid, Heading} from '@chakra-ui/react';
+import { LoginVector } from 'components/common/Icons/Vectors';
+
 import LoginForm from 'components/custom/Forms/LoginForm';
 import NextLink from 'components/custom/NextLink';
 import type { NextPage } from 'next';

@@ -97,7 +97,12 @@ export function SingUpForm({ pinInput }: any) {
           px={[9, 14, '42px']}
           pt={[5, 8]}
         >
-          <TextField name="phone" placeholder="شماره تلفن همراه" type="tel" />
+          <TextField
+            name="phone"
+            placeholder="شماره تلفن همراه"
+            type="tel"
+            maxLength={11}
+          />
           <Button
             shadow="0px 0px 8px rgba(255, 168, 38, 0.4)"
             h="42px"
