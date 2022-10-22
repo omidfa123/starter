@@ -6,13 +6,15 @@ export default function NextLink({
   href = '/',
   as = null,
   passHref = true,
-  style,
+  replace = false,
+  shallow = false,
 }: {
   children: ReactNode;
   href?: any;
   as?: any;
   passHref?: boolean;
-  style?: CSSProperties;
+  replace?: boolean;
+  shallow?: boolean;
 }) {
   return (
     <Link
@@ -20,7 +22,8 @@ export default function NextLink({
       href={href}
       prefetch={false}
       as={as}
-      style={style}
+      replace={replace}
+      shallow={shallow}
     >
       {children}
     </Link>

@@ -1,96 +1,157 @@
-import { Button, Center, Grid, Link } from '@chakra-ui/react';
-import { Formik } from 'formik';
-import { mobileRegex } from 'utils/mobileRegex';
-import * as Yup from 'yup';
-import CheckBoxField from '../Fields/checkBoxField';
-import TextField from '../Fields/TextField';
+import {
+  Button,
+  Center,
+  Checkbox,
+  Flex,
+  FormControl,
+  FormErrorMessage,
+  Input,
+  Link,
+  useToast,
+  VStack,
+} from '@chakra-ui/react';
+import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
+import { mobileRegex } from 'utils/formRegexs';
 import NextLink from '../NextLink';
 
+type Inputs = {
+  mobile: string;
+  password: string;
+  code: string;
+  rememberMe: boolean;
+};
+const defaultValues = {
+  mobile: '',
+  password: '',
+  code: '',
+  rememberMe: true,
+};
+
 export default function LoginForm() {
+  const toast = useToast();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<Inputs>({
+    mode: 'onTouched',
+    defaultValues,
+  });
+
+  const onSubmit: SubmitHandler<Inputs> = data => {
+    return new Promise<void>(resolve => {
+      setTimeout(() => {
+        alert(JSON.stringify(data, null, 2));
+
+        toast({
+          title: 'ورود',
+          description: 'شما با موفقیت وارد حساب کاربری شده اید',
+          status: 'success',
+          duration: 9000,
+        });
+
+        resolve();
+      }, 3000);
+    });
+  };
+  const onError: SubmitErrorHandler<Inputs> = error => {
+    return new Promise<void>(resolve => {
+      setTimeout(() => {
+        toast({
+          title: 'خطایی رخ داد',
+          description: 'هنگام ورود مشکلی پیش آمد لطفا ورودی ها را برسی کنید',
+          status: 'error',
+          duration: 9000,
+        });
+        resolve();
+      }, 1000);
+    });
+  };
   return (
-    <Formik
-      initialValues={{
-        phone: '',
-        password: '',
-        security: '',
-        rememberMe: true,
-      }}
-      validationSchema={Yup.object({
-        phone: Yup.string()
-          .required('لطفا این قسمت را خالی نگذارید')
-          .matches(mobileRegex(), 'شماره تلفن نادرست است'),
-        password: Yup.string()
-          .required('لطفا این قسمت را خالی نگذارید')
-          .min(4, 'لطفا حداقل چهار کاراکتر وارد کنید')
-          .max(16, 'حداکثر شانزده کاراکتر'),
-        security: Yup.number(),
-        rememberMe: Yup.boolean(),
-      })}
-      onSubmit={(values, action) => {
-        alert(JSON.stringify(values, null, 2));
-        action.resetForm();
-      }}
+    <VStack
+      as="form"
+      gridArea="forms"
+      onSubmit={handleSubmit(onSubmit, onError)}
+      spacing={6}
+      alignItems="start"
     >
-      {formik => (
-        <Grid
-          as="form"
-          gridArea="forms"
-          onSubmit={formik.handleSubmit as any}
-          gridTemplateColumns="1fr 1fr"
-          gridTemplateAreas={`
-           "tel tel"
-           "pass pass"
-           "security code"
-           "forget  forget"
-           "checkBox checkBox"
-           "btn     btn"
-          `}
-          columnGap={'42px'}
-          pl={{ base: 'none', md: '42px' }}
-          rowGap={4}
-        >
-          <TextField
-            name="phone"
-            placeholder="شماره تلفن همراه"
-            type="tel"
-            gridArea="tel"
-            maxLength={11}
-          />
-          <TextField
-            name="password"
-            placeholder="رمز عبور"
-            type="password"
-            gridArea="pass"
-          />
-          <TextField
-            name="security"
+      <FormControl isInvalid={!!errors.mobile}>
+        <Input
+          _autofill={{
+            WebkitBoxShadow: '0 0 0px 30px rgba(255, 168, 38, 0.4)  inset',
+          }}
+          variant="white-filled"
+          type="tel"
+          placeholder="شماره تلفن همراه"
+          maxLength={11}
+          {...register('mobile', {
+            required: 'لطفا این قسمت را خالی نگذارید',
+            pattern: {
+              value: mobileRegex(),
+              message: 'شماره وارد شده درست نیست',
+            },
+          })}
+        />
+        <FormErrorMessage>
+          {errors.mobile && errors.mobile.message}
+        </FormErrorMessage>
+      </FormControl>
+      <FormControl isInvalid={!!errors.password}>
+        <Input
+          _autofill={{
+            WebkitBoxShadow: '0 0 0px 30px rgba(255, 168, 38, 0.25)  inset',
+          }}
+          variant="white-filled"
+          type="password"
+          placeholder="کلمه عبور"
+          {...register('password', {
+            required: 'لطفا این قسمت را خالی نگذارید',
+            minLength: { value: 8, message: 'لطفا حداقل هشت حرف وارد کنید' },
+          })}
+        />
+        <FormErrorMessage>
+          {errors.password && errors.password.message}
+        </FormErrorMessage>
+      </FormControl>
+      <Center w="100%" gap={8}>
+        <FormControl isInvalid={!!errors.code}>
+          <Input
+            _autofill={{
+              WebkitBoxShadow: '0 0 0px 30px rgba(255, 168, 38, 0.25)  inset',
+            }}
+            variant="white-filled"
             placeholder="کد امنیتی را وارد کنید"
-            type="number"
-            gridArea="security"
+            {...register('code', {
+              required: 'لطفا این قسمت را خالی نگذارید',
+            })}
           />
-          <Center bg="white" h="42px" rounded={12} gridArea="code">
-            6642
-          </Center>
-          <NextLink href="/forget-password">
-            <Link gridArea="forget" fontSize={13} w="max-content">
-              رمز عبور خود را فراموش کرده اید؟
-            </Link>
-          </NextLink>
-          <CheckBoxField name="rememberMe" gridArea="checkBox">
-            مرا بخاطر بسپار
-          </CheckBoxField>
-          <Button
-            colorScheme="secondary"
-            shadow="0px 0px 8px rgba(151, 115, 255, 0.4)"
-            h="42px"
-            type="submit"
-            gridArea="btn"
-            alignSelf="end"
-          >
-            ورود
-          </Button>
-        </Grid>
-      )}
-    </Formik>
+          <FormErrorMessage>
+            {errors.code && errors.code.message}
+          </FormErrorMessage>
+        </FormControl>
+        <Center bg="white" h="42px" rounded={12} w="100%">
+          6642
+        </Center>
+      </Center>
+      <NextLink href="/forget-password">
+        <Link fontSize={13} w="max-content">
+          رمز عبور خود را فراموش کرده اید؟
+        </Link>
+      </NextLink>
+      <Flex flex={1} align="start">
+        <Checkbox {...register('rememberMe')} colorScheme="secondary">
+          مرا بخاطر بسپار
+        </Checkbox>
+      </Flex>
+      <Button
+        isLoading={isSubmitting}
+        colorScheme="secondary"
+        maxH="42px"
+        type="submit"
+        w="full"
+      >
+        ورود
+      </Button>
+    </VStack>
   );
 }

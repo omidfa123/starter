@@ -10,11 +10,21 @@ import {
   Tabs,
 } from '@chakra-ui/react';
 import NextLink from 'components/custom/NextLink';
-import Select from 'components/custom/Select';
-import type { NextPage } from 'next';
-import ProfileForm from '../../components/custom/Forms/ProfileForm';
+import ProfileForm from '../Forms/ProfileForm';
 
-const Profile: NextPage = () => {
+interface IActiveTab {
+  label: string;
+  index: number;
+  slug: string;
+}
+
+export default function ProfileTabs({
+  activeTab,
+  routes,
+}: {
+  activeTab: IActiveTab;
+  routes: IActiveTab[];
+}) {
   return (
     <Box as="main" layerStyle="container" mb="124px">
       <Breadcrumb
@@ -31,24 +41,28 @@ const Profile: NextPage = () => {
         </BreadcrumbItem>
 
         <BreadcrumbItem>
-          <BreadcrumbLink href="/profile" as={NextLink}>
+          <BreadcrumbLink href="/profile/change-information" as={NextLink}>
             حساب کاربری
           </BreadcrumbLink>
         </BreadcrumbItem>
 
         <BreadcrumbItem isCurrentPage color="#FF5E5E">
-          <BreadcrumbLink href="#">ویرایش اطلاعات</BreadcrumbLink>
+          <BreadcrumbLink href="#">{activeTab.label}</BreadcrumbLink>
         </BreadcrumbItem>
       </Breadcrumb>
-      <Tabs isFitted variant="solid-rounded">
+      <Tabs
+        isFitted
+        isLazy
+        lazyBehavior="keepMounted"
+        variant="solid-rounded"
+        defaultIndex={activeTab.index}
+      >
         <TabList sx={{ '& button': { fontSize: '14px', fontWeight: '500' } }}>
-          <Tab>پروفایل کاربری</Tab>
-          <Tab>لیست سفارشات</Tab>
-          <Tab>خرید های اقساطی</Tab>
-          <Tab>لیست آدرس ها </Tab>
-          <Tab>نظرات داده شده</Tab>
-          <Tab>علاقه مندی ها </Tab>
-          <Tab>تاریخچه کیف پول</Tab>
+          {routes.map(tab => (
+            <NextLink key={tab.index} href={`/profile/${tab.slug}`} replace>
+              <Tab>{tab.label}</Tab>
+            </NextLink>
+          ))}
         </TabList>
 
         <TabPanels
@@ -59,7 +73,9 @@ const Profile: NextPage = () => {
           <TabPanel>
             <ProfileForm />
           </TabPanel>
-          <TabPanel></TabPanel>
+          <TabPanel>
+            <p>two!</p>
+          </TabPanel>
           <TabPanel>
             <p>three!</p>
           </TabPanel>
@@ -67,6 +83,4 @@ const Profile: NextPage = () => {
       </Tabs>
     </Box>
   );
-};
-
-export default Profile;
+}

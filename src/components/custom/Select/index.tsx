@@ -19,7 +19,6 @@ export default function Select(props: any) {
   const ref = useRef() as React.MutableRefObject<HTMLInputElement>;
   const { isOpen, onClose, onToggle } = useDisclosure();
   const [options, setOptions] = useState(props.options);
-  console.log(props);
 
   useOutsideClick({
     ref: ref,

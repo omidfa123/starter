@@ -18,7 +18,6 @@ export const Tabs: ComponentStyleConfig = {
         _selected: {
           bgColor: 'primary.500',
           color: 'black',
-          shadow: '0px 0px 4px rgba(255, 168, 38, 0.4)',
         },
       },
       tabpanel: {
