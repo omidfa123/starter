@@ -108,6 +108,8 @@
             - [validation]() ( required )
         - national_code
             - [validation]() ( required )
+        - email
+          - [validation]() ( unique:users|regex:/(.+)@(.+)\.(.+)/i )
         - password and password_confirmation
             - [validation]() ( required|string|confirmed|min:8)
     - [Error Response]()
