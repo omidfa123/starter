@@ -192,4 +192,3 @@
         - status => success
         - message => Address successfully remove
         - address => Address Collection | empty
-       
