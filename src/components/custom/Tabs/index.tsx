@@ -11,6 +11,12 @@ import {
 } from '@chakra-ui/react';
 import NextLink from 'components/custom/NextLink';
 import ProfileForm from '../Forms/ProfileForm';
+import AddressList from './AddressList';
+import CommentsList from './CommentsList';
+import CreditList from './CreditList';
+import FavoritesList from './FavoritesList';
+import OrderList from './OrderLists';
+import WalletList from './WalletList';
 
 interface IActiveTab {
   label: string;
@@ -59,7 +65,12 @@ export default function ProfileTabs({
       >
         <TabList sx={{ '& button': { fontSize: '14px', fontWeight: '500' } }}>
           {routes.map(tab => (
-            <NextLink key={tab.index} href={`/profile/${tab.slug}`} replace>
+            <NextLink
+              key={tab.index}
+              href={`/profile/${tab.slug}`}
+              replace
+              scroll={false}
+            >
               <Tab>{tab.label}</Tab>
             </NextLink>
           ))}
@@ -74,10 +85,22 @@ export default function ProfileTabs({
             <ProfileForm />
           </TabPanel>
           <TabPanel>
-            <p>two!</p>
+            <OrderList />
           </TabPanel>
           <TabPanel>
-            <p>three!</p>
+            <CreditList />
+          </TabPanel>
+          <TabPanel>
+            <AddressList />
+          </TabPanel>
+          <TabPanel>
+            <CommentsList />
+          </TabPanel>
+          <TabPanel>
+            <FavoritesList />
+          </TabPanel>
+          <TabPanel>
+            <WalletList />
           </TabPanel>
         </TabPanels>
       </Tabs>

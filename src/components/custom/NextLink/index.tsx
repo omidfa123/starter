@@ -8,6 +8,7 @@ export default function NextLink({
   passHref = true,
   replace = false,
   shallow = false,
+  scroll = true,
 }: {
   children: ReactNode;
   href?: any;
@@ -15,6 +16,7 @@ export default function NextLink({
   passHref?: boolean;
   replace?: boolean;
   shallow?: boolean;
+  scroll?: boolean;
 }) {
   return (
     <Link
@@ -24,6 +26,7 @@ export default function NextLink({
       as={as}
       replace={replace}
       shallow={shallow}
+      scroll={scroll}
     >
       {children}
     </Link>

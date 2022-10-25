@@ -841,3 +841,18 @@ export const DangerIcon = (props: IconProps) => (
     />
   </Icon>
 );
+export const CircleAddIcon = (props: IconProps) => (
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    width="17"
+    height="17"
+    fill="none"
+    viewBox="0 0 17 17"
+    {...props}
+  >
+    <path
+      fill="#fff"
+      d="M8.242.772a8 8 0 1 0 8 8 8.009 8.009 0 0 0-8-8ZM10.91 9.44h-2v2a.667.667 0 1 1-1.333 0v-2h-2a.667.667 0 0 1 0-1.333h2v-2a.667.667 0 1 1 1.333 0v2h2a.667.667 0 0 1 0 1.333Z"
+    />
+  </Icon>
+);

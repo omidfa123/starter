@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   FormControl,
   FormErrorMessage,
@@ -99,22 +100,55 @@ export default function ProfileForm() {
       pb={8}
       px={10}
     >
-      <FormControl gridArea="name" isInvalid={!!errors.first_name} isRequired>
-        <FormLabel>نام :</FormLabel>
+      <FormControl gridArea="name" isInvalid={!!errors.first_name}>
+        <FormLabel>
+          نام :
+          <Box
+            as="span"
+            marginInlineStart={1}
+            color="red.500"
+            role="presentation"
+            aria-hidden="true"
+          >
+            *
+          </Box>
+        </FormLabel>
         <Input {...register('first_name', { required: required })} />
         <FormErrorMessage>
           {errors.first_name && errors.first_name.message}
         </FormErrorMessage>
       </FormControl>
-      <FormControl gridArea="lname" isInvalid={!!errors.last_name} isRequired>
-        <FormLabel>نام خانوادگی :</FormLabel>
+      <FormControl gridArea="lname" isInvalid={!!errors.last_name}>
+        <FormLabel>
+          نام خانوادگی :
+          <Box
+            as="span"
+            marginInlineStart={1}
+            color="red.500"
+            role="presentation"
+            aria-hidden="true"
+          >
+            *
+          </Box>
+        </FormLabel>
         <Input {...register('last_name', { required: required })} />
         <FormErrorMessage>
           {errors.last_name && errors.last_name.message}
         </FormErrorMessage>
       </FormControl>
-      <FormControl gridArea="mobile" isInvalid={!!errors.mobile} isRequired>
-        <FormLabel>شماره موبایل</FormLabel>
+      <FormControl gridArea="mobile" isInvalid={!!errors.mobile}>
+        <FormLabel>
+          شماره موبایل :
+          <Box
+            as="span"
+            marginInlineStart={1}
+            color="red.500"
+            role="presentation"
+            aria-hidden="true"
+          >
+            *
+          </Box>
+        </FormLabel>
         <Input
           type="tel"
           maxLength={11}
@@ -130,12 +164,19 @@ export default function ProfileForm() {
           {errors.mobile && errors.mobile.message}
         </FormErrorMessage>
       </FormControl>
-      <FormControl
-        gridArea="telePhone"
-        isInvalid={!!errors.telephone}
-        isRequired
-      >
-        <FormLabel>شماره تلفن ثابت :</FormLabel>
+      <FormControl gridArea="telePhone" isInvalid={!!errors.telephone}>
+        <FormLabel>
+          شماره تلفن ثابت :
+          <Box
+            as="span"
+            marginInlineStart={1}
+            color="red.500"
+            role="presentation"
+            aria-hidden="true"
+          >
+            *
+          </Box>
+        </FormLabel>
         <Input
           maxLength={11}
           type="tel"
@@ -151,12 +192,19 @@ export default function ProfileForm() {
           {errors.telephone && errors.telephone.message}
         </FormErrorMessage>
       </FormControl>
-      <FormControl
-        gridArea="national"
-        isInvalid={!!errors.national_code}
-        isRequired
-      >
-        <FormLabel>کد ملی :</FormLabel>
+      <FormControl gridArea="national" isInvalid={!!errors.national_code}>
+        <FormLabel>
+          کد ملی :
+          <Box
+            as="span"
+            marginInlineStart={1}
+            color="red.500"
+            role="presentation"
+            aria-hidden="true"
+          >
+            *
+          </Box>
+        </FormLabel>
         <Input
           {...register('national_code', {
             required: required,
@@ -170,8 +218,19 @@ export default function ProfileForm() {
           {errors.national_code && errors.national_code.message}
         </FormErrorMessage>
       </FormControl>
-      <FormControl gridArea="email" isInvalid={!!errors.email} isRequired>
-        <FormLabel>ایمیل :</FormLabel>
+      <FormControl gridArea="email" isInvalid={!!errors.email}>
+        <FormLabel>
+          ایمیل :
+          <Box
+            as="span"
+            marginInlineStart={1}
+            color="red.500"
+            role="presentation"
+            aria-hidden="true"
+          >
+            *
+          </Box>
+        </FormLabel>
         <Input
           type="email"
           {...register('email', {
@@ -186,8 +245,19 @@ export default function ProfileForm() {
           {errors.email && errors.email.message}
         </FormErrorMessage>
       </FormControl>
-      <FormControl gridArea="password" isInvalid={!!errors.password} isRequired>
-        <FormLabel>رمز عبور :</FormLabel>
+      <FormControl gridArea="password" isInvalid={!!errors.password}>
+        <FormLabel>
+          رمز عبور :
+          <Box
+            as="span"
+            marginInlineStart={1}
+            color="red.500"
+            role="presentation"
+            aria-hidden="true"
+          >
+            *
+          </Box>
+        </FormLabel>
         <Input
           {...register('password', {
             required: required,
@@ -201,10 +271,20 @@ export default function ProfileForm() {
       <FormControl
         gridArea="repeat"
         isInvalid={!!errors.password_confirmation}
-        isRequired
         pb={6}
       >
-        <FormLabel>تکرار رمز عبور :</FormLabel>
+        <FormLabel>
+          تکرار رمز عبور :
+          <Box
+            as="span"
+            marginInlineStart={1}
+            color="red.500"
+            role="presentation"
+            aria-hidden="true"
+          >
+            *
+          </Box>
+        </FormLabel>
         <Input
           type="password"
           {...register('password_confirmation', {
@@ -220,8 +300,19 @@ export default function ProfileForm() {
           {errors.password_confirmation && errors.password_confirmation.message}
         </FormErrorMessage>
       </FormControl>
-      <FormControl gridArea="gender" isInvalid={!!errors.gender} isRequired>
-        <FormLabel>جنسیت :</FormLabel>
+      <FormControl gridArea="gender" isInvalid={!!errors.gender}>
+        <FormLabel>
+          جنسیت :
+          <Box
+            as="span"
+            marginInlineStart={1}
+            color="red.500"
+            role="presentation"
+            aria-hidden="true"
+          >
+            *
+          </Box>
+        </FormLabel>
         <RadioGroup
           defaultValue="man"
           display="flex"

@@ -121,9 +121,7 @@ export default function LoginForm() {
             }}
             variant="white-filled"
             placeholder="کد امنیتی را وارد کنید"
-            {...register('code', {
-              required: 'لطفا این قسمت را خالی نگذارید',
-            })}
+            {...register('code')}
           />
           <FormErrorMessage>
             {errors.code && errors.code.message}
