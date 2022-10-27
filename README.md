@@ -108,8 +108,6 @@
             - [validation]() ( required )
         - national_code
             - [validation]() ( required )
-        - email
-          - [validation]() ( unique:users|regex:/(.+)@(.+)\.(.+)/i )
         - password and password_confirmation
             - [validation]() ( required|string|confirmed|min:8)
     - [Error Response]()
@@ -151,6 +149,10 @@
             - [validation]() ( required|numeric|regex:/^0[0-9]{2,}[0-9]{7,}$/|digits:11 )
         - post_code
             - [validation]() (required|numeric|regex:/^[0-9]{11}$/|digits:11)
+        - is_default
+            - 1 value set in default address
+        - street
+            - [validation]() (required)
         - city_id
             - [validation]() (required)
         - user_id
@@ -174,6 +176,10 @@
             - [validation]() ( required|numeric|regex:/^0[0-9]{2,}[0-9]{7,}$/|digits:11 )
         - post_code
             - [validation]() (required|numeric|regex:/^[0-9]{11}$/|digits:11)
+        - is_default
+            - 1 value set in default address
+        - street
+            - [validation]() (required)
         - city_id
             - [validation]() (required)
         - user_id
@@ -192,3 +198,14 @@
         - status => success
         - message => Address successfully remove
         - address => Address Collection | empty
+
+### [Countries]()
+- ### [Region and cities]()
+    - [URL: ]() /api/v1/country/regions
+    - [Method: ]() GET
+    - [Error Response]()
+        - status => error,
+        - message => exeption,
+    - [Success Response]()
+        - status => success
+        - regions => region and city child list
