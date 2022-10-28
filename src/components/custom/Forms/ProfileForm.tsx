@@ -356,13 +356,4 @@ export default function ProfileForm() {
   );
 }
 
-// const optCounty = [
-//   { value: 'kerman', label: 'کرمان' },
-//   { value: 'tehran', label: 'تهران' },
-//   { value: '3', label: 'جیرفت' },
-//   { value: '4', label: 'کرج' },
-//   { value: '5', label: 'مشهد' },
-//   { value: '6', label: 'شاهرود' },
-//   { value: '7', label: 'افغانستان' },
-//   { value: '8', label: 'امریکا' },
-// ];
+

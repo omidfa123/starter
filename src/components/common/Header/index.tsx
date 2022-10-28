@@ -15,6 +15,7 @@ import {
   MenuIcon,
   SearchIcon,
   ShoppingBagIcon,
+  ShoppingBagRoundIcon,
   TelIcon,
   UserIcon,
 } from '../Icons';
@@ -98,7 +99,7 @@ export default function Header() {
             gap={[2.5, 4]}
             align={['center', 'center', 'start']}
           >
-            <ShoppingBagIcon boxSize={[7, 9]} cursor="pointer" />
+            <ShoppingBagRoundIcon boxSize={[7, 9]} cursor="pointer" />
             <NextLink href="/users/login">
               <Link variant="list">
                 <UserIcon boxSize={[7, 9]} />

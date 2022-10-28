@@ -1,13 +1,20 @@
-import { Box, Button, Flex } from '@chakra-ui/react';
-import { CircleAddIcon } from 'components/common/Icons';
+import { Grid, Text } from '@chakra-ui/react';
+import AddressForm from '../Forms/AddressForm';
+import AddressTable from '../Tables/AddressTable';
 
 export default function AddressList() {
   return (
-    <Box h="480px">
-      <Flex textStyle="medium24" color="disableUl">
-        هنوز هیچ فاکتوری انتخاب نشده است
-      </Flex>
-      <Button leftIcon={<CircleAddIcon />}>افزودن محصول</Button>
-    </Box>
+    <Grid h="452px" gridTemplateColumns="3fr 4fr" pt={5}>
+      {/* <Text
+        textStyle="medium20"
+        color="disableUl"
+        alignSelf="center"
+        textAlign="center"
+      >
+        هنوز آدرسی ثبت نشده است
+      </Text> */}
+      <AddressTable />
+      <AddressForm />
+    </Grid>
   );
 }

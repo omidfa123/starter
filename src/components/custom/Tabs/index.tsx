@@ -60,7 +60,7 @@ export default function ProfileTabs({
         isFitted
         isLazy
         lazyBehavior="keepMounted"
-        variant="solid-rounded"
+        variant="half-rounded"
         defaultIndex={activeTab.index}
       >
         <TabList sx={{ '& button': { fontSize: '14px', fontWeight: '500' } }}>
@@ -80,23 +80,25 @@ export default function ProfileTabs({
           bg="white"
           boxShadow="0px 0px 16px rgba(0, 0, 0, 0.08)"
           roundedBottom={32}
+          w="100%"
+          h="100%"
         >
           <TabPanel>
             <ProfileForm />
           </TabPanel>
-          <TabPanel>
+          <TabPanel p="0">
             <OrderList />
           </TabPanel>
-          <TabPanel>
+          <TabPanel p="0">
             <CreditList />
           </TabPanel>
           <TabPanel>
             <AddressList />
           </TabPanel>
-          <TabPanel>
+          <TabPanel p="0">
             <CommentsList />
           </TabPanel>
-          <TabPanel>
+          <TabPanel p="0">
             <FavoritesList />
           </TabPanel>
           <TabPanel>

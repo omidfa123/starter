@@ -1,23 +1,32 @@
-import { Box, Button, Center, Flex, Text, VStack } from '@chakra-ui/react';
+import { Box, Button } from '@chakra-ui/react';
 import { CircleAddIcon } from 'components/common/Icons';
+import Pagination from '../Pagination';
+import CreditTable from '../Tables/CreditTable';
 
 export default function OrderList() {
   return (
-    <Box h="480px">
-      <VStack
+    <Box h="max-content" p="64px 34px 32px 34px ">
+      {/* <Center
+        as="p"
         textStyle="medium24"
         color="disableUl"
+        textAlign="center"
         w="full"
-        h="full"
-        p="32px 40px"
+        flex="1"
       >
-        <Center as="p" textAlign="center" w="full" flex="1">
-          هنوز هیچ فاکتوری انتخاب نشده است
-        </Center>
-        <Button leftIcon={<CircleAddIcon />} alignSelf="end" h="47px">
-          افزودن محصول
-        </Button>
-      </VStack>
+        هنوز هیچ فاکتوری انتخاب نشده است
+      </Center> */}
+      <CreditTable />
+      <Pagination />
+      <Button
+        leftIcon={<CircleAddIcon />}
+        mr="auto"
+        display="block"
+        h="47px"
+        mt={6}
+      >
+        افزودن محصول
+      </Button>
     </Box>
   );
 }
