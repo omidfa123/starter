@@ -1,18 +1,24 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import type { AppProps } from 'next/app';
-import theme from 'theme';
-import 'styles/global.css';
-import Layout from 'components/common/layout';
 import { LoadingProgressProvider } from 'components/custom/LoadingProgress';
+import { QueryClientProvider } from 'react-query/react';
+import { queryClient } from 'libs/react-query/queryClient';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import Layout from 'components/common/layout';
+import theme from 'theme';
+import type { AppProps } from 'next/app';
+import 'styles/global.css';
 
-function MyApp({ Component, pageProps, router }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <LoadingProgressProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </LoadingProgressProvider>
+      <QueryClientProvider client={queryClient}>
+        <LoadingProgressProvider>
+          <Layout>
+            <Component {...pageProps} />
+            <ReactQueryDevtools panelProps={{ style: { direction: 'ltr' } }} />
+          </Layout>
+        </LoadingProgressProvider>
+      </QueryClientProvider>
     </ChakraProvider>
   );
 }

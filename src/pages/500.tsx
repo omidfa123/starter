@@ -1,5 +1,6 @@
 import { Box, Heading, Link, Text, VStack } from '@chakra-ui/react';
-import { AngleDownIcon, Error500 } from 'components/common/Icons';
+import { AngleDownIcon } from 'components/common/Icons';
+import { Error500 } from 'components/common/Icons/Vectors';
 import NextLink from 'components/custom/NextLink';
 import type { NextPage } from 'next';
 

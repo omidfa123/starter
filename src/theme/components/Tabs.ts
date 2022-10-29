@@ -1,16 +1,16 @@
 import type { ComponentStyleConfig } from '@chakra-ui/react';
+import { theme } from '@chakra-ui/react';
 
 export const Tabs: ComponentStyleConfig = {
   parts: ['tabpanel', 'tab'],
-  baseStyle: {
-    tab: {
-      bgColor: 'white',
-    },
-  },
+
   variants: {
-    'solid-rounded': {
+    'half-rounded': props => ({
+      ...theme.components.Tabs.variants?.['solid-rounded'](props),
       tab: {
+        ...theme.components.Tabs.variants?.['solid-rounded'](props).tab,
         borderBottomRadius: 10,
+        bgColor: 'white',
         h: '49px',
         minW: 'max-content',
         px: 6,
@@ -18,13 +18,8 @@ export const Tabs: ComponentStyleConfig = {
         _selected: {
           bgColor: 'primary.500',
           color: 'black',
-          shadow: '0px 0px 4px rgba(255, 168, 38, 0.4)',
         },
       },
-      tabpanel: {
-        w: '100%',
-        h: '100%',
-      },
-    },
+    }),
   },
 };

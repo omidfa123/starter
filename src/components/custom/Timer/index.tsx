@@ -38,20 +38,22 @@ export default function Timer({
             setIsFinished(false);
             onExpire();
           }}
+          color="description"
           cursor="pointer"
-          mb={1.5}
           borderBottom="1px dashed transparent"
           transition="all .1s cubic-bezier(0, 0, 0.2, 1)"
-          _hover={{ borderColor: 'primary.500', color: 'primary.500' }}
+          _hover={{ borderColor: 'text', color: 'text' }}
         >
           ارسال دوباره کد تایید
         </Box>
       ) : (
         <>
-          <Box minW="47px">{`۰${minutes.toLocaleString('fa-IR')}:${
-            seconds > 10 ? '' : '۰'
-          }${seconds.toLocaleString('fa-IR')}`}</Box>
-          <Text>مانده تا دریافت مجدد کد</Text>
+          <Box minW="47px" color="description">{`۰${minutes.toLocaleString(
+            'fa-IR'
+          )}:${seconds > 10 ? '' : '۰'}${seconds.toLocaleString(
+            'fa-IR'
+          )}`}</Box>
+          <Text color="description">مانده تا دریافت مجدد کد</Text>
         </>
       )}
     </Center>

@@ -1,3 +1,4 @@
+image: registry.atramart.com/backend/ms1/alpinephp80:fpm
 stages:
   - build
   - test
@@ -8,34 +9,40 @@ build-job:
   image: docker
   services:
     - docker:dind
-  before_script:
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+  #  stage: build
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE" .
-    - echo $CI_REGISTRY_IMAGE
-    - docker push "$CI_REGISTRY_IMAGE"
-
-#  image: node:latest
-#  stage: build
+    - echo "Build job success"
+#    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+#    - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+#    - docker push "$CI_REGISTRY_IMAGE"
+#    - composer update --no-dev --prefer-dist
 #  cache:
 #    paths:
-#    - node_modules/
-#    - .yarn
-#  artifacts:
-#    name: "artifacts"
-#    paths:
-#      - .next/
+#      - vendor/
+#    policy: pull-push
+#    key: php-dependencies
+#  only:
+#    - master
+#  image: docker
+#  services:
+#    - docker:dind
+#  before_script:
+#    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
 #  script:
-#    - yarn install
-#    - yarn run build
-#    - echo "Compile complete."
-#    - echo "Success build"
-
+#    - echo "start"
+#    - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+#    - echo $CI_REGISTRY_IMAGE
+#    - docker push "$CI_REGISTRY_IMAGE"
 unit-test-job:
+  #  image: registry.atramart.com/frontend/ms5
   stage: test
+  #  dependencies:
+  #    - build-job
   script:
-    - echo "Running unit tests... This will take about 60 seconds."
-    - echo "Code coverage is 90%"
+    - echo "Unit test job success"
+#    - php artisan serve
+#  tags:
+#    - docker
 
 deploy-job:
   stage: deploy
@@ -43,46 +50,53 @@ deploy-job:
   script:
     - echo "Deploying application..."
     - echo "Application successfully deployed."
+
 testserver-job:
   image: alpine:latest
   stage: testserver
   before_script:
     - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
     - eval $(ssh-agent -s)
-    - echo "${SSH_PRIVATE_KEY}" | ssh-add -
+    - echo "${MS2_SSH_PRIVATE_KEY}" | ssh-add -
+    - echo "success cop key"
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - ssh-keyscan $MS7_HOST_ADDR >> ~/.ssh/known_hosts
+    - ssh-keyscan $MS2_HOST_ADDR >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
     - echo "Success run before_script"
   script:
     - echo "Start clone with gitlab repository "
-    - ssh -oStrictHostKeyChecking=no $SSH_USER@$MS7_HOST_ADDR -p $SSH_PORT "hostname && echo 'Welcome!!!' > gitlab.txt"
+    - ssh $SSH_USER@$MS2_HOST_ADDR -p $SSH_PORT "hostname && echo 'Welcome!!!' > gitlab.txt"
     - echo "SSH verify keys success"
   allow_failure: false
   when : on_success
+  dependencies:
+    - build-job
   environment:
     name: root
-    url: "${MS7_HOST_ADDR}"
+    url: "${MS2_HOST_ADDR}"
   only:
-    - main
+    - master
 production-job:
   stage: production
   extends: testserver-job
   script:
     - echo "Start clone with gitlab repository "
-    - ssh -oStrictHostKeyChecking=no $SSH_USER@$MS7_HOST_ADDR -p $SSH_PORT "hostname && echo 'Welcome!!!' > gitlab.txt"
-    - echo "ssh success"
+#    - ssh $SSH_USER@$MS2_HOST_ADDR -p $SSH_PORT "hostname && echo 'Welcome!!!' > gitlab.txt"
+#    - echo "ssh success"
     #- git clone http://gitlab-ci-token:${ms7_gitlab_token}@lab.rixoshop.com/atramart/ms7.git
-    # - git pull origin master
-    - git remote set-url origin ssh://"${SSH_USER}"@"${MS7_HOST_ADDR}":"${SSH_PORT}""${REPOSITORY_PATH}"
+#    - git pull origin master
+    - git remote set-url origin ssh://"${SSH_USER}"@"${MS2_HOST_ADDR}":"${SSH_PORT}""${REPOSITORY_PATH}"
     - git checkout -b master
     - git push -f origin master
     - echo "push success"
   when : on_success
   environment:
-     name: root
-     url: "${MS7_HOST_ADDR}"
+    name: root
+    url: "${MS2_HOST_ADDR}"
   only:
-     - main
+    - master
+    - main
+
+
 

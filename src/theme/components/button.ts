@@ -1,9 +1,6 @@
 import type { ComponentStyleConfig } from '@chakra-ui/theme';
-
+import { theme } from '@chakra-ui/react';
 export const Button: ComponentStyleConfig = {
-  baseStyle: {
-    rounded: 12,
-  },
   variants: {
     smallNav: {
       rounded: '16px',
@@ -13,5 +10,15 @@ export const Button: ComponentStyleConfig = {
       fontWeight: '500',
       bgColor: 'primary.500',
     },
+    withShadow: props => ({
+      ...theme.components.Button.variants?.solid(props),
+      fontWeight: '500',
+      rounded: '16px',
+      border: '2px solid #15121D',
+      boxShadow: '3px 4px 0px #15121D',
+    }),
+  },
+  defaultProps: {
+    variant: 'withShadow',
   },
 };

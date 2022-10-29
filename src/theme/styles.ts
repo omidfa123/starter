@@ -8,7 +8,9 @@ export const styles = {
       bgGradient: 'linear(180deg, #FFF5F7 0%, #F5F9FF 100%)',
       color: 'text',
       bgRepeat: 'no-repeat',
+      fontVariationSettings: "'rdot' 1",
     },
+    input: { fontFeatureSettings: '"ss02"' },
   }),
 };
 
