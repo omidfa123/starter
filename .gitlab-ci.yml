@@ -57,16 +57,16 @@ testserver-job:
   before_script:
     - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
     - eval $(ssh-agent -s)
-    - echo "${MS2_SSH_PRIVATE_KEY}" | ssh-add -
+    - echo "${MS5_SSH_PRIVATE_KEY}" | ssh-add -
     - echo "success cop key"
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - ssh-keyscan $MS2_HOST_ADDR >> ~/.ssh/known_hosts
+    - ssh-keyscan $MS5_HOST_ADDR >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
     - echo "Success run before_script"
   script:
     - echo "Start clone with gitlab repository "
-    - ssh $SSH_USER@$MS2_HOST_ADDR -p $SSH_PORT "hostname && echo 'Welcome!!!' > gitlab.txt"
+    - ssh $SSH_USER@$MS5_HOST_ADDR -p $SSH_PORT "hostname && echo 'Welcome!!!' > gitlab.txt"
     - echo "SSH verify keys success"
   allow_failure: false
   when : on_success
@@ -74,7 +74,7 @@ testserver-job:
     - build-job
   environment:
     name: root
-    url: "${MS2_HOST_ADDR}"
+    url: "${MS5_HOST_ADDR}"
   only:
     - master
 production-job:
@@ -86,14 +86,14 @@ production-job:
 #    - echo "ssh success"
     #- git clone http://gitlab-ci-token:${ms7_gitlab_token}@lab.rixoshop.com/atramart/ms7.git
 #    - git pull origin master
-    - git remote set-url origin ssh://"${SSH_USER}"@"${MS2_HOST_ADDR}":"${SSH_PORT}""${REPOSITORY_PATH}"
+    - git remote set-url origin ssh://"${SSH_USER}"@"${MS5_HOST_ADDR}":"${SSH_PORT}""${REPOSITORY_PATH}"
     - git checkout -b master
     - git push -f origin master
     - echo "push success"
   when : on_success
   environment:
     name: root
-    url: "${MS2_HOST_ADDR}"
+    url: "${MS5_HOST_ADDR}"
   only:
     - master
     - main
