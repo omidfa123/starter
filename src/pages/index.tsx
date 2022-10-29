@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <meta name="robots" content="follow, index" />
       </Head>
       <Center py="10rem">
-        <Heading textColor="primary.500">صفحه غیر اصلی</Heading>
+        <Heading textColor="primary.500">صفحه اصلی</Heading>
       </Center>
     </>
   );
