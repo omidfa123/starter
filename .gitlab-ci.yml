@@ -57,7 +57,7 @@ testserver-job:
   before_script:
     - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
     - eval $(ssh-agent -s)
-    - echo "${MS5_SSH_PRIVATE_KEY}" | ssh-add -
+    - echo "${SSH_PRIVATE_KEY}" | ssh-add -
     - echo "success cop key"
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
@@ -82,10 +82,10 @@ production-job:
   extends: testserver-job
   script:
     - echo "Start clone with gitlab repository "
-#    - ssh $SSH_USER@$MS2_HOST_ADDR -p $SSH_PORT "hostname && echo 'Welcome!!!' > gitlab.txt"
-#    - echo "ssh success"
+    #    - ssh $SSH_USER@$MS2_HOST_ADDR -p $SSH_PORT "hostname && echo 'Welcome!!!' > gitlab.txt"
+    #    - echo "ssh success"
     #- git clone http://gitlab-ci-token:${ms7_gitlab_token}@lab.rixoshop.com/atramart/ms7.git
-#    - git pull origin master
+    #    - git pull origin master
     - git remote set-url origin ssh://"${SSH_USER}"@"${MS5_HOST_ADDR}":"${SSH_PORT}""${REPOSITORY_PATH}"
     - git checkout -b master
     - git push -f origin master
