@@ -9,9 +9,9 @@ export default class Document extends NextDocument {
         <Head>
           <link
             rel="preload"
-            href="/fonts/IRANSansXV.woff2"
+            href="/fonts/iransansxv.woff"
             as="font"
-            type="font/woff2"
+            type="font/woff"
             crossOrigin="anonymous"
           />
         </Head>

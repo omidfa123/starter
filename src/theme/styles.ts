@@ -7,10 +7,17 @@ export const styles = {
     body: {
       bgGradient: 'linear(180deg, #FFF5F7 0%, #F5F9FF 100%)',
       color: 'text',
+      fontFamily:
+        'iransansx,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
       bgRepeat: 'no-repeat',
       fontVariationSettings: "'rdot' 1",
     },
     input: { fontFeatureSettings: '"ss02"' },
+    '@supports (font-variation-settings: normal)': {
+      body: {
+        fontFamily: 'var(--artamart-fonts-body)',
+      },
+    },
   }),
 };
 

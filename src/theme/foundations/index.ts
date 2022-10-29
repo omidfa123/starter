@@ -56,8 +56,8 @@ export const colors = {
   divider: '#eee',
 };
 export const fonts = {
-  body: `IranSansXV,${theme.fonts.body}`,
-  heading: `IranSansXV,${theme.fonts.heading}`,
+  body: `"iransansxv",${theme.fonts.body}`,
+  heading: `"iransansxv",${theme.fonts.heading}`,
 };
 export const fontSizes = {
   '10': '0.625rem',

@@ -11,7 +11,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/fonts/IRANSansXV.woff2',
+        source: '/fonts/iransansxv.woff',
         headers: [
           {
             key: 'Cache-Control',
