@@ -19,5 +19,5 @@ RUN yarn run build
 CMD [ "pm2-runtime", "npm", "--", "start" ]
 
 # Run yarn dev, as we would via the command line
- CMD ["yarn", "build"]
- CMD ["yarn", "start"]
+CMD ["yarn", "build"]
+CMD ["yarn", "start"]
