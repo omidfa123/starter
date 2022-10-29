@@ -85,3 +85,4 @@ production-job:
      url: "${MS7_HOST_ADDR}"
   only:
      - main
+
