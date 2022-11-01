@@ -99,10 +99,25 @@ export default function Header() {
             gap={[2.5, 4]}
             align={['center', 'center', 'start']}
           >
-            <ShoppingBagRoundIcon boxSize={[7, 9]} cursor="pointer" />
+            <ShoppingBagRoundIcon
+              boxSize={[7, 9]}
+              cursor="pointer"
+              color="transparent"
+              _hover={{ color: 'text', '& path': { fill: '#fff' } }}
+              transitionProperty="var(--artamart-transition-property-common)"
+              transitionDuration="var(--artamart-transition-duration-fast)"
+              transitionTiming-function="var(--artamart-transition-easing-ease-out)"
+            />
             <NextLink href="/users/login">
               <Link variant="list">
-                <UserIcon boxSize={[7, 9]} />
+                <UserIcon
+                  boxSize={[7, 9]}
+                  color="transparent"
+                  _hover={{ color: 'text', '& path': { fill: '#fff' } }}
+                  transitionProperty="var(--artamart-transition-property-common)"
+                  transitionDuration="var(--artamart-transition-duration-fast)"
+                  transitionTiming-function="var(--artamart-transition-easing-ease-out)"
+                />
               </Link>
             </NextLink>
           </Flex>
@@ -117,7 +132,7 @@ export default function Header() {
               shadow="0px 0px 4px rgba(255, 153, 0, 0.47)"
               cursor="pointer"
             >
-              <SearchIcon boxSize={[4, 6]} />
+              <SearchIcon boxSize={[4, 6]} color="white" />
             </InputLeftElement>
             <Input
               p={[2, 4, 6]}

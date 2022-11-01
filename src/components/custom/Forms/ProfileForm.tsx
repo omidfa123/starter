@@ -14,7 +14,6 @@ import { emailRegex, mobileRegex } from 'utils/formRegexs';
 import { telephoneRegex } from 'utils/formRegexs';
 import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
 import { useEffect } from 'react';
-import { useRegions } from 'components/hooks/useRegions';
 
 type Inputs = {
   mobile: string;
@@ -40,7 +39,7 @@ const defaultValues = {
   password_confirmation: '',
 };
 export default function ProfileForm() {
-  useRegions();
+
   const toast = useToast();
   const {
     register,

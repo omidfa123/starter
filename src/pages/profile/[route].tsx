@@ -42,6 +42,6 @@ const Routes = ({
 }) => {
   return <ProfileTabs activeTab={activeTab} routes={routes} />;
 };
-console.log('re');
+
 
 export default Routes;

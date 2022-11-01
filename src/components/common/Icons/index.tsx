@@ -128,9 +128,9 @@ export const TelIcon = (props: IconProps) => (
 export const UserIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
-    fill="none"
     viewBox="0 0 36 36"
     {...props}
+    fill="currentColor"
   >
     <circle cx="17.644" cy="17.644" r="17.144" stroke="#15121D" />
     <path
@@ -143,7 +143,7 @@ export const UserIcon = (props: IconProps) => (
 export const ShoppingBagRoundIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
-    fill="none"
+    fill="currentColor"
     viewBox="0 0 36 36"
     {...props}
   >
@@ -192,7 +192,7 @@ export const SearchIcon = (props: IconProps) => (
     {...props}
   >
     <path
-      fill="#fff"
+      fill="currentColor"
       d="m23.784 22.535-5.964-5.964a10.008 10.008 0 1 0-1.413 1.413l5.964 5.964a.999.999 0 0 0 1.413-1.413Zm-13.696-4.29a7.994 7.994 0 1 1 7.994-7.993 8.003 8.003 0 0 1-7.994 7.994Z"
     />
   </Icon>
@@ -502,7 +502,7 @@ export const CloseIcon = (props: IconProps) => (
     {...props}
   >
     <path
-      fill="#FF5E5E"
+      fill="currentColor"
       d="M5.373 4.275 8.519 1.13a.5.5 0 1 0-.707-.707L4.666 3.568 1.52.422a.5.5 0 1 0-.708.707L3.96 4.275.812 7.422a.5.5 0 1 0 .708.707l3.146-3.147L7.812 8.13a.5.5 0 1 0 .707-.707L5.373 4.275Z"
     />
   </Icon>

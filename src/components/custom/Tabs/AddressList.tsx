@@ -4,7 +4,7 @@ import AddressTable from '../Tables/AddressTable';
 
 export default function AddressList() {
   return (
-    <Grid h="452px" gridTemplateColumns="3fr 4fr" pt={5}>
+    <Grid h="fit-content" gridTemplateColumns="3fr 4fr" p="20px 23px 20px 26px">
       {/* <Text
         textStyle="medium20"
         color="disableUl"

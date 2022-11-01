@@ -4,6 +4,7 @@ import { useEffect, useCallback } from 'react';
 import type { ReactNode } from 'react';
 import Footer from '../Footer';
 import Header from '../Header';
+import Loading from '../Loading';
 
 export default function Layout({ children }: { children: ReactNode }) {
   const { start, done } = useLoadingProgress();
@@ -32,6 +33,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
+      <Loading />
       {children}
       <Footer />
     </>

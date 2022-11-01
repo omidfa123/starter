@@ -13,10 +13,11 @@ import { TikIcon } from 'components/common/Icons';
 export default function AddressTable() {
   return (
     <List
+      maxH="prose"
       spacing={3}
-      ml={5}
-      mt="2px"
       overflowY="scroll"
+      maxHeight="400px"
+      ml={5}
       dir="ltr"
       pr={4}
       sx={{

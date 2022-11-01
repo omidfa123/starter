@@ -82,23 +82,24 @@ export default function ProfileTabs({
           roundedBottom={32}
           w="100%"
           h="100%"
+          sx={{ '& [role= tabpanel]': { p: 0 } }}
         >
           <TabPanel>
             <ProfileForm />
           </TabPanel>
-          <TabPanel p="0">
+          <TabPanel>
             <OrderList />
           </TabPanel>
-          <TabPanel p="0">
+          <TabPanel>
             <CreditList />
           </TabPanel>
           <TabPanel>
             <AddressList />
           </TabPanel>
-          <TabPanel p="0">
+          <TabPanel>
             <CommentsList />
           </TabPanel>
-          <TabPanel p="0">
+          <TabPanel>
             <FavoritesList />
           </TabPanel>
           <TabPanel>

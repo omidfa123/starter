@@ -30,51 +30,53 @@ import {
 } from 'components/common/Icons';
 import WalletTables from '../Tables/WalletTables';
 
-export default function WalletList() {
-  function CustomRadio(props: any) {
-    const { state, getInputProps, getCheckboxProps, htmlProps, getLabelProps } =
-      useRadio(props);
-    return (
-      <chakra.label {...htmlProps} cursor="pointer">
-        <input {...getInputProps({})} hidden />
-        <Center
-          {...getCheckboxProps()}
-          bg={state.isChecked ? 'secondary.500' : 'transparent'}
-          color={state.isChecked ? 'white' : 'secondary.500'}
-          borderWidth="1px"
-          borderColor="secondary.500"
-          fontSize="20px"
-          rounded={8}
-          w="86px"
-          h={9}
-        >
-          <Box as="span" {...getLabelProps()}>
-            {props.value}
-          </Box>
-        </Center>
-      </chakra.label>
-    );
-  }
 
-  const options = [
-    '۱۰٬۰۰۰',
-    '۲۰٬۰۰۰',
-    '۳۰٬۰۰۰',
-    '۵۰٬۰۰۰',
-    '۱۰۰٬۰۰۰',
-    '۱۵۰٬۰۰۰',
-    '۲۰۰٬۰۰۰',
-    '۳۰۰٬۰۰۰',
-    '۴۰۰٬۰۰۰',
-    '۵۰۰٬۰۰۰',
-  ];
+function CustomRadio(props: any) {
+  const { state, getInputProps, getCheckboxProps, htmlProps, getLabelProps } =
+    useRadio(props);
+  return (
+    <chakra.label {...htmlProps} cursor="pointer">
+      <input {...getInputProps({})} hidden />
+      <Center
+        {...getCheckboxProps()}
+        bg={state.isChecked ? 'secondary.500' : 'transparent'}
+        color={state.isChecked ? 'white' : 'secondary.500'}
+        borderWidth="1px"
+        borderColor="secondary.500"
+        fontSize="20px"
+        rounded={8}
+        w="86px"
+        h={9}
+      >
+        <Box as="span" {...getLabelProps()}>
+          {props.value}
+        </Box>
+      </Center>
+    </chakra.label>
+  );
+}
+
+const options = [
+  '۱۰٬۰۰۰',
+  '۲۰٬۰۰۰',
+  '۳۰٬۰۰۰',
+  '۵۰٬۰۰۰',
+  '۱۰۰٬۰۰۰',
+  '۱۵۰٬۰۰۰',
+  '۲۰۰٬۰۰۰',
+  '۳۰۰٬۰۰۰',
+  '۴۰۰٬۰۰۰',
+  '۵۰۰٬۰۰۰',
+];
+
+export default function WalletList() {
   const { value, getRadioProps, getRootProps } = useRadioGroup({
     defaultValue: '۱۰٬۰۰۰',
     onChange: console.log,
   });
   const group = getRootProps();
   return (
-    <Grid h="max-content" gridTemplateColumns="3fr 4fr" pt={5}>
+    <Grid h="max-content" gridTemplateColumns="3fr 4fr" p="20px 0 16px 24px">
       <VStack spacing="56px" alignSelf="center" ml={2}>
         <Center
           gap="86px"
