@@ -1,9 +1,5 @@
 <p align="center"><a href=""><img src="https://www.atramart.com/uploads/images/variables/atramart_logo.png" width="400"></a></p>
 
-<<<<<<< HEAD
-y
-=======
->>>>>>> 350966073c2eb04187bbef69a8f8b3582b0b5bfa
 ## Atramart Api Documentation
 ### [User]()
 - ### [Create]()
@@ -41,6 +37,7 @@ y
         - message => User successfully registered,
         - user => User data,
         - token => token
+        - user_status => new or exist
 - ### [Login]()
     - [URL: ]() /api/v1/auth/login
     - [Method: ]() POST
@@ -114,6 +111,9 @@ y
             - [validation]() ( required )
         - password and password_confirmation
             - [validation]() ( required|string|confirmed|min:8)
+        - use_password
+            - true or false
+            - [validation]() ( required|string|confirmed|min:8 )
     - [Error Response]()
         - 'mail.regex => email is invalid
         - email.unique => email is unique,
