@@ -102,34 +102,12 @@ const Welcome: NextPage = () => {
           </Highlight>
         </Text>
         <Box p="24px" />
-        <VStack
-          spacing={4}
-          sx={{
-            '&:hover .peer:not(:hover)': {
-              bgColor: 'transparent',
-              shadow: 'none',
-              border: '1px',
-              borderColor: 'primary.500',
-              color: 'primary.500',
-            },
-          }}
-        >
-          <NextLink>
-            <Link variant="btn" className="peer">
-              بازگشت به آترامارت
-            </Link>
+        <VStack spacing={4}>
+          <NextLink href="/">
+            <Link variant="btn">بازگشت به آترامارت</Link>
           </NextLink>
-          <NextLink href="/profile">
-            <Link
-              variant="btnOutline"
-              _peerHover={{
-                bgColor: 'primary.500',
-                color: 'white',
-                shadow: '0px 0px 16px rgba(255, 168, 38, 0.4)',
-              }}
-            >
-              تکمیل مشخصات
-            </Link>
+          <NextLink href="/profile/change-information">
+            <Link variant="btnOutline">تکمیل مشخصات</Link>
           </NextLink>
         </VStack>
       </VStack>

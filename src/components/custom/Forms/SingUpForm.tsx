@@ -14,32 +14,86 @@ import {
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { mobileRegex } from 'utils/formRegexs';
 import Timer from '../Timer';
-import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { useMutation } from 'react-query';
+import { axiosInstance } from 'libs/axios/axiosInstance';
+import Router from 'next/router';
+import { setCookie } from 'nookies';
 
 type Input = {
   mobile: string;
 };
-interface IProps {
-  pin: boolean;
-  pinInput: Dispatch<SetStateAction<boolean>>;
-}
-export function PinFrom({ pin, pinInput }: IProps) {
+
+const postPhoneNumber = async (phoneNumber: string) => {
+  const { data } = await axiosInstance.post('/auth/register', {
+    mobile: phoneNumber,
+  });
+
+  console.log(data);
+  return data;
+};
+
+const postVerifyCode = async ({
+  phoneNumber,
+  code,
+}: {
+  phoneNumber: string;
+  code: string;
+}) => {
+  const { data } = await axiosInstance.post('/auth/verify', {
+    mobile: phoneNumber,
+    verify_code: code,
+  });
+  console.log(data);
+  return data;
+};
+
+export function PinFrom({ phoneNumber }: { phoneNumber: string }) {
+  const {
+    data = [],
+    mutate,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useMutation(postVerifyCode);
+  const toast = useToast();
+  useEffect(() => {
+    if (isSuccess && data.status === 'success') {
+      setCookie(null, 'access_token', data.token, {
+        maxAge: 4000,
+        secure: true,
+        sameSite: true,
+      });
+      setCookie(null, 'user_info', JSON.stringify(data.user), {
+        maxAge: 4000,
+        secure: true,
+        sameSite: true,
+      });
+      Router.push('/users/welcome');
+    }
+    if (isError || data.status === 'error') {
+      toast({
+        title: 'خطایی رخ داد',
+        description:
+          'هنگام ورود شما مشکلی به وجود  آمد لطفا دوباره امتحان کنید',
+        status: 'error',
+        duration: 9000,
+      });
+    }
+  }, [isSuccess, data, isError, toast]);
+
   const [timer, setTimer] = useState(new Date());
   useEffect(() => {
     const time = new Date();
     time.setSeconds(time.getSeconds() + 10);
     setTimer(time);
-  }, [pin]);
+  }, [phoneNumber]);
   return (
-    <Box
-      gridArea="forms"
-      as={'form'}
-      pt={[5, 4]}
-      onSubmit={() => pinInput((prev: any) => !prev)}
-    >
+    <Box gridArea="forms" as={'form'} pt={[5, 4]}>
       <Text color="description" textAlign="center" mb={10}>
-        حساب کاربری با شماره ۰۹۹۹۹۹۹۹۹ وجود ندارد ، برای ساخت حساب جدید کد تایید
-        برای این شماره ارسال گردید
+        حساب کاربری با شماره{' '}
+        {`۰${(+phoneNumber).toLocaleString('fa-IR').replace(/\٬/g, '')}`} وجود
+        ندارد ، برای ساخت حساب جدید کد تایید برای این شماره ارسال گردید
       </Text>
       <Center
         gap={6}
@@ -52,13 +106,13 @@ export function PinFrom({ pin, pinInput }: IProps) {
           autoFocus
           variant="flushed"
           focusBorderColor="transparent"
-          onComplete={vlaue => pinInput((prev: any) => !prev)}
+          onComplete={value => mutate({ phoneNumber, code: value })}
         >
           <PinInputField />
           <PinInputField />
           <PinInputField />
           <PinInputField />
-          <PinInputField />
+          {/* <PinInputField /> */}
         </PinInput>
         <FormErrorMessage>نمی تواند خالی باشد</FormErrorMessage>
       </Center>
@@ -70,14 +124,21 @@ export function PinFrom({ pin, pinInput }: IProps) {
           setTimer(time);
         }}
       />
-      <Button h="42px" w="full" color="black" type="submit" mt={8} mb={5}>
+      <Button
+        h="42px"
+        w="full"
+        color="black"
+        type="submit"
+        mt={8}
+        mb={5}
+        isLoading={isLoading}
+      >
         ثبت نام
       </Button>
       <Box border="2px inset #15121D" w="70px" rounded={4} mb={5} mx="auto" />
       <Button
         h="42px"
         w="48%"
-        type="submit"
         colorScheme="secondary"
         mx="auto"
         display="block"
@@ -89,63 +150,65 @@ export function PinFrom({ pin, pinInput }: IProps) {
 }
 
 export function SingUpForm({
-  pinInput,
+  setPhoneNumber,
 }: {
-  pinInput: Dispatch<SetStateAction<boolean>>;
+  setPhoneNumber: Dispatch<SetStateAction<string>>;
 }) {
+  const {
+    data = [],
+    mutate,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useMutation(postPhoneNumber);
   const toast = useToast();
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    getValues,
+    formState: { errors },
   } = useForm<Input>({
     mode: 'onTouched',
     defaultValues: { mobile: '' },
   });
 
   const onSubmit: SubmitHandler<Input> = data => {
-    return new Promise<void>(resolve => {
-      setTimeout(() => {
-        alert(JSON.stringify(data, null, 2));
-        toast({
-          title: 'ارسال شد',
-          description:
-            'پیامک با موفقیت ارسال شد لطفا تلفن همراه خود را چک کنید',
-          status: 'success',
-          duration: 9000,
-        });
-        pinInput((prev: any) => !prev);
-        resolve();
-      }, 3000);
-    });
+    mutate(data.mobile);
   };
-  const onError: SubmitErrorHandler<Input> = error => {
-    return new Promise<void>(resolve => {
-      setTimeout(() => {
-        toast({
-          title: 'خطایی رخ داد',
-          description:
-            'هنگام ارسال پیام به شماره شما مشکلی به وجود امد لطفا دوباره امتحان کنید',
-          status: 'error',
-          duration: 9000,
-        });
-        resolve();
-      }, 1000);
-    });
-  };
+  useEffect(() => {
+    if (isSuccess && data.status === 'success') {
+      toast({
+        title: 'ارسال شد',
+        description: 'پیامک با موفقیت ارسال شد لطفا تلفن همراه خود را چک کنید',
+        status: 'success',
+        duration: 9000,
+      });
+      setPhoneNumber(getValues('mobile'));
+    }
+    if (isError || data.status === 'error') {
+      toast({
+        title: 'خطایی رخ داد',
+        description:
+          'هنگام ارسال پیام به شماره شما مشکلی به وجود امد لطفا دوباره امتحان کنید',
+        status: 'error',
+        duration: 9000,
+      });
+    }
+  }, [isSuccess, toast, getValues, setPhoneNumber, data, isError]);
+
   return (
     <VStack
       as="form"
       gridArea="forms"
       flexDir="column"
-      onSubmit={handleSubmit(onSubmit, onError)}
+      onSubmit={handleSubmit(onSubmit)}
       spacing={errors.mobile ? 14 : 16}
       pt={[5, 8]}
     >
       <FormControl isInvalid={!!errors.mobile}>
         <Input
           _autofill={{
-            WebkitBoxShadow: '0 0 0px 30px rgba(151, 115, 255, 0.25)  inset',
+            WebkitBoxShadow: '0 0 0px 30px white  inset',
           }}
           variant="white-filled"
           type="tel"
@@ -164,7 +227,7 @@ export function SingUpForm({
         </FormErrorMessage>
       </FormControl>
       <Button
-        isLoading={isSubmitting}
+        isLoading={isLoading}
         h="42px"
         color="black"
         type="submit"

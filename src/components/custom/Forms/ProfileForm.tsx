@@ -27,20 +27,28 @@ type Inputs = {
   password_confirmation: string;
 };
 const required = 'لطفا این قسمت را خالی نگذارید';
-const defaultValues = {
-  mobile: '',
-  first_name: '',
-  last_name: '',
-  telephone: '',
-  gender: '',
-  email: '',
-  national_code: '',
-  password: '',
-  password_confirmation: '',
-};
-export default function ProfileForm() {
 
+export default function ProfileForm({
+  user,
+  token,
+}: {
+  user: any;
+  token: string;
+}) {
   const toast = useToast();
+  const defaultValues = {
+    mobile: user.mobile ? user.mobile : '',
+    first_name: user.first_name ? user.first_name : '',
+    last_name: user.last_name ? user.last_name : '',
+    telephone: user.telephone ? user.telephone : '',
+    gender: user.gender ? user.gender : '',
+    email: user.email ? user.email : '',
+    national_code: user.national_code ? user.national_code : '',
+    password: user.password ? user.password : '',
+    password_confirmation: user.password_confirmation
+      ? user.password_confirmation
+      : '',
+  };
   const {
     register,
     handleSubmit,

@@ -27,10 +27,16 @@ interface IActiveTab {
 export default function ProfileTabs({
   activeTab,
   routes,
+  user,
+  token,
 }: {
   activeTab: IActiveTab;
   routes: IActiveTab[];
+  token: string;
+  user: string;
 }) {
+  console.log(user);
+  console.log(token);
   return (
     <Box as="main" layerStyle="container" mb="124px">
       <Breadcrumb
@@ -85,7 +91,7 @@ export default function ProfileTabs({
           sx={{ '& [role= tabpanel]': { p: 0 } }}
         >
           <TabPanel>
-            <ProfileForm />
+            <ProfileForm token={token} user={user} />
           </TabPanel>
           <TabPanel>
             <OrderList />

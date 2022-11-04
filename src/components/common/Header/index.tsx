@@ -106,7 +106,7 @@ export default function Header() {
               _hover={{ color: 'text', '& path': { fill: '#fff' } }}
               transitionProperty="var(--artamart-transition-property-common)"
               transitionDuration="var(--artamart-transition-duration-fast)"
-              transitionTiming-function="var(--artamart-transition-easing-ease-out)"
+              transitionTimingFunction="var(--artamart-transition-easing-ease-out)"
             />
             <NextLink href="/users/login">
               <Link variant="list">
@@ -116,7 +116,7 @@ export default function Header() {
                   _hover={{ color: 'text', '& path': { fill: '#fff' } }}
                   transitionProperty="var(--artamart-transition-property-common)"
                   transitionDuration="var(--artamart-transition-duration-fast)"
-                  transitionTiming-function="var(--artamart-transition-easing-ease-out)"
+                  transitionTimingFunction="var(--artamart-transition-easing-ease-out)"
                 />
               </Link>
             </NextLink>

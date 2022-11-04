@@ -6,8 +6,9 @@ import type { NextPage } from 'next';
 import { useState } from 'react';
 
 const Login: NextPage = () => {
-  const [pinInput, setPinInput] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [login, setLogin] = useState(false);
+
   return (
     <Box
       as="main"
@@ -72,12 +73,14 @@ const Login: NextPage = () => {
               fontSize={[24, 32, 24]}
               gridArea="heading"
             >
-              {pinInput ? 'کد تایید را وارد کنید' : 'مثل آب خوردن ثبت نام کن!'}
+              {!!phoneNumber
+                ? 'کد تایید را وارد کنید'
+                : 'مثل آب خوردن ثبت نام کن!'}
             </Heading>
-            {pinInput ? (
-              <PinFrom pinInput={setPinInput} pin={pinInput} />
+            {!!phoneNumber ? (
+              <PinFrom phoneNumber={phoneNumber} />
             ) : (
-              <SingUpForm pinInput={setPinInput} />
+              <SingUpForm setPhoneNumber={setPhoneNumber} />
             )}
             <RegisterVector gridArea="vector" />
             <Button
@@ -88,7 +91,7 @@ const Login: NextPage = () => {
               position="absolute"
               left={[6, 8, 10, 12]}
               top={[2, 4, 6, 8]}
-              onClick={() => setLogin(true)}
+              onClick={() => alert('need to validate first fix me !!!')}
             >
               ورود
             </Button>

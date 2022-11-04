@@ -3,7 +3,7 @@ import type { ComponentStyleConfig } from '@chakra-ui/react';
 export const Link: ComponentStyleConfig = {
   variants: {
     list: {
-      '&:hover': { textDecoration: 'none', color: 'text' },
+      '&:hover': { textDecoration: 'none', color: 'primary.500' },
     },
     link: {
       '&:hover': { textDecoration: 'underline' },
@@ -21,13 +21,9 @@ export const Link: ComponentStyleConfig = {
       placeItems: 'center',
       '&:hover': {
         textDecoration: 'none',
-        bgColor: 'transparent',
-        borderColor: 'primary.500',
-        color: 'primary.500',
-        boxShadow: 'none',
-        border: '1px',
+        bgColor: 'primary.600',
       },
-      '&:active': { transform: 'scale(.95 , .95)' },
+      '&:active': { transform: 'scale(.95 , .95)', bgColor: 'primary.700' },
     },
     btnOutline: {
       fontSize: 20,
@@ -43,13 +39,13 @@ export const Link: ComponentStyleConfig = {
       placeItems: 'center',
       '&:hover': {
         textDecoration: 'none',
-        bgColor: 'primary.500',
-        shadow: '0px 0px 16px rgba(255, 168, 38, 0.4)',
-        color: 'white',
-        border: 'none',
+        bgColor: 'primary.100',
+        color: 'primary.600',
       },
       '&:active': { transform: 'scale(.95 , .95)' },
     },
   },
-  defaultProps: {},
+  defaultProps: {
+    variant: 'list',
+  },
 };

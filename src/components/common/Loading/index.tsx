@@ -1,7 +1,8 @@
 import { Spinner, Text } from '@chakra-ui/react';
-import { useIsFetching } from 'react-query';
+import { useIsFetching, useIsMutating } from 'react-query';
 export default function Loading() {
   const isFetching = useIsFetching();
+  const isMutating = useIsMutating();
   return (
     <Spinner
       thickness="4px"
@@ -14,7 +15,7 @@ export default function Loading() {
       top="50%"
       left="50%"
       transform="translate(-50% , -50%"
-      display={isFetching ? 'inherit' : 'none'}
+      display={isFetching || isMutating ? 'inherit' : 'none'}
     >
       <Text display="none">درحال بارگذاری...</Text>
     </Spinner>
