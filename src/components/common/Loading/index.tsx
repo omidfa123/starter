@@ -1,5 +1,5 @@
 import { Spinner, Text } from '@chakra-ui/react';
-import { useIsFetching, useIsMutating } from 'react-query';
+import { useIsFetching, useIsMutating } from '@tanstack/react-query';
 export default function Loading() {
   const isFetching = useIsFetching();
   const isMutating = useIsMutating();

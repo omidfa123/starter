@@ -15,7 +15,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { mobileRegex } from 'utils/formRegexs';
 import Timer from '../Timer';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import { axiosInstance } from 'libs/axios/axiosInstance';
 import Router from 'next/router';
 import { setCookie } from 'nookies';
@@ -29,7 +29,6 @@ const postPhoneNumber = async (phoneNumber: string) => {
     mobile: phoneNumber,
   });
 
-  console.log(data);
   return data;
 };
 
@@ -44,7 +43,6 @@ const postVerifyCode = async ({
     mobile: phoneNumber,
     verify_code: code,
   });
-  console.log(data);
   return data;
 };
 
@@ -55,19 +53,21 @@ export function PinFrom({ phoneNumber }: { phoneNumber: string }) {
     isLoading,
     isError,
     isSuccess,
-  } = useMutation(postVerifyCode);
+  } = useMutation({ mutationFn: postVerifyCode });
   const toast = useToast();
   useEffect(() => {
     if (isSuccess && data.status === 'success') {
       setCookie(null, 'access_token', data.token, {
-        maxAge: 4000,
+        maxAge: 259200,
         secure: true,
         sameSite: true,
+        path: '/',
       });
       setCookie(null, 'user_info', JSON.stringify(data.user), {
-        maxAge: 4000,
+        maxAge: 259200,
         secure: true,
         sameSite: true,
+        path: '/',
       });
       Router.push('/users/welcome');
     }
@@ -154,14 +154,40 @@ export function SingUpForm({
 }: {
   setPhoneNumber: Dispatch<SetStateAction<string>>;
 }) {
+  const toast = useToast();
   const {
     data = [],
     mutate,
     isLoading,
     isError,
-    isSuccess,
-  } = useMutation(postPhoneNumber);
-  const toast = useToast();
+  } = useMutation({
+    mutationFn: postPhoneNumber,
+    onSuccess: () => {
+      if (data.status === 'success') {
+        toast({
+          title: 'ارسال شد',
+          description:
+            'پیامک با موفقیت ارسال شد لطفا تلفن همراه خود را چک کنید',
+          status: 'success',
+          duration: 9000,
+        });
+        setPhoneNumber(getValues('mobile'));
+      } else undefined;
+    },
+    onError: () => {
+      if (isError || data.status === 'error') {
+        toast({
+          title: 'ارسال شد',
+          description:
+            'پیامک با موفقیت ارسال شد لطفا تلفن همراه خود را چک کنید',
+          status: 'success',
+          duration: 9000,
+        });
+        setPhoneNumber(getValues('mobile'));
+      } else undefined;
+    },
+  });
+
   const {
     register,
     handleSubmit,
@@ -175,26 +201,6 @@ export function SingUpForm({
   const onSubmit: SubmitHandler<Input> = data => {
     mutate(data.mobile);
   };
-  useEffect(() => {
-    if (isSuccess && data.status === 'success') {
-      toast({
-        title: 'ارسال شد',
-        description: 'پیامک با موفقیت ارسال شد لطفا تلفن همراه خود را چک کنید',
-        status: 'success',
-        duration: 9000,
-      });
-      setPhoneNumber(getValues('mobile'));
-    }
-    if (isError || data.status === 'error') {
-      toast({
-        title: 'خطایی رخ داد',
-        description:
-          'هنگام ارسال پیام به شماره شما مشکلی به وجود امد لطفا دوباره امتحان کنید',
-        status: 'error',
-        duration: 9000,
-      });
-    }
-  }, [isSuccess, toast, getValues, setPhoneNumber, data, isError]);
 
   return (
     <VStack

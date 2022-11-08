@@ -15,8 +15,8 @@ export default function Selects({
     <>
       <SelectCities
         control={control}
-        name="city"
-        id="city"
+        name="city_id"
+        id="city_id"
         rules={{ required: 'لطفا این قسمت را خالی نگذارید ' }}
         options={data.length == 0 ? [] : data[1]}
         placeholder="شهرستان"

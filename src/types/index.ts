@@ -23,8 +23,58 @@ export type AddressInputs = {
   name: string;
   telephone: string;
   post_code: string;
-  city: string;
+  city_id: { value: string; label: string };
   state: string;
   street: string;
-  isDefault: string;
+  is_default: string;
+};
+
+export type userInfoInputs = {
+  mobile: string;
+  first_name: string;
+  last_name: string;
+  telephone: string;
+  gender: string;
+  email: string;
+  national_code: string;
+  password: string;
+  password_confirmation: string;
+};
+
+export type routes = {
+  'change-information': {
+    slug: string;
+    index: number;
+    label: string;
+  };
+  orders: {
+    slug: string;
+    index: number;
+    label: string;
+  };
+  credit: {
+    slug: string;
+    index: number;
+    label: string;
+  };
+  address: {
+    slug: string;
+    index: number;
+    label: string;
+  };
+  comments: {
+    slug: string;
+    index: number;
+    label: string;
+  };
+  favorites: {
+    slug: string;
+    index: number;
+    label: string;
+  };
+  wallet: {
+    slug: string;
+    index: number;
+    label: string;
+  };
 };

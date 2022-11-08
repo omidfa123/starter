@@ -35,8 +35,6 @@ export default function ProfileTabs({
   token: string;
   user: string;
 }) {
-  console.log(user);
-  console.log(token);
   return (
     <Box as="main" layerStyle="container" mb="124px">
       <Breadcrumb
@@ -100,7 +98,7 @@ export default function ProfileTabs({
             <CreditList />
           </TabPanel>
           <TabPanel>
-            <AddressList />
+            <AddressList token={token} user={user} />
           </TabPanel>
           <TabPanel>
             <CommentsList />

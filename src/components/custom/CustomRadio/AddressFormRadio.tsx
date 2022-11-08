@@ -4,8 +4,8 @@ import { forwardRef } from 'react';
 import { useController } from 'react-hook-form';
 
 const options = [
-  { value: 'true', label: 'بله' },
-  { value: 'false', label: 'خیر' },
+  { value: '1', label: 'بله' },
+  { value: '0', label: 'خیر' },
 ];
 
 function CustomRadio({ label, ...props }: any, ref: any) {

@@ -5,7 +5,6 @@ import {
   FormErrorMessage,
   FormLabel,
   Grid,
-  Input,
   Radio,
   RadioGroup,
   useToast,
@@ -13,20 +12,35 @@ import {
 import { emailRegex, mobileRegex } from 'utils/formRegexs';
 import { telephoneRegex } from 'utils/formRegexs';
 import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
-import { useEffect } from 'react';
 
-type Inputs = {
-  mobile: string;
-  first_name: string;
-  last_name: string;
-  telephone: string;
-  gender: string;
-  email: string;
-  national_code: string;
-  password: string;
-  password_confirmation: string;
+import { userInfoInputs } from 'types';
+import { InputWithLabel } from './Inputs';
+import { PasswordField } from './PasswordField';
+import { axiosInstance } from 'libs/axios/axiosInstance';
+import { useUser } from 'components/hooks/useUser';
+import { useEffect } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { queryKeys } from 'libs/react-query/constants';
+
+const defaultValues = {
+  mobile: '',
+  first_name: '',
+  last_name: '',
+  telephone: '',
+  gender: '',
+  email: '',
+  national_code: '',
+  password: '',
 };
 const required = 'لطفا این قسمت را خالی نگذارید';
+const putUserInfo = async ({ token, userInfo }: any) => {
+  const { data } = await axiosInstance.put(
+    `/user/user/${userInfo.id}`,
+    userInfo,
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+  return data;
+};
 
 export default function ProfileForm({
   user,
@@ -35,40 +49,39 @@ export default function ProfileForm({
   user: any;
   token: string;
 }) {
+  const queryClient = useQueryClient();
+  const { data } = useUser(token, user.id);
+  const {
+    data: mut,
+    mutate,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useMutation({
+    mutationFn: putUserInfo,
+    // onSuccess: () =>
+    //   queryClient.invalidateQueries({ queryKey: [queryKeys.userInfo] }),
+  });
   const toast = useToast();
-  const defaultValues = {
-    mobile: user.mobile ? user.mobile : '',
-    first_name: user.first_name ? user.first_name : '',
-    last_name: user.last_name ? user.last_name : '',
-    telephone: user.telephone ? user.telephone : '',
-    gender: user.gender ? user.gender : '',
-    email: user.email ? user.email : '',
-    national_code: user.national_code ? user.national_code : '',
-    password: user.password ? user.password : '',
-    password_confirmation: user.password_confirmation
-      ? user.password_confirmation
-      : '',
-  };
   const {
     register,
     handleSubmit,
     watch,
     reset,
-    formState: { errors, isSubmitSuccessful, isSubmitting },
-  } = useForm<Inputs>({
+    formState: { errors },
+  } = useForm<userInfoInputs>({
     mode: 'onTouched',
     defaultValues,
   });
-
-  const onSubmit: SubmitHandler<Inputs> = data => {
-    return new Promise<void>(resolve => {
-      setTimeout(() => {
-        alert(JSON.stringify(data, null, 2));
-        resolve();
-      }, 3000);
-    });
+  useEffect(() => {
+    if (data?.user?.detail) {
+      reset(data.user.detail);
+    }
+  }, [data, reset]);
+  const onSubmit: SubmitHandler<userInfoInputs> = data => {
+    mutate({ token, userInfo: { ...data, id: user.id } });
   };
-  const onError: SubmitErrorHandler<Inputs> = error => {
+  const onError: SubmitErrorHandler<userInfoInputs> = error => {
     return new Promise<void>(resolve => {
       setTimeout(() => {
         toast({
@@ -82,16 +95,27 @@ export default function ProfileForm({
       }, 1000);
     });
   };
+  console.log(mut);
   useEffect(() => {
-    isSubmitSuccessful &&
-      (reset(defaultValues),
+    if (isSuccess && mut?.status === 'update') {
       toast({
         title: 'تغیرات با موفقیت ثبت شد',
-        description: 'تمام تغیرات شما با موفقیت در سرور های ما ذخیره شد',
+        description: 'تمام تغیرات شما با موفقیت در سرورهای ما ذخیره شد',
         status: 'success',
         duration: 9000,
-      }));
-  }, [isSubmitSuccessful, reset, toast]);
+      });
+    }
+    if (isError || mut?.status === 'error') {
+      toast({
+        title: 'خطایی رخ داد',
+        description:
+          'هنگام ذخیره کردن تغیرات مشکلی پیش آمد لطفا ورودی ها را برسی کنید',
+        status: 'error',
+        duration: 9000,
+      });
+    }
+  }, [isSuccess, isError, toast, mut]);
+
   return (
     <Grid
       as="form"
@@ -109,206 +133,110 @@ export default function ProfileForm({
       pb={8}
       px={10}
     >
-      <FormControl gridArea="name" isInvalid={!!errors.first_name}>
-        <FormLabel>
-          نام :
-          <Box
-            as="span"
-            marginInlineStart={1}
-            color="red.500"
-            role="presentation"
-            aria-hidden="true"
-          >
-            *
-          </Box>
-        </FormLabel>
-        <Input {...register('first_name', { required: required })} />
-        <FormErrorMessage>
-          {errors.first_name && errors.first_name.message}
-        </FormErrorMessage>
-      </FormControl>
-      <FormControl gridArea="lname" isInvalid={!!errors.last_name}>
-        <FormLabel>
-          نام خانوادگی :
-          <Box
-            as="span"
-            marginInlineStart={1}
-            color="red.500"
-            role="presentation"
-            aria-hidden="true"
-          >
-            *
-          </Box>
-        </FormLabel>
-        <Input {...register('last_name', { required: required })} />
-        <FormErrorMessage>
-          {errors.last_name && errors.last_name.message}
-        </FormErrorMessage>
-      </FormControl>
-      <FormControl gridArea="mobile" isInvalid={!!errors.mobile}>
-        <FormLabel>
-          شماره موبایل :
-          <Box
-            as="span"
-            marginInlineStart={1}
-            color="red.500"
-            role="presentation"
-            aria-hidden="true"
-          >
-            *
-          </Box>
-        </FormLabel>
-        <Input
-          type="tel"
-          maxLength={11}
-          {...register('mobile', {
-            required: required,
-            pattern: {
-              value: mobileRegex(),
-              message: 'شماره وارد شده درست نیست',
-            },
-          })}
-        />
-        <FormErrorMessage>
-          {errors.mobile && errors.mobile.message}
-        </FormErrorMessage>
-      </FormControl>
-      <FormControl gridArea="telePhone" isInvalid={!!errors.telephone}>
-        <FormLabel>
-          شماره تلفن ثابت :
-          <Box
-            as="span"
-            marginInlineStart={1}
-            color="red.500"
-            role="presentation"
-            aria-hidden="true"
-          >
-            *
-          </Box>
-        </FormLabel>
-        <Input
-          maxLength={11}
-          type="tel"
-          {...register('telephone', {
-            required: required,
-            pattern: {
-              value: telephoneRegex(),
-              message: 'شماره وارد شده درست نیست',
-            },
-          })}
-        />
-        <FormErrorMessage>
-          {errors.telephone && errors.telephone.message}
-        </FormErrorMessage>
-      </FormControl>
-      <FormControl gridArea="national" isInvalid={!!errors.national_code}>
-        <FormLabel>
-          کد ملی :
-          <Box
-            as="span"
-            marginInlineStart={1}
-            color="red.500"
-            role="presentation"
-            aria-hidden="true"
-          >
-            *
-          </Box>
-        </FormLabel>
-        <Input
-          {...register('national_code', {
-            required: required,
-            pattern: {
-              value: /^[0-9]{10}$/g,
-              message: 'کد ملی نامعتبر است',
-            },
-          })}
-        />
-        <FormErrorMessage>
-          {errors.national_code && errors.national_code.message}
-        </FormErrorMessage>
-      </FormControl>
-      <FormControl gridArea="email" isInvalid={!!errors.email}>
-        <FormLabel>
-          ایمیل :
-          <Box
-            as="span"
-            marginInlineStart={1}
-            color="red.500"
-            role="presentation"
-            aria-hidden="true"
-          >
-            *
-          </Box>
-        </FormLabel>
-        <Input
-          type="email"
-          {...register('email', {
-            required: required,
-            pattern: {
-              value: emailRegex(),
-              message: 'ایمیل نادرست است',
-            },
-          })}
-        />
-        <FormErrorMessage>
-          {errors.email && errors.email.message}
-        </FormErrorMessage>
-      </FormControl>
-      <FormControl gridArea="password" isInvalid={!!errors.password}>
-        <FormLabel>
-          رمز عبور :
-          <Box
-            as="span"
-            marginInlineStart={1}
-            color="red.500"
-            role="presentation"
-            aria-hidden="true"
-          >
-            *
-          </Box>
-        </FormLabel>
-        <Input
-          {...register('password', {
-            required: required,
-            minLength: { value: 8, message: 'لطفا حداقل هشت حرف وارد کنید' },
-          })}
-        />
-        <FormErrorMessage>
-          {errors.password && errors.password.message}
-        </FormErrorMessage>
-      </FormControl>
-      <FormControl
+      <InputWithLabel
+        gridArea="name"
+        isInvalid={!!errors.first_name}
+        placeholder="نام :"
+        register={register}
+        name="first_name"
+        required={true}
+        errorMessage={errors?.first_name?.message}
+      />
+      <InputWithLabel
+        gridArea="lname"
+        isInvalid={!!errors.last_name}
+        placeholder="نام خانوادگی :"
+        register={register}
+        name="last_name"
+        required={true}
+        errorMessage={errors?.last_name?.message}
+      />
+      <InputWithLabel
+        gridArea="mobile"
+        isInvalid={!!errors.mobile}
+        placeholder="شماره موبایل :"
+        register={register}
+        name="mobile"
+        required={true}
+        errorMessage={errors?.mobile?.message}
+        type="tel"
+        maxLength={11}
+        pattern={{
+          value: mobileRegex(),
+          message: 'شماره وارد شده درست نیست',
+        }}
+      />
+      <InputWithLabel
+        gridArea="telePhone"
+        isInvalid={!!errors.telephone}
+        placeholder="شماره تلفن ثابت :"
+        register={register}
+        name="telephone"
+        required={true}
+        errorMessage={errors?.telephone?.message}
+        type="tel"
+        maxLength={11}
+        pattern={{
+          value: telephoneRegex(),
+          message: 'شماره وارد شده درست نیست',
+        }}
+      />
+
+      <InputWithLabel
+        gridArea="national"
+        isInvalid={!!errors.national_code}
+        placeholder="کد ملی :"
+        register={register}
+        name="national_code"
+        required={true}
+        errorMessage={errors?.national_code?.message}
+        pattern={{
+          value: /^[0-9]{10}$/g,
+          message: 'کد ملی نامعتبر است',
+        }}
+      />
+      <InputWithLabel
+        gridArea="email"
+        isInvalid={!!errors.email}
+        placeholder="ایمیل :"
+        register={register}
+        name="email"
+        errorMessage={errors?.email?.message}
+        type="email"
+        pattern={{
+          value: emailRegex(),
+          message: 'ایمیل نادرست است',
+        }}
+        required={false}
+      />
+      <PasswordField
+        gridArea="password"
+        isInvalid={!!errors.password}
+        placeholder="رمز عبور :"
+        name="password"
+        register={register}
+        required
+        pattern={{
+          minLength: { value: 8, message: 'لطفا حداقل هشت حرف وارد کنید' },
+        }}
+        errorMessage={errors?.password?.message}
+      />
+      <PasswordField
         gridArea="repeat"
         isInvalid={!!errors.password_confirmation}
+        placeholder="تکرار رمز عبور :"
+        name="password_confirmation"
+        register={register}
+        pattern={{
+          validate: (val: string) => {
+            if (watch('password') != val) {
+              return 'رمز عبور و تکرار آن برابر نیستند';
+            }
+          },
+        }}
+        errorMessage={errors?.password_confirmation?.message}
         pb={6}
-      >
-        <FormLabel>
-          تکرار رمز عبور :
-          <Box
-            as="span"
-            marginInlineStart={1}
-            color="red.500"
-            role="presentation"
-            aria-hidden="true"
-          >
-            *
-          </Box>
-        </FormLabel>
-        <Input
-          type="password"
-          {...register('password_confirmation', {
-            required: required,
-            validate: (val: string) => {
-              if (watch('password') != val) {
-                return 'رمز عبور و تکرار آن برابر نیستند';
-              }
-            },
-          })}
-        />
-        <FormErrorMessage>
-          {errors.password_confirmation && errors.password_confirmation.message}
-        </FormErrorMessage>
-      </FormControl>
+      />
       <FormControl gridArea="gender" isInvalid={!!errors.gender}>
         <FormLabel>
           جنسیت :
@@ -355,7 +283,7 @@ export default function ProfileForm({
         type="submit"
         w="166px"
         h="46px"
-        isLoading={isSubmitting}
+        isLoading={isLoading}
         alignSelf="end"
         justifySelf="end"
       >

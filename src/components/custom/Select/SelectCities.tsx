@@ -19,7 +19,7 @@ export default function SelectCities({
   return (
     <FormControl
       id={id}
-      gridArea={name == 'city' ? 'city' : 'state'}
+      gridArea={name == 'city_id' ? 'city_id' : 'state'}
       isInvalid={invalid}
       data-invalid={invalid}
       sx={{
@@ -27,7 +27,7 @@ export default function SelectCities({
           border: '1.5px solid #E53E3E ',
         },
         '&  .atramart__placeholder::after ':
-          name == 'city' ? { right: '70px' } : { right: '52px' },
+          name == 'city_id' ? { right: '70px' } : { right: '52px' },
       }}
     >
       <Select

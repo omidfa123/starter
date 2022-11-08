@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from 'react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { axiosInstance } from 'libs/axios/axiosInstance';
 import { queryKeys } from 'libs/react-query/constants';
 import { IRegions } from 'types';
@@ -9,7 +9,10 @@ async function getRegions(): Promise<IRegions> {
 }
 
 export function useRegions(defaultText: string) {
-  const { data } = useQuery(queryKeys.regions, getRegions);
+  const { data } = useQuery({
+    queryKey: [queryKeys.regions],
+    queryFn: getRegions,
+  });
 
   const states = data?.regions?.map(e => ({ value: e.id, label: e.name }));
 
@@ -23,7 +26,7 @@ export function useRegions(defaultText: string) {
   if (data) return [states, []];
   return [];
 }
-export function usePrefetchRegions(): void {
-  const queryClient = useQueryClient();
-  queryClient.prefetchQuery(queryKeys.regions, getRegions);
-}
+// export function usePrefetchRegions(): void {
+//   const queryClient = useQueryClient();
+//   queryClient.prefetchQuery(queryKeys.regions, getRegions);
+// }
