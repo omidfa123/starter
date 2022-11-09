@@ -3,12 +3,13 @@ import { LoginVector, RegisterVector } from 'components/common/Icons/Vectors';
 import LoginForm from 'components/custom/Forms/LoginForm';
 import { PinFrom, SingUpForm } from 'components/custom/Forms/SingUpForm';
 import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 const Login: NextPage = () => {
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState(undefined);
   const [login, setLogin] = useState(false);
-
+  const router = useRouter();
   return (
     <Box
       as="main"
@@ -41,16 +42,33 @@ const Login: NextPage = () => {
         {login ? (
           <>
             <Heading
-              as="h1"
-              textAlign="center"
-              fontSize={[24, 32, 24]}
-              gridArea="heading"
-              alignSelf="end"
               mb={8}
+              as="h1"
+              alignSelf="end"
+              fontSize={[24, 32, 24]}
+              display="flex"
+              gridArea="heading"
+              alignItems="center"
+              justifyContent="center"
+              gap="8px"
             >
-              ورود به حساب کاربری
+              <Highlight
+                query={'رمز عبورت'}
+                styles={{
+                  display: 'inline-flex',
+                  gap: '8px',
+                  alignItems: 'center',
+                  color: 'secondary.500',
+                  '&::before': {
+                    content: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' fill='none' viewBox='0 0 34 34'%3E%3Cpath fill='%23FFA826' stroke='%2315121D' stroke-width='1.2' d='M24.455 1.21H9.545a8.6 8.6 0 0 0-8.6 8.6v14.906a8.6 8.6 0 0 0 8.6 8.6h14.91a8.6 8.6 0 0 0 8.6-8.6V9.81a8.6 8.6 0 0 0-8.6-8.6Z'/%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M17.012 7.264a5.305 5.305 0 0 1 5.008 3.567.75.75 0 1 1-1.418.49 3.805 3.805 0 0 0-3.593-2.557h-.014a3.806 3.806 0 0 0-3.805 3.784l-.001 1.341 7.632.001a4.548 4.548 0 0 1 4.542 4.543v4.288a4.548 4.548 0 0 1-4.542 4.543h-7.642a4.547 4.547 0 0 1-4.542-4.543v-4.288a4.55 4.55 0 0 1 3.052-4.292v-1.576c.014-2.938 2.39-5.301 5.303-5.301h.02Zm3.809 8.126h-7.642a3.045 3.045 0 0 0-3.042 3.043v4.288a3.045 3.045 0 0 0 3.042 3.043h7.642a3.046 3.046 0 0 0 3.042-3.043v-4.288a3.046 3.046 0 0 0-3.042-3.043ZM17 18.716a.75.75 0 0 1 .75.75v2.222a.75.75 0 0 1-1.5 0v-2.222a.75.75 0 0 1 .75-.75Z' clip-rule='evenodd'/%3E%3C/svg%3E")`,
+                    filter: 'drop-shadow(2px 3px 0px #15121D)',
+                  },
+                }}
+              >
+                به راحتی با رمز عبورت وارد شو!
+              </Highlight>
             </Heading>
-            <LoginForm />
+            <LoginForm phoneNumber={phoneNumber} />
             <LoginVector gridArea="vector" />
             <Button
               variant="smallNav"
@@ -61,7 +79,7 @@ const Login: NextPage = () => {
               top={[2, 8, 10]}
               onClick={() => setLogin(false)}
             >
-              ثبت نام
+              بازگشت
             </Button>
           </>
         ) : (
@@ -77,7 +95,7 @@ const Login: NextPage = () => {
                 >
                   کد تایید را وارد کنید
                 </Heading>
-                <PinFrom phoneNumber={phoneNumber} />
+                <PinFrom phoneNumber={phoneNumber} setLogin={setLogin} />
               </>
             ) : (
               <>
@@ -120,9 +138,11 @@ const Login: NextPage = () => {
               position="absolute"
               left={[6, 8, 10, 12]}
               top={[2, 4, 6, 8]}
-              onClick={() => alert('need to validate first fix me !!!')}
+              onClick={() =>
+                !!phoneNumber ? setPhoneNumber(undefined) : router.push('/')
+              }
             >
-              ورود
+              بازگشت
             </Button>
           </>
         )}

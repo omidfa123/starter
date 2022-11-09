@@ -60,6 +60,7 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
     });
     return data;
   };
+
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({

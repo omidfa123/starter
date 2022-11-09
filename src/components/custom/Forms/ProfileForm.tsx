@@ -212,7 +212,7 @@ export default function ProfileForm({
       <PasswordField
         gridArea="password"
         isInvalid={!!errors.password}
-        placeholder="رمز عبور :"
+        label="رمز عبور :"
         name="password"
         register={register}
         required
@@ -224,7 +224,7 @@ export default function ProfileForm({
       <PasswordField
         gridArea="repeat"
         isInvalid={!!errors.password_confirmation}
-        placeholder="تکرار رمز عبور :"
+        label="تکرار رمز عبور :"
         name="password_confirmation"
         register={register}
         pattern={{

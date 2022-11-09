@@ -34,7 +34,7 @@ export const PasswordField = React.forwardRef<HTMLInputElement, any>(
         isInvalid={props.isInvalid}
         pb={props.pb}
       >
-        <FormLabel htmlFor={props.name}>{props.placeholder}</FormLabel>
+        <FormLabel htmlFor={props.name}>{props.label}</FormLabel>
         <InputGroup dir="ltr">
           <InputLeftElement>
             <IconButton
@@ -55,6 +55,8 @@ export const PasswordField = React.forwardRef<HTMLInputElement, any>(
             {...rest}
             type={isOpen ? 'text' : 'password'}
             autoComplete="current-password"
+            placeholder={props.placeholder}
+            variant={props.variant}
           />
         </InputGroup>
         <FormErrorMessage>

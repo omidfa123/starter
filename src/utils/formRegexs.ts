@@ -1,4 +1,5 @@
-export const mobileRegex = () => /^(?=.*?[1-9])[0-9()+ -]+$/;
+export const mobileRegex = () =>
+  /^([\u06F0]|[0])([\u06F9]|[9])(([\u06F0-\u06F9]|[0-9]){2})(([\u06F0-\u06F9]|[0-9]){3})(([\u06F0-\u06F9]|[0-9]){4})/g;
 
 export const postalCodeRegex = () =>
   /\b(?!(\d)\1{3})[13-9]{4}[1346-9][013-9]{5}\b/gi;

@@ -35,18 +35,32 @@ const postPhoneNumber = async (phoneNumber: string) => {
 const postVerifyCode = async ({
   phoneNumber,
   code,
+  mode,
 }: {
   phoneNumber: string;
   code: string;
+  mode?: string;
 }) => {
-  const { data } = await axiosInstance.post('/auth/verify', {
-    mobile: phoneNumber,
-    verify_code: code,
-  });
+  const { data } = mode
+    ? await axiosInstance.post('/auth/login', {
+        type: mode,
+        mobile: phoneNumber,
+        verify_code: code,
+      })
+    : await axiosInstance.post('/auth/verify', {
+        mobile: phoneNumber,
+        verify_code: code,
+      });
   return data;
 };
 
-export function PinFrom({ phoneNumber }: { phoneNumber: string }) {
+export function PinFrom({
+  phoneNumber,
+  setLogin,
+}: {
+  phoneNumber: any;
+  setLogin: Dispatch<SetStateAction<boolean>>;
+}) {
   const {
     data = [],
     mutate,
@@ -88,12 +102,16 @@ export function PinFrom({ phoneNumber }: { phoneNumber: string }) {
     time.setSeconds(time.getSeconds() + 10);
     setTimer(time);
   }, [phoneNumber]);
+
+  console.log(phoneNumber);
+
   return (
     <Box gridArea="forms" as={'form'} pt={[5, 4]}>
       <Text color="description" textAlign="center" mb={10}>
-        حساب کاربری با شماره{' '}
-        {`۰${(+phoneNumber).toLocaleString('fa-IR').replace(/\٬/g, '')}`} وجود
-        ندارد ، برای ساخت حساب جدید کد تایید برای این شماره ارسال گردید
+        {phoneNumber.user_status == 'new'
+          ? ` حساب کاربری با شماره ${phoneNumber.mobile} وجود ندارد ، برای ساخت حساب
+        جدید کد تایید برای این شماره ارسال گردید`
+          : `کاربر گرامی با شماره ${phoneNumber.mobile} کد ورود به حساب کاربری برای شما ارسال شد`}
       </Text>
       <Center
         gap={6}
@@ -106,7 +124,11 @@ export function PinFrom({ phoneNumber }: { phoneNumber: string }) {
           autoFocus
           variant="flushed"
           focusBorderColor="transparent"
-          onComplete={value => mutate({ phoneNumber, code: value })}
+          onComplete={value =>
+            phoneNumber.user_status == 'new'
+              ? mutate({ phoneNumber, code: value, mode: 'login' })
+              : mutate({ phoneNumber, code: value })
+          }
         >
           <PinInputField />
           <PinInputField />
@@ -133,7 +155,7 @@ export function PinFrom({ phoneNumber }: { phoneNumber: string }) {
         mb={5}
         isLoading={isLoading}
       >
-        ثبت نام
+        {phoneNumber.user_status == 'new' ? 'ثبت نام' : 'ورود'}
       </Button>
       <Box border="2px inset #15121D" w="70px" rounded={4} mb={5} mx="auto" />
       <Button
@@ -142,18 +164,17 @@ export function PinFrom({ phoneNumber }: { phoneNumber: string }) {
         colorScheme="secondary"
         mx="auto"
         display="block"
+        onClick={() => {
+          setLogin(true);
+        }}
       >
-        ورود با نام کاربری
+        ورود با رمز عبور
       </Button>
     </Box>
   );
 }
 
-export function SingUpForm({
-  setPhoneNumber,
-}: {
-  setPhoneNumber: Dispatch<SetStateAction<string>>;
-}) {
+export function SingUpForm({ setPhoneNumber }: { setPhoneNumber: any }) {
   const toast = useToast();
   const {
     data = [],
@@ -162,7 +183,7 @@ export function SingUpForm({
     isError,
   } = useMutation({
     mutationFn: postPhoneNumber,
-    onSuccess: () => {
+    onSuccess: data => {
       if (data.status === 'success') {
         toast({
           title: 'ارسال شد',
@@ -171,19 +192,21 @@ export function SingUpForm({
           status: 'success',
           duration: 9000,
         });
-        setPhoneNumber(getValues('mobile'));
+        setPhoneNumber({
+          mobile: getValues('mobile'),
+          user_status: data?.user_status,
+        });
       } else undefined;
     },
-    onError: () => {
-      if (isError || data.status === 'error') {
+    onError: data => {
+      if (isError) {
         toast({
-          title: 'ارسال شد',
+          title: 'خطایی رخ داد',
           description:
-            'پیامک با موفقیت ارسال شد لطفا تلفن همراه خود را چک کنید',
-          status: 'success',
+            'هنگام ذخیره کردن تغیرات مشکلی پیش آمد لطفا ورودی ها را برسی کنید',
+          status: 'error',
           duration: 9000,
         });
-        setPhoneNumber(getValues('mobile'));
       } else undefined;
     },
   });
@@ -199,7 +222,9 @@ export function SingUpForm({
   });
 
   const onSubmit: SubmitHandler<Input> = data => {
-    mutate(data.mobile);
+    const p2e = (s: any) =>
+      s.replace(/[۰-۹]/g, (d: any) => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+    mutate(p2e(data.mobile));
   };
 
   return (

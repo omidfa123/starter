@@ -23,7 +23,7 @@ export type AddressInputs = {
   name: string;
   telephone: string;
   post_code: string;
-  city_id: { value: string; label: string };
+  city_id: any;
   state: string;
   street: string;
   is_default: string;

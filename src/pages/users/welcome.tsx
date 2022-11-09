@@ -16,12 +16,12 @@ const Welcome: NextPage = () => {
     <Center
       layerStyle="container"
       as="main"
-      pt={['44px', '54px', 20]}
+      pt={['44px', '54px', '40px']}
       pb={'100px'}
     >
       <VStack spacing="0">
         <WelcomeVector />
-        <Box p="28px" />
+        <Box p="14px" />
         <Heading
           as="h1"
           textStyle="bold36"

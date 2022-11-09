@@ -44,7 +44,7 @@ const defaultValues = {
   mobile: '',
   name: '',
   telephone: '',
-  city_id: { value: '', label: '' },
+  city_id: '',
   post_code: '',
   state: '',
   street: '',
@@ -181,6 +181,7 @@ export default function AddressForm({
         name="street"
         placeholder="آدرس محل سکونت"
         right="128px"
+        isolation="isolate"
         errorMessage={errors?.street?.message}
       />
       <InputInsideLabel
