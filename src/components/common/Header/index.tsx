@@ -44,13 +44,15 @@ export default function Header() {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [cookies, setCookies] = useState<any>(undefined);
   const router = useRouter();
-
+  const getCookies = useCallback(() => parseCookies(), [document.cookie]);
   useEffect(() => {
-    const getCookies = parseCookies();
-    if (getCookies !== undefined) {
-      setCookies(JSON.parse(getCookies.user_info));
+    const cookies = getCookies();
+    if (cookies.user_info !== undefined) {
+      setCookies(JSON.parse(cookies?.user_info));
     }
-  }, []);
+    console.log(cookies);
+  }, [getCookies]);
+  console.log('re');
   const handleLogout = () => {
     destroyCookie(null, 'access_token');
     destroyCookie(null, 'user_info');
