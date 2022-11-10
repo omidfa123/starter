@@ -157,19 +157,29 @@ export function PinFrom({
       >
         {phoneNumber.user_status == 'new' ? 'ثبت نام' : 'ورود'}
       </Button>
-      <Box border="2px inset #15121D" w="70px" rounded={4} mb={5} mx="auto" />
-      <Button
-        h="42px"
-        w="48%"
-        colorScheme="secondary"
-        mx="auto"
-        display="block"
-        onClick={() => {
-          setLogin(true);
-        }}
-      >
-        ورود با رمز عبور
-      </Button>
+      {phoneNumber.user_status !== 'new' && (
+        <>
+          <Box
+            border="2px inset #15121D"
+            w="70px"
+            rounded={4}
+            mb={5}
+            mx="auto"
+          />
+          <Button
+            h="42px"
+            w="48%"
+            colorScheme="secondary"
+            mx="auto"
+            display="block"
+            onClick={() => {
+              setLogin(true);
+            }}
+          >
+            ورود با رمز عبور
+          </Button>
+        </>
+      )}
     </Box>
   );
 }

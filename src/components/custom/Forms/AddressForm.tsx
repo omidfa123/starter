@@ -7,7 +7,6 @@ import {
 } from '@chakra-ui/react';
 import { telephoneRegex, mobileRegex, postalCodeRegex } from 'utils/formRegexs';
 import {
-  useForm,
   SubmitHandler,
   SubmitErrorHandler,
   useFormContext,

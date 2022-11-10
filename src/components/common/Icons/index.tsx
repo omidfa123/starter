@@ -140,6 +140,20 @@ export const UserIcon = (props: IconProps) => (
   </Icon>
 );
 
+export const UserFlatIcon = (props: IconProps) => (
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    height="4"
+    w="4"
+    fill="none"
+    viewBox="0 0 16 17"
+    {...props}
+  >
+    <g fill="#15121D">
+      <path d="M8 8.493a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0-6.667A2.667 2.667 0 1 1 8 7.16a2.667 2.667 0 0 1 0-5.333Zm0 8a6.006 6.006 0 0 0-6 6 .667.667 0 1 0 1.333 0 4.667 4.667 0 0 1 9.334 0 .667.667 0 1 0 1.333 0 6.007 6.007 0 0 0-6-6Z" />
+    </g>
+  </Icon>
+);
 export const ShoppingBagRoundIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
@@ -218,16 +232,31 @@ export const WarningIcon = (props: IconProps) => (
 export const ShoppingBagIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
-    width="13"
-    height="13"
+    height="4"
+    w="4"
     fill="none"
     viewBox="0 0 13 13"
     {...props}
   >
     <path
-      fill="#fff"
+      fill="currentColor"
       d="M11.176 3.332h-1.5a3 3 0 1 0-6 0h-1.5a1.5 1.5 0 0 0-1.5 1.5v5a2.503 2.503 0 0 0 2.5 2.5h7a2.503 2.503 0 0 0 2.5-2.5v-5a1.5 1.5 0 0 0-1.5-1.5Zm-4.5-2a2 2 0 0 1 2 2h-4a2 2 0 0 1 2-2Zm5 8.5a1.5 1.5 0 0 1-1.5 1.5h-7a1.5 1.5 0 0 1-1.5-1.5v-5a.5.5 0 0 1 .5-.5h1.5v1a.5.5 0 1 0 1 0v-1h4v1a.5.5 0 1 0 1 0v-1h1.5a.5.5 0 0 1 .5.5v5Z"
     />
+  </Icon>
+);
+export const LogoutIcon = (props: IconProps) => (
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    width="17"
+    height="17"
+    fill="none"
+    viewBox="0 0 17 17"
+    {...props}
+  >
+    <g fill="#FF5E5E">
+      <path d="m15.222 6.608-2.586-2.586a.667.667 0 0 0-.943.943l2.586 2.586c.077.078.144.165.2.26-.01 0-.018-.006-.028-.006l-10.456.022a.667.667 0 0 0 0 1.333l10.452-.021c.019 0 .034-.01.052-.01-.06.112-.134.216-.223.307l-2.586 2.586a.67.67 0 0 0-.008.951.668.668 0 0 0 .95-.008l2.587-2.586a2.667 2.667 0 0 0 0-3.77h.003Z" />
+      <path d="M4.669 15.16H3.335a2 2 0 0 1-2-2V3.826a2 2 0 0 1 2-2H4.67a.667.667 0 0 0 0-1.333H3.335A3.337 3.337 0 0 0 .002 3.826v9.334a3.337 3.337 0 0 0 3.333 3.333H4.67a.667.667 0 0 0 0-1.333Z" />
+    </g>
   </Icon>
 );
 export const AngleDownIcon = (props: IconProps) => (
@@ -351,6 +380,19 @@ export const HartIcon = (props: IconProps) => (
     <path
       fill="CurrentColor"
       d="M9.016 1.91a3.2 3.2 0 0 0-2.75 1.65 3.2 3.2 0 0 0-2.75-1.65 3.4 3.4 0 0 0-3.25 3.524c0 2.274 2.393 4.757 4.4 6.44a2.487 2.487 0 0 0 3.2 0c2.007-1.683 4.4-4.166 4.4-6.44a3.4 3.4 0 0 0-3.25-3.525Z"
+    />
+  </Icon>
+);
+export const HartOutlineIcon = (props: IconProps) => (
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 16 17"
+    {...props}
+  >
+    <path
+      fill="#15121D"
+      d="M11.666 1.771a4.267 4.267 0 0 0-3.667 2.2 4.267 4.267 0 0 0-3.666-2.2 4.533 4.533 0 0 0-4.334 4.7c0 3.032 3.191 6.342 5.867 8.587a3.316 3.316 0 0 0 4.267 0c2.676-2.245 5.866-5.555 5.866-8.587a4.533 4.533 0 0 0-4.333-4.7Zm-2.39 12.267a1.982 1.982 0 0 1-2.553 0c-3.426-2.874-5.39-5.631-5.39-7.567a3.2 3.2 0 0 1 3-3.366 3.2 3.2 0 0 1 3 3.366.667.667 0 1 0 1.333 0 3.2 3.2 0 0 1 3-3.366 3.2 3.2 0 0 1 3 3.366c0 1.936-1.965 4.693-5.39 7.565v.002Z"
     />
   </Icon>
 );
