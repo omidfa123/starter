@@ -12,29 +12,30 @@ interface IActiveTab {
   slug: string;
 }
 
+const getUserInfo = async (token: string, id: string) => {
+  const { data } = await axiosInstance.get('/user/user', {
+    headers: { Authorization: `Bearer ${token}` },
+    params: { id },
+  });
+  return data;
+};
+
+const routes = {
+  'change-information': {
+    slug: 'change-information',
+    index: 0,
+    label: 'ویرایش اطلاعات',
+  },
+  orders: { slug: 'orders', index: 1, label: 'لیست سفارشات' },
+  credit: { slug: 'credit', index: 2, label: 'خریدهای اقساطی' },
+  address: { slug: 'address', index: 3, label: 'لیست آدرس ها' },
+  comments: { slug: 'comments', index: 4, label: 'نظرات داده شده' },
+  favorites: { slug: 'favorites', index: 5, label: 'علاقه مندی ها' },
+  wallet: { slug: 'wallet', index: 6, label: 'تاریخچه کیف پول' },
+};
+
 export const getServerSideProps: GetServerSideProps = async ctx => {
-  const { access_token, user_info } = nookies.get(ctx);
-  if (!access_token && !user_info) {
-    return {
-      redirect: {
-        destination: '/unauthorized',
-        permanent: false,
-      },
-    };
-  }
-  const routes = {
-    'change-information': {
-      slug: 'change-information',
-      index: 0,
-      label: 'ویرایش اطلاعات',
-    },
-    orders: { slug: 'orders', index: 1, label: 'لیست سفارشات' },
-    credit: { slug: 'credit', index: 2, label: 'خریدهای اقساطی' },
-    address: { slug: 'address', index: 3, label: 'لیست آدرس ها' },
-    comments: { slug: 'comments', index: 4, label: 'نظرات داده شده' },
-    favorites: { slug: 'favorites', index: 5, label: 'علاقه مندی ها' },
-    wallet: { slug: 'wallet', index: 6, label: 'تاریخچه کیف پول' },
-  };
+  const queryClient = new QueryClient();
 
   let activeTab;
   if (ctx.params && Object.keys(ctx.params).length === 0) {
@@ -51,17 +52,16 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
       },
     };
   }
-
-  const getUserInfo = async (token: string, id: string) => {
-    console.log(token, id);
-    const { data } = await axiosInstance.get('/user/user', {
-      headers: { Authorization: `Bearer ${token}` },
-      params: { id },
-    });
-    return data;
-  };
-
-  const queryClient = new QueryClient();
+  console.log(activeTab);
+  const { access_token, user_info } = nookies.get(ctx);
+  if (!access_token && !user_info) {
+    return {
+      redirect: {
+        destination: '/unauthorized',
+        permanent: false,
+      },
+    };
+  }
 
   await queryClient.prefetchQuery({
     queryKey: [queryKeys.userInfo],

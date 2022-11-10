@@ -25,7 +25,7 @@ type Input = {
 };
 
 const postPhoneNumber = async (phoneNumber: string) => {
-  const { data } = await axiosInstance.post('/auth/register', {
+  const { data } = await axiosInstance.post('/auth/verify', {
     mobile: phoneNumber,
   });
 
@@ -34,23 +34,29 @@ const postPhoneNumber = async (phoneNumber: string) => {
 
 const postVerifyCode = async ({
   phoneNumber,
+  type,
+  password,
   code,
-  mode,
 }: {
   phoneNumber: string;
-  code: string;
-  mode?: string;
+  type: string;
+  code?: string;
+  password?: string;
 }) => {
-  const { data } = mode
-    ? await axiosInstance.post('/auth/login', {
-        type: mode,
-        mobile: phoneNumber,
-        verify_code: code,
-      })
-    : await axiosInstance.post('/auth/verify', {
-        mobile: phoneNumber,
-        verify_code: code,
-      });
+  const { data } = await axiosInstance.post(
+    '/auth/login',
+    type === 'verify'
+      ? {
+          type,
+          mobile: phoneNumber,
+          code,
+        }
+      : {
+          type,
+          mobile: phoneNumber,
+          password,
+        }
+  );
   return data;
 };
 
@@ -61,31 +67,37 @@ export function PinFrom({
   phoneNumber: any;
   setLogin: Dispatch<SetStateAction<boolean>>;
 }) {
+  const toast = useToast();
   const {
     data = [],
     mutate,
     isLoading,
     isError,
-    isSuccess,
-  } = useMutation({ mutationFn: postVerifyCode });
-  const toast = useToast();
-  useEffect(() => {
-    if (isSuccess && data.status === 'success') {
-      setCookie(null, 'access_token', data.token, {
-        maxAge: 259200,
-        secure: true,
-        sameSite: true,
-        path: '/',
-      });
-      setCookie(null, 'user_info', JSON.stringify(data.user), {
-        maxAge: 259200,
-        secure: true,
-        sameSite: true,
-        path: '/',
-      });
-      Router.push('/users/welcome');
-    }
-    if (isError || data.status === 'error') {
+  } = useMutation({
+    mutationFn: postVerifyCode,
+    onMutate: () => {
+      Router.prefetch('/profile');
+      Router.prefetch('/users/welcome');
+    },
+    onSuccess: data => {
+      const path = data.user_status === 'exist' ? '/profile' : '/users/welcome';
+      if (data.status === 'success') {
+        Router.replace(path);
+        setCookie(null, 'access_token', data.access_token, {
+          maxAge: 259200,
+          secure: true,
+          sameSite: true,
+          path: '/',
+        });
+        setCookie(null, 'user_info', JSON.stringify(data.user), {
+          maxAge: 259200,
+          secure: true,
+          sameSite: true,
+          path: '/',
+        });
+      }
+    },
+    onError: error => {
       toast({
         title: 'خطایی رخ داد',
         description:
@@ -93,8 +105,8 @@ export function PinFrom({
         status: 'error',
         duration: 9000,
       });
-    }
-  }, [isSuccess, data, isError, toast]);
+    },
+  });
 
   const [timer, setTimer] = useState(new Date());
   useEffect(() => {
@@ -102,8 +114,6 @@ export function PinFrom({
     time.setSeconds(time.getSeconds() + 10);
     setTimer(time);
   }, [phoneNumber]);
-
-  console.log(phoneNumber);
 
   return (
     <Box gridArea="forms" as={'form'} pt={[5, 4]}>
@@ -125,9 +135,11 @@ export function PinFrom({
           variant="flushed"
           focusBorderColor="transparent"
           onComplete={value =>
-            phoneNumber.user_status == 'new'
-              ? mutate({ phoneNumber, code: value, mode: 'login' })
-              : mutate({ phoneNumber, code: value })
+            mutate({
+              phoneNumber: phoneNumber.mobile,
+              code: value,
+              type: 'verify',
+            })
           }
         >
           <PinInputField />
