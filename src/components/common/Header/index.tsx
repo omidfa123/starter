@@ -44,7 +44,10 @@ export default function Header() {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [cookies, setCookies] = useState<any>(undefined);
   const router = useRouter();
-  const getCookies = useCallback(() => parseCookies(), [document.cookie]);
+  const getCookies = useCallback(
+    () => parseCookies(),
+    [typeof window !== 'undefined' ? document.cookie : undefined]
+  );
   useEffect(() => {
     const cookies = getCookies();
     if (cookies.user_info !== undefined) {
