@@ -89,7 +89,8 @@ export default function ProfileForm({
           description:
             'هنگام ذخیره کردن تغیرات مشکلی پیش آمد لطفا ورودی ها را برسی کنید',
           status: 'error',
-          duration: 9000,
+          duration: 3000,
+          isClosable: true,
         });
         resolve();
       }, 1000);
@@ -102,7 +103,8 @@ export default function ProfileForm({
         title: 'تغیرات با موفقیت ثبت شد',
         description: 'تمام تغیرات شما با موفقیت در سرورهای ما ذخیره شد',
         status: 'success',
-        duration: 9000,
+        duration: 3000,
+        isClosable: true,
       });
     }
     if (isError || mut?.status === 'error') {
@@ -111,7 +113,8 @@ export default function ProfileForm({
         description:
           'هنگام ذخیره کردن تغیرات مشکلی پیش آمد لطفا ورودی ها را برسی کنید',
         status: 'error',
-        duration: 9000,
+        duration: 3000,
+        isClosable: true,
       });
     }
   }, [isSuccess, isError, toast, mut]);

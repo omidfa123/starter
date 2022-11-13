@@ -48,7 +48,8 @@ export default function DeleteAlert({
         title: 'تغیرات با موفقیت ثبت شد',
         description: 'تمام تغیرات شما با موفقیت در سرور های ما ذخیره شد',
         status: 'success',
-        duration: 9000,
+        duration: 3000,
+        isClosable: true,
       });
       onClose();
     }
@@ -57,7 +58,8 @@ export default function DeleteAlert({
         title: 'خطایی رخ داد',
         description: 'لطفا بعد از چند دقیقه دوباره تست کنید !!',
         status: 'error',
-        duration: 9000,
+        duration: 3000,
+        isClosable: true,
       });
     }
   }, [data?.status, isError, isSuccess, onClose, toast]);

@@ -14,7 +14,7 @@ import {
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { mobileRegex } from 'utils/formRegexs';
 import Timer from '../Timer';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
 import { axiosInstance } from 'libs/axios/axiosInstance';
 import Router from 'next/router';
@@ -23,7 +23,14 @@ import { setCookie } from 'nookies';
 type Input = {
   mobile: string;
 };
-
+type InputPin = {
+  pin: string;
+};
+const toastIds = {
+  wrongValidationCode: 'wrongValidationCode',
+  retryWrong: 'retryWrong',
+  retryOk: 'retryOk',
+};
 const postPhoneNumber = async (phoneNumber: string) => {
   const { data } = await axiosInstance.post('/auth/verify', {
     mobile: phoneNumber,
@@ -43,20 +50,11 @@ const postVerifyCode = async ({
   code?: string;
   password?: string;
 }) => {
-  const { data } = await axiosInstance.post(
-    '/auth/login',
-    type === 'verify'
-      ? {
-          type,
-          mobile: phoneNumber,
-          code,
-        }
-      : {
-          type,
-          mobile: phoneNumber,
-          password,
-        }
-  );
+  const { data } = await axiosInstance.post('/auth/login', {
+    type,
+    mobile: phoneNumber,
+    code,
+  });
   return data;
 };
 
@@ -68,12 +66,8 @@ export function PinFrom({
   setLogin: Dispatch<SetStateAction<boolean>>;
 }) {
   const toast = useToast();
-  const {
-    data = [],
-    mutate,
-    isLoading,
-    isError,
-  } = useMutation({
+  const [code, setCode] = useState('');
+  const { mutate, isLoading } = useMutation({
     mutationFn: postVerifyCode,
     onMutate: () => {
       Router.prefetch('/profile');
@@ -98,13 +92,43 @@ export function PinFrom({
       }
     },
     onError: error => {
-      toast({
-        title: 'خطایی رخ داد',
-        description:
-          'هنگام ورود شما مشکلی به وجود  آمد لطفا دوباره امتحان کنید',
-        status: 'error',
-        duration: 9000,
-      });
+      if (!toast.isActive(toastIds.wrongValidationCode)) {
+        toast({
+          title: 'کد ورودی اشتباه است',
+          description:
+            'هنگام ورود شما مشکلی به وجود  آمد لطفا دوباره امتحان کنید',
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+          id: toastIds.wrongValidationCode,
+        });
+      }
+    },
+  });
+  const mutation = useMutation({
+    mutationFn: postPhoneNumber,
+    onSuccess: data => {
+      if (data.status === 'success' && !toast.isActive(toastIds.retryOk)) {
+        toast({
+          title: 'ارسال شد',
+          description:
+            'پیامک با موفقیت ارسال شد لطفا تلفن همراه خود را چک کنید',
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+          id: toastIds.retryOk,
+        });
+      }
+      if (data.status === 'error' && !toast.isActive(toastIds.retryWrong)) {
+        toast({
+          title: 'خطایی رخ داد',
+          description: data.message,
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+          id: toastIds.retryWrong,
+        });
+      }
     },
   });
 
@@ -115,48 +139,75 @@ export function PinFrom({
     setTimer(time);
   }, [phoneNumber]);
 
+  const { control, handleSubmit } = useForm<InputPin>({
+    defaultValues: { pin: '' },
+  });
+  const onSubmit = () => {};
   return (
-    <Box gridArea="forms" as={'form'} pt={[5, 4]}>
+    <Box
+      gridArea="forms"
+      as={'form'}
+      pt={[5, 4]}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <Text color="description" textAlign="center" mb={10}>
         {phoneNumber.user_status == 'new'
           ? ` حساب کاربری با شماره ${phoneNumber.mobile} وجود ندارد ، برای ساخت حساب
         جدید کد تایید برای این شماره ارسال گردید`
           : `کاربر گرامی با شماره ${phoneNumber.mobile} کد ورود به حساب کاربری برای شما ارسال شد`}
       </Text>
-      <Center
-        gap={6}
-        dir="ltr"
-        sx={{ fontFeatureSettings: "'ss02' , 'ss03'" }}
-        mb={8}
-      >
-        <PinInput
-          otp
-          autoFocus
-          variant="flushed"
-          focusBorderColor="transparent"
-          onComplete={value =>
-            mutate({
-              phoneNumber: phoneNumber.mobile,
-              code: value,
-              type: 'verify',
-            })
-          }
-        >
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          {/* <PinInputField /> */}
-        </PinInput>
-        <FormErrorMessage>نمی تواند خالی باشد</FormErrorMessage>
-      </Center>
+      <Controller
+        name="pin"
+        control={control}
+        rules={{
+          required: { value: true, message: 'لطفا این قسمت را خالی نگذارید' },
+        }}
+        render={({
+          field: { ref, ...restField },
+          fieldState: { invalid, error },
+        }) => (
+          <FormControl
+            dir="ltr"
+            sx={{ fontFeatureSettings: "'ss02' , 'ss03'" }}
+            mb={8}
+            isInvalid={invalid}
+            display="grid"
+            placeItems="center"
+          >
+            <Center gap={6}>
+              <PinInput
+                otp
+                autoFocus
+                variant="flushed"
+                focusBorderColor="transparent"
+                onComplete={value => {
+                  setCode(value);
+                  mutate({
+                    phoneNumber: phoneNumber.mobile,
+                    code: value,
+                    type: 'verify',
+                  });
+                }}
+              >
+                <PinInputField ref={ref} {...restField} />
+                <PinInputField />
+                <PinInputField />
+                <PinInputField />
+              </PinInput>
+            </Center>
+            <FormErrorMessage>{error && error.message}</FormErrorMessage>
+          </FormControl>
+        )}
+      />
       <Timer
         expiryTimeStamp={timer}
         onExpire={() => {
           const time = new Date();
           time.setSeconds(time.getSeconds() + 10);
           setTimer(time);
+          mutation.mutate(phoneNumber.mobile);
         }}
+        isLoading={mutation.isLoading}
       />
       <Button
         h="42px"
@@ -196,14 +247,15 @@ export function PinFrom({
   );
 }
 
-export function SingUpForm({ setPhoneNumber }: { setPhoneNumber: any }) {
+export function SingUpForm({
+  setPhoneNumber,
+  phoneNumber,
+}: {
+  setPhoneNumber: any;
+  phoneNumber: any;
+}) {
   const toast = useToast();
-  const {
-    data = [],
-    mutate,
-    isLoading,
-    isError,
-  } = useMutation({
+  const { mutate, isLoading } = useMutation({
     mutationFn: postPhoneNumber,
     onSuccess: data => {
       if (data.status === 'success') {
@@ -212,27 +264,26 @@ export function SingUpForm({ setPhoneNumber }: { setPhoneNumber: any }) {
           description:
             'پیامک با موفقیت ارسال شد لطفا تلفن همراه خود را چک کنید',
           status: 'success',
-          duration: 9000,
+          duration: 3000,
+          isClosable: true,
         });
         setPhoneNumber({
           mobile: getValues('mobile'),
           user_status: data?.user_status,
         });
-      } else undefined;
-    },
-    onError: data => {
-      if (isError) {
+      }
+      if (data.status === 'error') {
         toast({
           title: 'خطایی رخ داد',
-          description:
-            'هنگام ذخیره کردن تغیرات مشکلی پیش آمد لطفا ورودی ها را برسی کنید',
+          description: data.message,
           status: 'error',
-          duration: 9000,
+          duration: 3000,
+          isClosable: true,
         });
-      } else undefined;
+      }
     },
+    networkMode: 'always',
   });
-
   const {
     register,
     handleSubmit,
@@ -248,7 +299,6 @@ export function SingUpForm({ setPhoneNumber }: { setPhoneNumber: any }) {
       s.replace(/[۰-۹]/g, (d: any) => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
     mutate(p2e(data.mobile));
   };
-
   return (
     <VStack
       as="form"

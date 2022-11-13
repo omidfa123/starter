@@ -1,12 +1,14 @@
-import { Box, Center, Text } from '@chakra-ui/react';
+import { Box, Center, Spinner, Text } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 
 export default function Timer({
   expiryTimeStamp,
   onExpire,
+  isLoading,
 }: {
   expiryTimeStamp: Date;
   onExpire: () => void;
+  isLoading: boolean;
 }) {
   const [reset, setReset] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
@@ -30,7 +32,9 @@ export default function Timer({
   }, [expiryTimeStamp, reset]);
   return (
     <Center sx={{ fontFeatureSettings: 'ss03' }}>
-      {isFinished ? (
+      {isLoading ? (
+        <Spinner />
+      ) : isFinished ? (
         <Box
           as="span"
           onClick={() => {

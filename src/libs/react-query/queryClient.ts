@@ -12,7 +12,9 @@ export function queryErrorHandler(error: unknown): void {
       : 'خطای اتصال به شبکه';
 
   toast.closeAll();
-  toast({ id, title, status: 'error' });
+  if (!toast.isActive(id)) {
+    toast({ id, title, status: 'error', isClosable: true, duration: 3000 });
+  }
 }
 
 export const queryClient = new QueryClient({

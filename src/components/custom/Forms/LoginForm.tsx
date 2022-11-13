@@ -1,7 +1,9 @@
 import { Button, useToast, VStack } from '@chakra-ui/react';
 import { useMutation } from '@tanstack/react-query';
 import { axiosInstance } from 'libs/axios/axiosInstance';
-import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
+import { useRouter } from 'next/router';
+import { setCookie } from 'nookies';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { PasswordField } from './PasswordField';
 
 type Inputs = {
@@ -19,18 +21,52 @@ const postPassword = async ({
   mobile: string;
 }) => {
   const { data } = await axiosInstance.post('/auth/login', {
-    mode: 'static',
+    type: 'static',
     mobile,
     password,
   });
+  return data;
 };
 
 export default function LoginForm({ phoneNumber }: { phoneNumber: any }) {
-  const { mutate } = useMutation({
-    mutationFn: postPassword,
-    onSuccess: () => {},
-  });
   const toast = useToast();
+  const router = useRouter();
+  const { mutate, isLoading } = useMutation({
+    mutationFn: postPassword,
+    onMutate: () => {
+      router.prefetch('/profile');
+    },
+    onSuccess: data => {
+      if (data.status === 'success') {
+        router.replace('/profile');
+        setCookie(null, 'access_token', data.access_token, {
+          maxAge: 259200,
+          secure: true,
+          sameSite: true,
+          path: '/',
+        });
+        setCookie(null, 'user_info', JSON.stringify(data.user), {
+          maxAge: 259200,
+          secure: true,
+          sameSite: true,
+          path: '/',
+        });
+      }
+    },
+    onError: error => {
+      if (!toast.isActive('wrongPassword')) {
+        toast({
+          title: 'رمز ورودی اشتباه است',
+          description:
+            'رمز شما اشتباه است لطفا اگر رمز خود رو فراموش کردید با شماره تلفن وارد شوید',
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+          id: 'wrongPassword',
+        });
+      }
+    },
+  });
   const {
     register,
     handleSubmit,
@@ -41,38 +77,13 @@ export default function LoginForm({ phoneNumber }: { phoneNumber: any }) {
   });
 
   const onSubmit: SubmitHandler<Inputs> = data => {
-    console.log({ ...data, mobile: phoneNumber.mobile });
-    return new Promise<void>(resolve => {
-      setTimeout(() => {
-        toast({
-          title: 'ورود',
-          description: 'شما با موفقیت وارد حساب کاربری شده اید',
-          status: 'success',
-          duration: 9000,
-        });
-
-        resolve();
-      }, 3000);
-    });
-  };
-  const onError: SubmitErrorHandler<Inputs> = error => {
-    return new Promise<void>(resolve => {
-      setTimeout(() => {
-        toast({
-          title: 'خطایی رخ داد',
-          description: 'هنگام ورود مشکلی پیش آمد لطفا ورودی ها را برسی کنید',
-          status: 'error',
-          duration: 9000,
-        });
-        resolve();
-      }, 1000);
-    });
+    mutate({ ...data, mobile: phoneNumber.mobile });
   };
   return (
     <VStack
       as="form"
       gridArea="forms"
-      onSubmit={handleSubmit(onSubmit, onError)}
+      onSubmit={handleSubmit(onSubmit)}
       spacing={'64px'}
       alignItems="start"
     >
@@ -89,7 +100,7 @@ export default function LoginForm({ phoneNumber }: { phoneNumber: any }) {
         errorMessage={errors?.password?.message}
       />
       <Button
-        isLoading={isSubmitting}
+        isLoading={isLoading}
         colorScheme="secondary"
         h="42px"
         type="submit"

@@ -126,7 +126,10 @@ const Login: NextPage = () => {
                     فقط با یه شماره وارد شو!
                   </Highlight>
                 </Heading>
-                <SingUpForm setPhoneNumber={setPhoneNumber} />
+                <SingUpForm
+                  setPhoneNumber={setPhoneNumber}
+                  phoneNumber={phoneNumber}
+                />
               </>
             )}
             <RegisterVector gridArea="vector" />

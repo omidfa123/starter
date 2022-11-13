@@ -15,7 +15,6 @@ export default function SelectCities({
     field: { onChange, onBlur, value, ref },
     fieldState: { invalid, error },
   } = useController({ name, control, rules });
- console.log(value);
 
  return (
    <FormControl

@@ -1,7 +1,6 @@
 export const styles = {
   global: (props: any) => ({
     'html , body , #__next ': {
-      w: '100%',
       minH: 'max-content',
     },
     body: {
@@ -17,6 +16,10 @@ export const styles = {
       body: {
         fontFamily: 'var(--artamart-fonts-body)',
       },
+    },
+    '.chakra-alert > button': {
+      right: 'unset',
+      left: '1',
     },
   }),
 };

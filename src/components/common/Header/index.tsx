@@ -44,10 +44,9 @@ export default function Header() {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [cookies, setCookies] = useState<any>(undefined);
   const router = useRouter();
-  const getCookies = useCallback(
-    () => parseCookies(),
-    [typeof window !== 'undefined' ? document.cookie : undefined]
-  );
+  const checkCookies =
+    typeof window !== 'undefined' ? document.cookie : undefined;
+  const getCookies = useCallback(() => parseCookies(), [checkCookies]);
   useEffect(() => {
     const cookies = getCookies();
     if (cookies.user_info !== undefined) {
@@ -57,8 +56,12 @@ export default function Header() {
   }, [getCookies]);
   console.log('re');
   const handleLogout = () => {
-    destroyCookie(null, 'access_token');
-    destroyCookie(null, 'user_info');
+    destroyCookie(null, 'access_token', {
+      path: '/',
+    });
+    destroyCookie(null, 'user_info', {
+      path: '/',
+    });
     setCookies(undefined);
     router.push('/');
   };

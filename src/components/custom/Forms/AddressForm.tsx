@@ -84,7 +84,7 @@ export default function AddressForm({
     handleSubmit,
     reset,
     control,
-    formState: { errors, isSubmitSuccessful, isSubmitting },
+    formState: { errors },
   } = useFormContext<AddressInputs>();
   const onSubmit: SubmitHandler<AddressInputs> = data => {
     console.log(data);
@@ -104,7 +104,8 @@ export default function AddressForm({
       description:
         'هنگام اضافه کردن آدرس شما مشکلی رخ داد لطفا ورودی ها را کنترل کنید',
       status: 'error',
-      duration: 9000,
+      duration: 3000,
+      isClosable: true,
     });
   };
   useEffect(() => {
@@ -114,7 +115,8 @@ export default function AddressForm({
           title: 'تغیرات با موفقیت ثبت شد',
           description: 'تمام تغیرات شما با موفقیت در سرور های ما ذخیره شد',
           status: 'success',
-          duration: 9000,
+          duration: 3000,
+          isClosable: true,
         });
     }
     if (isError || mut?.status === 'error') {
@@ -123,7 +125,8 @@ export default function AddressForm({
         description:
           'هنگام اضافه کردن آدرس شما مشکلی رخ داد لطفا ورودی ها را کنترل کنید',
         status: 'error',
-        duration: 9000,
+        duration: 3000,
+        isClosable: true,
       });
     }
   }, [isError, isSuccess, mut, reset, toast]);
