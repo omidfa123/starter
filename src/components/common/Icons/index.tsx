@@ -125,6 +125,48 @@ export const TelIcon = (props: IconProps) => (
     />
   </Icon>
 );
+export const PcIcon = (props: IconProps) => (
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 21 21"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M2.535.59A1.875 1.875 0 0 0 .66 2.463v8.75a1.875 1.875 0 0 0 1.875 1.875H8.16v1.25H1.91a1.25 1.25 0 0 0-1.25 1.25v3.75a1.25 1.25 0 0 0 1.25 1.25h17.5a1.25 1.25 0 0 0 1.25-1.25v-3.75a1.25 1.25 0 0 0-1.25-1.25h-6.25v-1.25h5.625a1.875 1.875 0 0 0 1.875-1.875v-8.75A1.875 1.875 0 0 0 18.785.59H2.535Zm0 1.25h16.25a.625.625 0 0 1 .625.624v8.75a.625.625 0 0 1-.625.625H2.535a.625.625 0 0 1-.625-.625v-8.75a.625.625 0 0 1 .625-.625ZM15.66 16.213a.625.625 0 1 1 1.25 0 .625.625 0 0 1-1.25 0Zm2.5 0a.625.625 0 1 1 1.25 0 .625.625 0 0 1-1.25 0ZM2.535 15.59h6.25a.625.625 0 1 1 0 1.25h-6.25a.625.625 0 0 1 0-1.25Zm-.625 2.813a.313.313 0 0 1 .313-.313h6.875a.313.313 0 1 1 0 .625H2.223a.313.313 0 0 1-.313-.312Z"
+    />
+  </Icon>
+);
+export const LaptopIcon = (props: IconProps) => (
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 25 25"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M6.017 5.732A1.929 1.929 0 0 0 4.09 7.661v7.714a1.928 1.928 0 0 0 1.928 1.929h13.286a1.929 1.929 0 0 0 1.929-1.929V7.661a1.929 1.929 0 0 0-1.929-1.929H6.017Zm-.642 1.929a.643.643 0 0 1 .642-.643h13.286a.643.643 0 0 1 .643.643v7.714a.643.643 0 0 1-.643.643H6.017a.643.643 0 0 1-.642-.643V7.661Zm-2.358 10.5a.643.643 0 0 0 0 1.285h19.286a.643.643 0 0 0 0-1.285H3.017Z"
+    />
+  </Icon>
+);
+export const PhoneIcon = (props: IconProps) => (
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 25 25"
+    {...props}
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M16.66 2.59h-8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-16a2 2 0 0 0-2-2ZM12.61 18.59h.1"
+    />
+  </Icon>
+);
 export const UserIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
@@ -660,9 +702,20 @@ export const EditIcon = (props: IconProps) => (
 );
 
 export const TikIcon = (props: IconProps) => (
-<Icon xmlns="http://www.w3.org/2000/svg" width="9" height="7" fill="none" viewBox="0 0 9 7" {...props}>
-  <path stroke="#fff" strokeLinecap="round" d="m.746 3.777 2.048 2.049M7.727.732 2.865 5.856"/>
-</Icon>
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    width="9"
+    height="7"
+    fill="none"
+    viewBox="0 0 9 7"
+    {...props}
+  >
+    <path
+      stroke="#fff"
+      strokeLinecap="round"
+      d="m.746 3.777 2.048 2.049M7.727.732 2.865 5.856"
+    />
+  </Icon>
 );
 export const LikeIcon = (props: IconProps) => (
   <Icon
@@ -888,36 +941,22 @@ export const ExpressDeliveryIcon = (props: IconProps) => (
     />
   </Icon>
 );
-export const PhoneIcon = (props: IconProps) => (
-  <Icon
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 25 25"
-    {...props}
-  >
-    <path
-      stroke="#9773FF"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      d="M16.055 2.71h-8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-16a2 2 0 0 0-2-2Zm-4.05 16h.1"
-    />
-  </Icon>
-);
 
 export const LampIcon = (props: IconProps) => (
   <Icon
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
+    width="25"
+    height="25"
     viewBox="0 0 25 25"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <path
-      stroke="#000"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.5"
-      d="M8.005 15.71v-2m0 8h8m-4-6v6M6.877 4.138l-2.64 8.8a.6.6 0 0 0 .574.772H19.2a.6.6 0 0 0 .574-.772l-2.64-8.8a.6.6 0 0 0-.574-.428H7.451a.6.6 0 0 0-.574.428v0Z"
+      d="M8.95041 15.7102V13.7102M8.95041 21.7102H16.9504M12.9504 15.7102V21.7102M7.82241 4.13821L5.18241 12.9382C5.15562 13.0277 5.15012 13.1222 5.16632 13.2143C5.18252 13.3063 5.21999 13.3932 5.27573 13.4682C5.33148 13.5432 5.40397 13.6041 5.48742 13.6461C5.57087 13.6881 5.66298 13.7101 5.75641 13.7102H20.1444C20.2378 13.7101 20.3299 13.6881 20.4134 13.6461C20.4968 13.6041 20.5693 13.5432 20.6251 13.4682C20.6808 13.3932 20.7183 13.3063 20.7345 13.2143C20.7507 13.1222 20.7452 13.0277 20.7184 12.9382L18.0784 4.13821C18.0414 4.01465 17.9656 3.90629 17.8622 3.8292C17.7589 3.75211 17.6334 3.71038 17.5044 3.71021H8.39641C8.26744 3.71038 8.14196 3.75211 8.03857 3.8292C7.93518 3.90629 7.85938 4.01465 7.82241 4.13821V4.13821Z"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     />
   </Icon>
 );
@@ -973,5 +1012,183 @@ export const CircleAddIcon = (props: IconProps) => (
       fill="#fff"
       d="M8.242.772a8 8 0 1 0 8 8 8.009 8.009 0 0 0-8-8ZM10.91 9.44h-2v2a.667.667 0 1 1-1.333 0v-2h-2a.667.667 0 0 1 0-1.333h2v-2a.667.667 0 1 1 1.333 0v2h2a.667.667 0 0 1 0 1.333Z"
     />
+  </Icon>
+);
+
+export const MenuShapeIcon = (props: IconProps) => (
+  <Icon
+    width="183"
+    height="221"
+    viewBox="0 0 183 221"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g filter="url(#filter0_di_0_1)">
+      <path
+        d="M12.0547 42.8913C12.0547 35.4091 14.6481 27.8488 21.3804 24.584C32.7718 19.06 54.6912 15.7693 87.6447 41.2389C137.803 80.0058 98.4859 86.8308 136.63 124.497C137.942 125.793 139.259 127.249 140.326 128.753C168.887 168.984 147.831 189.535 136.838 196.776C133.315 199.097 129.096 199.874 124.878 199.874H44.0547C26.3816 199.874 12.0547 185.547 12.0547 167.874V42.8913Z"
+        fill="#9773FF"
+      />
+    </g>
+    <g filter="url(#filter1_di_0_1)">
+      <path
+        d="M12.0547 65.3124C12.0547 57.8302 14.6606 50.1962 21.543 47.2612C31.7631 42.903 50.3183 41.2612 77.5902 62.3395C120.962 95.8613 87.1684 101.836 119.8 134.266C121.108 135.566 122.415 137.006 123.478 138.514C147.333 172.36 130.594 190.065 120.941 196.716C117.467 199.11 113.239 199.874 109.021 199.874H44.0547C26.3816 199.874 12.0547 185.547 12.0547 167.874V65.3124Z"
+        fill="#FFA826"
+      />
+    </g>
+    <g filter="url(#filter2_di_0_1)">
+      <path
+        d="M12.4622 90.8054C12.4622 83.3232 15.0959 75.5747 22.175 73.1523C30.9522 70.1487 45.7413 70.0874 66.7977 86.3617C102.61 114.041 74.9672 119.067 101.464 145.667C102.766 146.974 104.058 148.39 105.113 149.904C123.791 176.705 111.663 191.209 103.628 197.14C100.234 199.645 95.9831 200.392 91.7649 200.392H44.4622C26.7891 200.392 12.4622 186.065 12.4622 168.392V90.8054Z"
+        fill="#FF5E5E"
+      />
+    </g>
+    <defs>
+      <filter
+        id="filter0_di_0_1"
+        x="0.0546875"
+        y="0.709717"
+        width="182.62"
+        height="219.164"
+        filterUnits="userSpaceOnUse"
+        color-interpolation-filters="sRGB"
+      >
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha"
+        />
+        <feOffset dx="8" />
+        <feGaussianBlur stdDeviation="10" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"
+        />
+        <feBlend
+          mode="normal"
+          in2="BackgroundImageFix"
+          result="effect1_dropShadow_0_1"
+        />
+        <feBlend
+          mode="normal"
+          in="SourceGraphic"
+          in2="effect1_dropShadow_0_1"
+          result="shape"
+        />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha"
+        />
+        <feOffset />
+        <feGaussianBlur stdDeviation="9.5" />
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+        <feColorMatrix
+          type="matrix"
+          values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"
+        />
+        <feBlend mode="normal" in2="shape" result="effect2_innerShadow_0_1" />
+      </filter>
+      <filter
+        id="filter1_di_0_1"
+        x="0.0546875"
+        y="24.541"
+        width="163.649"
+        height="195.333"
+        filterUnits="userSpaceOnUse"
+        color-interpolation-filters="sRGB"
+      >
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha"
+        />
+        <feOffset dx="8" />
+        <feGaussianBlur stdDeviation="10" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
+        />
+        <feBlend
+          mode="normal"
+          in2="BackgroundImageFix"
+          result="effect1_dropShadow_0_1"
+        />
+        <feBlend
+          mode="normal"
+          in="SourceGraphic"
+          in2="effect1_dropShadow_0_1"
+          result="shape"
+        />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha"
+        />
+        <feOffset />
+        <feGaussianBlur stdDeviation="9.5" />
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+        <feColorMatrix
+          type="matrix"
+          values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"
+        />
+        <feBlend mode="normal" in2="shape" result="effect2_innerShadow_0_1" />
+      </filter>
+      <filter
+        id="filter2_di_0_1"
+        x="0.462158"
+        y="51.605"
+        width="142.518"
+        height="168.787"
+        filterUnits="userSpaceOnUse"
+        color-interpolation-filters="sRGB"
+      >
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha"
+        />
+        <feOffset dx="8" />
+        <feGaussianBlur stdDeviation="10" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
+        />
+        <feBlend
+          mode="normal"
+          in2="BackgroundImageFix"
+          result="effect1_dropShadow_0_1"
+        />
+        <feBlend
+          mode="normal"
+          in="SourceGraphic"
+          in2="effect1_dropShadow_0_1"
+          result="shape"
+        />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha"
+        />
+        <feOffset />
+        <feGaussianBlur stdDeviation="9.5" />
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+        <feColorMatrix
+          type="matrix"
+          values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"
+        />
+        <feBlend mode="normal" in2="shape" result="effect2_innerShadow_0_1" />
+      </filter>
+    </defs>
   </Icon>
 );
