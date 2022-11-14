@@ -53,18 +53,12 @@ export default function NavList({ isMobile = false }: { isMobile?: boolean }) {
         isLazy
         lazyBehavior="keepMounted"
         // isOpen
-        modifiers={[
-          {
-            name: 'offset',
-            enabled: true,
-            options: {
-              offset: [-195, 20],
-            },
-          },
-        ]}
+        offset={[-195, 20]}
+        trigger="hover"
+        openDelay={0}
       >
         <PopoverTrigger>
-          <ListItem>
+          <ListItem cursor="pointer">
             محصولات ما
             <ListIcon as={AngleDownIcon} boxSize={2.5} />
           </ListItem>
