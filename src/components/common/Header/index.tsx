@@ -39,6 +39,7 @@ import { destroyCookie, parseCookies } from 'nookies';
 import NextLink from 'components/custom/NextLink';
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import SearchInput from './SearchInput';
 
 export default function Header() {
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -259,31 +260,7 @@ export default function Header() {
               </NextLink>
             )}
           </Flex>
-          <InputGroup gridArea="search" isolation={'isolate'}>
-            <InputLeftElement
-              h={[7, 10]}
-              w={[7, 10]}
-              bgColor="primary.500"
-              rounded={[8, 14]}
-              top={[1.5, 2]}
-              left={2}
-              shadow="0px 0px 4px rgba(255, 153, 0, 0.47)"
-              cursor="pointer"
-            >
-              <SearchIcon boxSize={[4, 6]} color="white" />
-            </InputLeftElement>
-            <Input
-              p={[2, 4, 6]}
-              placeholder="دنبال چی میگردی ؟"
-              rounded={[12, 16]}
-              bgColor="white"
-              shadow="0px 0px 8px rgba(0, 0, 0, 0.02)"
-              h={[10, 14]}
-              border="none"
-              focusBorderColor="#ff9900"
-              fontSize={['11px', 16]}
-            />
-          </InputGroup>
+          <SearchInput />
           <Divider
             display={['none', 'block', 'none']}
             borderColor="divider"

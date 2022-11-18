@@ -29,7 +29,7 @@ export const Tabs: ComponentStyleConfig = {
         borderInlineStart: '0',
         minW: '152px',
         alignItems: 'start',
-        gap: '4px',
+        gap: '16px',
       },
       tab: {
         ...theme.components.Tabs.variants?.line(props).tab,
@@ -42,11 +42,14 @@ export const Tabs: ComponentStyleConfig = {
         gap: '1',
         justifyContent: 'start',
         whiteSpace: 'nowrap',
-        // p: '0  24px 24px 0',
+        pt: '0',
         _selected: {
           color: 'secondary.500',
           borderColor: 'currentColor',
         },
+      },
+      tabpanel: {
+        p: '0 22px 16px 16px',
       },
     }),
   },
