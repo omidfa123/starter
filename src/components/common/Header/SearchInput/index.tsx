@@ -246,7 +246,7 @@ export default function SearchInput() {
                               }}
                             />
                             <Button
-                              leftIcon={<ShoppingBagIcon boxSize="10px" />}
+                              leftIcon={<ShoppingBagIcon boxSize="14px" />}
                               colorScheme={'secondary'}
                               fontSize="10px"
                               fontWeight="500"

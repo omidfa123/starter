@@ -110,7 +110,90 @@ export const WavesIcon = (props: IconProps) => (
     </defs>
   </Icon>
 );
-
+export const MegaMenuIconRed = (props: IconProps) => (
+  <Icon
+    width="103"
+    height="130"
+    viewBox="0 0 103 130"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M0.407227 20.1257C0.407227 12.6435 3.04092 4.89501 10.1201 2.47257C18.8973 -0.530949 33.6864 -0.592317 54.7427 15.682C90.5551 43.3612 62.9123 48.3874 89.4092 74.987C90.711 76.2939 92.0035 77.7106 93.0582 79.224C111.736 106.026 99.6082 120.53 91.5728 126.46C88.1789 128.965 83.9281 129.712 79.7099 129.712H32.4072C14.7341 129.712 0.407227 115.385 0.407227 97.7118V20.1257Z"
+      fill="#FF5E5E"
+    />
+  </Icon>
+);
+export const MegaMenuIconYellow = (props: IconProps) => (
+  <Icon
+    width="124"
+    height="157"
+    viewBox="0 0 124 157"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M0 21.6327C0 14.1505 2.60588 6.5165 9.48836 3.58153C19.7084 -0.776733 38.2636 -2.41845 65.5355 18.6598C108.907 52.1816 75.1137 58.156 107.745 90.586C109.053 91.8863 110.36 93.3267 111.423 94.8345C135.278 128.68 118.539 146.385 108.886 153.037C105.412 155.43 101.184 156.194 96.9662 156.194H32C14.3269 156.194 0 141.867 0 124.194V21.6327Z"
+      fill="#FFA826"
+    />
+  </Icon>
+);
+export const MegaMenuIconPurple = (props: IconProps) => (
+  <Icon
+    width="143"
+    height="180"
+    viewBox="0 0 143 180"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g filter="url(#filter0_i_365_156)">
+      <path
+        d="M0 22.2116C0 14.7294 2.59341 7.16907 9.32575 3.90436C20.7171 -1.61964 42.6365 -4.91041 75.59 20.5592C125.748 59.3261 86.4312 66.1511 124.575 103.817C125.888 105.114 127.204 106.569 128.272 108.073C156.833 148.304 135.776 168.855 124.783 176.097C121.261 178.417 117.041 179.194 112.823 179.194H32C14.3269 179.194 0 164.867 0 147.194V22.2116Z"
+        fill="#9773FF"
+      />
+    </g>
+    <defs>
+      <filter
+        id="filter0_i_365_156"
+        x="0"
+        y="0.0300293"
+        width="142.62"
+        height="179.164"
+        filterUnits="userSpaceOnUse"
+        color-interpolation-filters="sRGB"
+      >
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feBlend
+          mode="normal"
+          in="SourceGraphic"
+          in2="BackgroundImageFix"
+          result="shape"
+        />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha"
+        />
+        <feOffset />
+        <feGaussianBlur stdDeviation="9.5" />
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+        <feColorMatrix
+          type="matrix"
+          values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"
+        />
+        <feBlend
+          mode="normal"
+          in2="shape"
+          result="effect1_innerShadow_365_156"
+        />
+      </filter>
+    </defs>
+  </Icon>
+);
 export const TelIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
@@ -148,6 +231,24 @@ export const LaptopIcon = (props: IconProps) => (
     <path
       fill="currentColor"
       d="M6.017 5.732A1.929 1.929 0 0 0 4.09 7.661v7.714a1.928 1.928 0 0 0 1.928 1.929h13.286a1.929 1.929 0 0 0 1.929-1.929V7.661a1.929 1.929 0 0 0-1.929-1.929H6.017Zm-.642 1.929a.643.643 0 0 1 .642-.643h13.286a.643.643 0 0 1 .643.643v7.714a.643.643 0 0 1-.643.643H6.017a.643.643 0 0 1-.642-.643V7.661Zm-2.358 10.5a.643.643 0 0 0 0 1.285h19.286a.643.643 0 0 0 0-1.285H3.017Z"
+    />
+  </Icon>
+);
+export const SecondHandIcon = (props: IconProps) => (
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="27"
+    fill="none"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M7.572 9.429a1.286 1.286 0 0 0-1.286 1.285v5.143a1.286 1.286 0 0 0 1.286 1.286h8.857a1.286 1.286 0 0 0 1.286-1.286v-5.143a1.286 1.286 0 0 0-1.286-1.285H7.572Zm-.429 1.285a.428.428 0 0 1 .429-.428h8.857a.428.428 0 0 1 .428.428v5.143a.429.429 0 0 1-.428.429H7.572a.428.428 0 0 1-.429-.429v-5.143Zm-1.571 7a.429.429 0 0 0 0 .857h12.857a.428.428 0 1 0 0-.857H5.572Z"
+    />
+    <path
+      fill="currentColor"
+      d="M10.929 23.231a.429.429 0 0 1 .428 0l2.572 1.485a.428.428 0 0 1 0 .742l-2.572 1.485a.429.429 0 0 1-.643-.372v-1.356l-.046.426A12.002 12.002 0 0 1 8.445 2.25l.253.819a11.145 11.145 0 0 0 2.016 21.714v-1.18a.429.429 0 0 1 .215-.372Zm.643 2.598 1.285-.742-1.285-.742v1.484ZM10.072 1.97 12.643.486a.429.429 0 0 1 .643.371v.929a12 12 0 0 1 2.27 23.392l-.254-.818a11.144 11.144 0 0 0-2.016-21.714v1.18a.429.429 0 0 1-.643.371l-2.571-1.484a.43.43 0 0 1 0-.743Zm2.357 1.114V1.599l-1.286.743 1.286.742Z"
     />
   </Icon>
 );
