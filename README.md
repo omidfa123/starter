@@ -2,79 +2,79 @@
 
 ## Atramart Api Documentation
 ### [User]()
-  - ### [Create]()
+- ### [Create]()
     - [URL: ]() /api/v1/auth/register `#f03c15`
     - [Method: ]() POST
     - [Params]()
-      - mobile
-        - [validation]() ( required|numeric|regex:/(09)[0-9][0-9]/|digits:11|unique )
+        - mobile
+            - [validation]() ( required|numeric|regex:/(09)[0-9][0-9]/|digits:11|unique )
     - [Error Response]()
-      - mobile is required
-      - mobile is numeric
-      - mobile format invalid
-      - mobile number invalid
-      - mobile is unique
+        - mobile is required
+        - mobile is numeric
+        - mobile format invalid
+        - mobile number invalid
+        - mobile is unique
     - [Success Response]()
-      - status => success
-      - message => successfully send verify code
-      - code => sms send code
-  - ### [Login]()
+        - status => success
+        - message => successfully send verify code
+        - code => sms send code
+- ### [Login]()
     - [URL: ]() /api/v1/auth/login
     - [Method: ]() POST
     - [type static]()
-      - [Params]()
-          - type
-              - [value]() (static) 
-              - [validation]() ( required|string )
-          - mobile
-              - [validation]() ( required|numeric|regex:/(09)[0-9]{9}/|digits:11 )
-          - password
-              - [validation]() ( required|string|confirmed|min:8)
-      - [Error Response]()
-          - mobile is required
-          - mobile is numeric
-          - mobile format invalid 
-          - mobile number invalid
-          - mobile is unique
-          - password is required
-          - password min 8 characters
-          - mobile is required
-      - [Exeption Error]()
-         - status => error
-         - message => exeption errors
-      - [Success Response]()
-          - status => success
-          - message' => Login successful
-          - token_type' => bearer
-          - access_token' => token
-          - user => user data
-    - [type verify]()
-        - [mode verify]()
-          - [Params]()
-              - mode
-                  - [value]() (verify)
-                  - [validation]() ( required|string )
-              - mobile
-                  - [validation]() ( required|numeric|regex:/(09)[0-9]{9}/|digits:11 )
-          - [Error Response]()
-              - mobile is required
-              - mobile is numeric
-              - mobile format invalid
-              - mobile number invalid
-              - or
-              - status => false
-              - message => Invalid verify code
-          - [Exeption Error]()
-              - status => error
-              - message => exeption errors
-          - [Success Response]()
+        - [Params]()
+            - type
+                - [value]() (static)
+                - [validation]() ( required|string )
+            - mobile
+                - [validation]() ( required|numeric|regex:/(09)[0-9]{9}/|digits:11 )
+            - password
+                - [validation]() ( required|string|confirmed|min:8)
+        - [Error Response]()
+            - mobile is required
+            - mobile is numeric
+            - mobile format invalid
+            - mobile number invalid
+            - mobile is unique
+            - password is required
+            - password min 8 characters
+            - mobile is required
+        - [Exeption Error]()
+            - status => error
+            - message => exeption errors
+        - [Success Response]()
             - status => success
             - message' => Login successful
             - token_type' => bearer
             - access_token' => token
             - user => user data
-            - type => exist or new
-  - ### [Update]()
+    - [type verify]()
+        - [mode verify]()
+            - [Params]()
+                - mode
+                    - [value]() (verify)
+                    - [validation]() ( required|string )
+                - mobile
+                    - [validation]() ( required|numeric|regex:/(09)[0-9]{9}/|digits:11 )
+            - [Error Response]()
+                - mobile is required
+                - mobile is numeric
+                - mobile format invalid
+                - mobile number invalid
+                - or
+                - status => false
+                - message => Invalid verify code
+            - [Exeption Error]()
+                - status => error
+                - message => exeption errors
+            - [Success Response]()
+                - status => success
+                - message' => Login successful
+                - token_type' => bearer
+                - access_token' => token
+                - user => user data
+                - type => exist or new
+- ### [Update]()
     - [URL: ]() /api/v1/user/user
     - [Method: ]() PATCH/PUT
     - [Params]()
@@ -107,7 +107,7 @@
         - status => update
         - message => User successfully update
         - user => user info
-  - ### [Get]()
+- ### [Get]()
     - [URL: ]() /api/v1/user/user
     - [Method: ]() GET
     - [Params]()
@@ -115,15 +115,15 @@
     - [Success Response]()
         - status => success
         - message => Get successfully detail
-        - user => 
-          - detail
-          - address
-          - orders
-          - wishlist
-          - comments
-          - wallet history
+        - user =>
+            - detail
+            - address
+            - orders
+            - wishlist
+            - comments
+            - wallet history
 ### [Address]()
-  - ### [Create]()
+- ### [Create]()
     - [URL: ]() /api/v1/user/address
     - [Method: ]() POST
     - [Params]()
@@ -136,11 +136,11 @@
         - post_code
             - [validation]() (required|numeric|regex:/^[0-9]{11}$/|digits:11)
         - is_default
-          - 1 value set in default address
+            - 1 value set in default address
         - street
-          - [validation]() (required)
+            - [validation]() (required)
         - city_id
-            - [validation]() (required) 
+            - [validation]() (required)
         - user_id
             - [validation]() ( required)
     - [Error Response]()
@@ -150,7 +150,7 @@
         - status => success
         - message' => Address successfully created
         - address => Address collection
-  - ### [Update]()
+- ### [Update]()
     - [URL: ]() /api/v1/user/address/id
     - [Method: ]() PATCH/PUT
     - [Params]()
@@ -163,13 +163,13 @@
         - post_code
             - [validation]() (required|numeric|regex:/^[0-9]{11}$/|digits:11)
         - is_default
-          - 1 value set in default address
+            - 1 value set in default address
         - street
-          - [validation]() (required)
+            - [validation]() (required)
         - city_id
-          - [validation]() (required)
+            - [validation]() (required)
         - user_id
-          - [validation]() ( required)
+            - [validation]() ( required)
     - [Error Response]()
         - status => error,
         - message => Invalid validation Inputs,
@@ -177,10 +177,10 @@
         - status => update
         - message' => Address successfully created
         - address => Address collection
-  - ### [Delete]()
-      - [URL: ]() /api/v1/user/address/id
-      - [Method: ]() DELETE
-      - [Success Response]()
+- ### [Delete]()
+    - [URL: ]() /api/v1/user/address/id
+    - [Method: ]() DELETE
+    - [Success Response]()
         - status => success
         - message => Address successfully remove
         - address => Address Collection | empty
@@ -210,11 +210,11 @@
         - categories => category collection
         - menus => menu collection
 - ### [Category Detail]
-    - [URL: ]() v1/catalog/detail
+    - [URL: ]() v1/catalog/categories/detail
     - [Method: ]() POST
     - [Params]()
-      - id
-          - [validation]() ( required|numeric)
+        - id
+            - [validation]() ( required|numeric)
     - [Error Response]()
         - id is required
         - id is numeric
