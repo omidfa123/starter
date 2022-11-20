@@ -110,7 +110,90 @@ export const WavesIcon = (props: IconProps) => (
     </defs>
   </Icon>
 );
-
+export const MegaMenuIconRed = (props: IconProps) => (
+  <Icon
+    width="103"
+    height="130"
+    viewBox="0 0 103 130"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M0.407227 20.1257C0.407227 12.6435 3.04092 4.89501 10.1201 2.47257C18.8973 -0.530949 33.6864 -0.592317 54.7427 15.682C90.5551 43.3612 62.9123 48.3874 89.4092 74.987C90.711 76.2939 92.0035 77.7106 93.0582 79.224C111.736 106.026 99.6082 120.53 91.5728 126.46C88.1789 128.965 83.9281 129.712 79.7099 129.712H32.4072C14.7341 129.712 0.407227 115.385 0.407227 97.7118V20.1257Z"
+      fill="#FF5E5E"
+    />
+  </Icon>
+);
+export const MegaMenuIconYellow = (props: IconProps) => (
+  <Icon
+    width="124"
+    height="157"
+    viewBox="0 0 124 157"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M0 21.6327C0 14.1505 2.60588 6.5165 9.48836 3.58153C19.7084 -0.776733 38.2636 -2.41845 65.5355 18.6598C108.907 52.1816 75.1137 58.156 107.745 90.586C109.053 91.8863 110.36 93.3267 111.423 94.8345C135.278 128.68 118.539 146.385 108.886 153.037C105.412 155.43 101.184 156.194 96.9662 156.194H32C14.3269 156.194 0 141.867 0 124.194V21.6327Z"
+      fill="#FFA826"
+    />
+  </Icon>
+);
+export const MegaMenuIconPurple = (props: IconProps) => (
+  <Icon
+    width="143"
+    height="180"
+    viewBox="0 0 143 180"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g filter="url(#filter0_i_365_156)">
+      <path
+        d="M0 22.2116C0 14.7294 2.59341 7.16907 9.32575 3.90436C20.7171 -1.61964 42.6365 -4.91041 75.59 20.5592C125.748 59.3261 86.4312 66.1511 124.575 103.817C125.888 105.114 127.204 106.569 128.272 108.073C156.833 148.304 135.776 168.855 124.783 176.097C121.261 178.417 117.041 179.194 112.823 179.194H32C14.3269 179.194 0 164.867 0 147.194V22.2116Z"
+        fill="#9773FF"
+      />
+    </g>
+    <defs>
+      <filter
+        id="filter0_i_365_156"
+        x="0"
+        y="0.0300293"
+        width="142.62"
+        height="179.164"
+        filterUnits="userSpaceOnUse"
+        color-interpolation-filters="sRGB"
+      >
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feBlend
+          mode="normal"
+          in="SourceGraphic"
+          in2="BackgroundImageFix"
+          result="shape"
+        />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha"
+        />
+        <feOffset />
+        <feGaussianBlur stdDeviation="9.5" />
+        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+        <feColorMatrix
+          type="matrix"
+          values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"
+        />
+        <feBlend
+          mode="normal"
+          in2="shape"
+          result="effect1_innerShadow_365_156"
+        />
+      </filter>
+    </defs>
+  </Icon>
+);
 export const TelIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
@@ -151,6 +234,24 @@ export const LaptopIcon = (props: IconProps) => (
     />
   </Icon>
 );
+export const SecondHandIcon = (props: IconProps) => (
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="27"
+    fill="none"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M7.572 9.429a1.286 1.286 0 0 0-1.286 1.285v5.143a1.286 1.286 0 0 0 1.286 1.286h8.857a1.286 1.286 0 0 0 1.286-1.286v-5.143a1.286 1.286 0 0 0-1.286-1.285H7.572Zm-.429 1.285a.428.428 0 0 1 .429-.428h8.857a.428.428 0 0 1 .428.428v5.143a.429.429 0 0 1-.428.429H7.572a.428.428 0 0 1-.429-.429v-5.143Zm-1.571 7a.429.429 0 0 0 0 .857h12.857a.428.428 0 1 0 0-.857H5.572Z"
+    />
+    <path
+      fill="currentColor"
+      d="M10.929 23.231a.429.429 0 0 1 .428 0l2.572 1.485a.428.428 0 0 1 0 .742l-2.572 1.485a.429.429 0 0 1-.643-.372v-1.356l-.046.426A12.002 12.002 0 0 1 8.445 2.25l.253.819a11.145 11.145 0 0 0 2.016 21.714v-1.18a.429.429 0 0 1 .215-.372Zm.643 2.598 1.285-.742-1.285-.742v1.484ZM10.072 1.97 12.643.486a.429.429 0 0 1 .643.371v.929a12 12 0 0 1 2.27 23.392l-.254-.818a11.144 11.144 0 0 0-2.016-21.714v1.18a.429.429 0 0 1-.643.371l-2.571-1.484a.43.43 0 0 1 0-.743Zm2.357 1.114V1.599l-1.286.743 1.286.742Z"
+    />
+  </Icon>
+);
 export const PhoneIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
@@ -160,9 +261,9 @@ export const PhoneIcon = (props: IconProps) => (
   >
     <path
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       d="M16.66 2.59h-8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-16a2 2 0 0 0-2-2ZM12.61 18.59h.1"
     />
   </Icon>
@@ -433,7 +534,7 @@ export const HartOutlineIcon = (props: IconProps) => (
     {...props}
   >
     <path
-      fill="#15121D"
+      fill="currentColor"
       d="M11.666 1.771a4.267 4.267 0 0 0-3.667 2.2 4.267 4.267 0 0 0-3.666-2.2 4.533 4.533 0 0 0-4.334 4.7c0 3.032 3.191 6.342 5.867 8.587a3.316 3.316 0 0 0 4.267 0c2.676-2.245 5.866-5.555 5.866-8.587a4.533 4.533 0 0 0-4.333-4.7Zm-2.39 12.267a1.982 1.982 0 0 1-2.553 0c-3.426-2.874-5.39-5.631-5.39-7.567a3.2 3.2 0 0 1 3-3.366 3.2 3.2 0 0 1 3 3.366.667.667 0 1 0 1.333 0 3.2 3.2 0 0 1 3-3.366 3.2 3.2 0 0 1 3 3.366c0 1.936-1.965 4.693-5.39 7.565v.002Z"
     />
   </Icon>
@@ -954,9 +1055,9 @@ export const LampIcon = (props: IconProps) => (
     <path
       d="M8.95041 15.7102V13.7102M8.95041 21.7102H16.9504M12.9504 15.7102V21.7102M7.82241 4.13821L5.18241 12.9382C5.15562 13.0277 5.15012 13.1222 5.16632 13.2143C5.18252 13.3063 5.21999 13.3932 5.27573 13.4682C5.33148 13.5432 5.40397 13.6041 5.48742 13.6461C5.57087 13.6881 5.66298 13.7101 5.75641 13.7102H20.1444C20.2378 13.7101 20.3299 13.6881 20.4134 13.6461C20.4968 13.6041 20.5693 13.5432 20.6251 13.4682C20.6808 13.3932 20.7183 13.3063 20.7345 13.2143C20.7507 13.1222 20.7452 13.0277 20.7184 12.9382L18.0784 4.13821C18.0414 4.01465 17.9656 3.90629 17.8622 3.8292C17.7589 3.75211 17.6334 3.71038 17.5044 3.71021H8.39641C8.26744 3.71038 8.14196 3.75211 8.03857 3.8292C7.93518 3.90629 7.85938 4.01465 7.82241 4.13821V4.13821Z"
       stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </Icon>
 );
