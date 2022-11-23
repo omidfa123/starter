@@ -1,3 +1,4 @@
+import { Accordion } from './components/accordion';
 import { Select } from './components/select';
 import { Tabs } from './components/Tabs';
 import { Checkbox } from './components/checkbox';
@@ -31,6 +32,7 @@ const overrides = {
     Checkbox,
     Tabs,
     Select,
+    Accordion,
   },
 };
 

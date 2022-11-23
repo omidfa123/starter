@@ -1,6 +1,22 @@
 import { Icon } from '@chakra-ui/react';
 import type { IconProps } from '@chakra-ui/react';
 
+export const StartIcon = (props: IconProps) => (
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 14 13"
+    {...props}
+  >
+    <path
+      fill="#FFC700"
+      d="m6.592.386 1.526 4.696h4.938L9.061 7.985l1.526 4.696L6.592 9.78 2.597 12.68l1.526-4.696L.128 5.082h4.938L6.592.386Z"
+    />
+  </Icon>
+);
+
+// export const ComparisonIcon
+
 export const WavesIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
@@ -539,6 +555,31 @@ export const HartOutlineIcon = (props: IconProps) => (
     />
   </Icon>
 );
+export const HartRoundedIcon = (props: IconProps) => (
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 22 22"
+    {...props}
+  >
+    <circle
+      cx="10.862"
+      cy="11.265"
+      r="10.133"
+      stroke="#15121D"
+      strokeWidth=".8"
+    />
+    <path
+      fill="currentColor"
+      d="M13.844 6.459a3.2 3.2 0 0 0-2.75 1.65 3.2 3.2 0 0 0-2.75-1.65 3.4 3.4 0 0 0-3.25 3.525c0 2.274 2.393 4.757 4.4 6.44a2.487 2.487 0 0 0 3.2 0c2.007-1.683 4.4-4.166 4.4-6.44a3.4 3.4 0 0 0-3.25-3.525Zm-1.792 9.2a1.486 1.486 0 0 1-1.915 0c-2.57-2.155-4.043-4.224-4.043-5.675a2.4 2.4 0 0 1 2.25-2.525 2.4 2.4 0 0 1 2.25 2.525.5.5 0 1 0 1 0 2.4 2.4 0 0 1 2.25-2.525 2.4 2.4 0 0 1 2.25 2.525c0 1.451-1.473 3.52-4.042 5.673v.002Z"
+    />
+    <path
+      stroke="currentColor"
+      strokeWidth=".5"
+      d="m10.873 8.23.22.395.218-.395a2.95 2.95 0 0 1 2.528-1.52 3.15 3.15 0 0 1 3.003 3.265v.009c0 1.055-.558 2.19-1.396 3.29-.833 1.095-1.918 2.123-2.914 2.958a2.237 2.237 0 0 1-2.879 0c-.997-.835-2.081-1.864-2.914-2.958-.838-1.1-1.397-2.235-1.397-3.29v-.01A3.15 3.15 0 0 1 8.346 6.71a2.95 2.95 0 0 1 2.527 1.521Z"
+    />
+  </Icon>
+);
 
 export const ComparisonIcon = (props: IconProps) => (
   <Icon
@@ -548,10 +589,85 @@ export const ComparisonIcon = (props: IconProps) => (
     {...props}
   >
     <path
-      stroke="#fff"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeWidth=".7"
       d="M9.565 2.608H.972m1.739 1.877L.979 2.753M2.71.766.98 2.498M.972 8.326h8.593m-1.738 1.877 1.732-1.732M7.827 6.485l1.732 1.732"
+    />
+  </Icon>
+);
+export const ComparisonRoundIcon = (props: IconProps) => (
+  <Icon
+    width="22"
+    height="22"
+    viewBox="0 0 22 22"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <circle
+      cx="10.862"
+      cy="10.7995"
+      r="10.1331"
+      stroke="black"
+      strokeWidth="0.8"
+    />
+    <line
+      x1="15.1578"
+      y1="7.92227"
+      x2="6.56496"
+      y2="7.92227"
+      stroke="currentColor"
+      strokeWidth="0.7"
+      strokeLinecap="round"
+    />
+    <line
+      x1="8.30385"
+      y1="9.7998"
+      x2="6.57184"
+      y2="8.06779"
+      stroke="currentColor"
+      strokeWidth="0.7"
+      strokeLinecap="round"
+    />
+    <line
+      x1="0.35"
+      y1="-0.35"
+      x2="2.79944"
+      y2="-0.35"
+      transform="matrix(-0.707107 0.707107 0.707107 0.707107 8.79883 6.08105)"
+      stroke="currentColor"
+      strokeWidth="0.7"
+      strokeLinecap="round"
+    />
+    <line
+      x1="0.35"
+      y1="-0.35"
+      x2="8.94285"
+      y2="-0.35"
+      transform="matrix(1 8.74228e-08 8.74228e-08 -1 6.21484 13.291)"
+      stroke="currentColor"
+      strokeWidth="0.7"
+      strokeLinecap="round"
+    />
+    <line
+      x1="0.35"
+      y1="-0.35"
+      x2="2.79944"
+      y2="-0.35"
+      transform="matrix(0.707107 -0.707107 -0.707107 -0.707107 12.9238 15.5186)"
+      stroke="currentColor"
+      strokeWidth="0.7"
+      strokeLinecap="round"
+    />
+    <line
+      x1="13.4188"
+      y1="11.7998"
+      x2="15.1508"
+      y2="13.5318"
+      stroke="currentColor"
+      strokeWidth="0.7"
+      strokeLinecap="round"
     />
   </Icon>
 );

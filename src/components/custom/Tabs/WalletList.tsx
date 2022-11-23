@@ -21,14 +21,8 @@ import {
   TabPanels,
   TabPanel,
 } from '@chakra-ui/react';
-import {
-  AddIcon,
-  CircleAddIcon,
-  MinusIcon,
-  WalletIcon,
-} from 'components/common/Icons';
+import { AddIcon, MinusIcon, WalletIcon } from 'components/common/Icons';
 import WalletTables from '../Tables/WalletTables';
-
 
 function CustomRadio(props: any) {
   const { state, getInputProps, getCheckboxProps, htmlProps, getLabelProps } =
@@ -69,11 +63,10 @@ const options = [
 ];
 
 export default function WalletList() {
-  const { value, getRadioProps, getRootProps } = useRadioGroup({
+  const { getRadioProps, getRootProps } = useRadioGroup({
     defaultValue: '۱۰٬۰۰۰',
     onChange: console.log,
   });
-  const group = getRootProps();
   return (
     <Grid h="max-content" gridTemplateColumns="3fr 4fr" p="20px 0 16px 24px">
       <VStack spacing="56px" alignSelf="center" ml={2}>
