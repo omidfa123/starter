@@ -35,6 +35,7 @@ export default function ProductsGrid({ isLoading }: { isLoading: boolean }) {
         if (isLoading) {
           return (
             <Center
+              key={index}
               h={402}
               rounded={32}
               bgColor="white"
