@@ -13,6 +13,7 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
+  Link,
 } from '@chakra-ui/react';
 import {
   AngleDownIcon,
@@ -23,6 +24,7 @@ import {
   PcIcon,
   PhoneIcon,
 } from 'components/common/Icons';
+import NextLink from 'components/custom/NextLink';
 import { Dispatch, ReactNode, SetStateAction, useState } from 'react';
 const menus = {
   mobile: [
@@ -179,7 +181,11 @@ export default function MegaMenu({
                   alignItems="baseline"
                   gap="8px 32px"
                 >
-                  <HeadMenu>موبایل</HeadMenu>
+                  <NextLink href="/products">
+                    <Link>
+                      <HeadMenu>موبایل</HeadMenu>
+                    </Link>
+                  </NextLink>
                   {menus.mobile.map(menu => (
                     <ListItem
                       key={menu}
@@ -187,10 +193,16 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                      {menu}
+                      <NextLink href="/products">
+                        <Link>{menu}</Link>
+                      </NextLink>
                     </ListItem>
                   ))}
-                  <HeadMenu>لپ تاپ</HeadMenu>
+                  <NextLink href="/products">
+                    <Link>
+                      <HeadMenu>لپ تاپ</HeadMenu>
+                    </Link>
+                  </NextLink>
                   {menus.laptop.map(menu => (
                     <ListItem
                       key={menu}
@@ -198,10 +210,16 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                      {menu}
+                        <NextLink href="/products">
+                        <Link>{menu}</Link>
+                      </NextLink>
                     </ListItem>
                   ))}
-                  <HeadMenu>تبلت</HeadMenu>
+                  <NextLink href="/products">
+                    <Link>
+                      <HeadMenu>تبلت</HeadMenu>
+                    </Link>
+                  </NextLink>
                   {menus.tablet.map(menu => (
                     <ListItem
                       key={menu}
@@ -209,10 +227,16 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                      {menu}
+                       <NextLink href="/products">
+                        <Link>{menu}</Link>
+                      </NextLink>
                     </ListItem>
                   ))}
-                  <HeadMenu>رهباب ماهواره ای</HeadMenu>
+                  <NextLink href="/products">
+                    <Link>
+                      <HeadMenu>رهباب ماهواره ای</HeadMenu>
+                    </Link>
+                  </NextLink>
                   {menus.tracking.map(menu => (
                     <ListItem
                       key={menu}
@@ -220,10 +244,16 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                      {menu}
+                       <NextLink href="/products">
+                        <Link>{menu}</Link>
+                      </NextLink>
                     </ListItem>
                   ))}
-                  <HeadMenu>ساعت هوشمند</HeadMenu>
+                  <NextLink href="/products">
+                    <Link>
+                      <HeadMenu>ساعت هوشمند</HeadMenu>
+                    </Link>
+                  </NextLink>
                   {menus.watch.map(menu => (
                     <ListItem
                       key={menu}
@@ -231,10 +261,16 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                      {menu}
+                     <NextLink href="/products">
+                        <Link>{menu}</Link>
+                      </NextLink>
                     </ListItem>
                   ))}
-                  <HeadMenu>مچ بند هوشمند</HeadMenu>
+                  <NextLink href="/products">
+                    <Link>
+                      <HeadMenu>مچ بند هوشمند</HeadMenu>
+                    </Link>
+                  </NextLink>
 
                   <ListItem
                     key={menus.watchSmart}
@@ -244,7 +280,11 @@ export default function MegaMenu({
                   >
                     {menus.watchSmart}
                   </ListItem>
-                  <HeadMenu>کامپیوتر</HeadMenu>
+                  <NextLink href="/products">
+                    <Link>
+                      <HeadMenu>کامپیوتر</HeadMenu>
+                    </Link>
+                  </NextLink>
                   {menus.pc.map(menu => (
                     <ListItem
                       key={menu}
@@ -252,10 +292,16 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                      {menu}
+                        <NextLink href="/products">
+                        <Link>{menu}</Link>
+                      </NextLink>
                     </ListItem>
                   ))}
-                  <HeadMenu>ماشین های اداری</HeadMenu>
+                  <NextLink href="/products">
+                    <Link>
+                      <HeadMenu>ماشین های اداری</HeadMenu>
+                    </Link>
+                  </NextLink>
                   {menus.organization.map(menu => (
                     <ListItem
                       key={menu}
@@ -263,10 +309,16 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                      {menu}
+                       <NextLink href="/products">
+                        <Link>{menu}</Link>
+                      </NextLink>
                     </ListItem>
                   ))}
-                  <HeadMenu>شبکه</HeadMenu>
+                  <NextLink href="/products">
+                    <Link>
+                      <HeadMenu>شبکه</HeadMenu>
+                    </Link>
+                  </NextLink>
                   {menus.network.map(menu => (
                     <ListItem
                       key={menu}
@@ -274,10 +326,16 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                      {menu}
+                       <NextLink href="/products">
+                        <Link>{menu}</Link>
+                      </NextLink>
                     </ListItem>
                   ))}
-                  <HeadMenu>دوربین عکاسی</HeadMenu>
+                  <NextLink href="/products">
+                    <Link>
+                      <HeadMenu>دوربین عکاسی</HeadMenu>
+                    </Link>
+                  </NextLink>
                   {menus.camera.map(menu => (
                     <ListItem
                       key={menu}
@@ -285,10 +343,16 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                      {menu}
+                        <NextLink href="/products">
+                        <Link>{menu}</Link>
+                      </NextLink>
                     </ListItem>
                   ))}
-                  <HeadMenu>کنسول و تجهیزات بازی</HeadMenu>
+                  <NextLink href="/products">
+                    <Link>
+                      <HeadMenu>کنسول و تجهیزات بازی</HeadMenu>
+                    </Link>
+                  </NextLink>
                   {menus.gaming.map(menu => (
                     <ListItem
                       key={menu}
@@ -296,10 +360,16 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                      {menu}
+                        <NextLink href="/products">
+                        <Link>{menu}</Link>
+                      </NextLink>
                     </ListItem>
                   ))}
-                  <HeadMenu>لوازم جانبی</HeadMenu>
+                  <NextLink href="/products">
+                    <Link>
+                      <HeadMenu>لوازم جانبی</HeadMenu>
+                    </Link>
+                  </NextLink>
                   {menus.extensions.map(menu => (
                     <ListItem
                       key={menu}
@@ -307,7 +377,9 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                      {menu}
+                       <NextLink href="/products">
+                        <Link>{menu}</Link>
+                      </NextLink>
                     </ListItem>
                   ))}
                 </List>
