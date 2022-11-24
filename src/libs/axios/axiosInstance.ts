@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-const baseUrl = 'http://ms_02_nginx/api/v1';
+const baseUrl = 'http://127.0.0.1:8082';
 
 const config: AxiosRequestConfig = {
   baseURL: baseUrl,
