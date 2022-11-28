@@ -9,7 +9,7 @@ import type { AppProps } from 'next/app';
 import type { DehydratedState } from '@tanstack/react-query';
 import { useRef } from 'react';
 import 'styles/global.css';
-
+import 'keen-slider/keen-slider.min.css';
 function MyApp({
   Component,
   pageProps,

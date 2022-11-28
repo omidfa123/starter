@@ -488,6 +488,19 @@ export const DiamondIcon = (props: IconProps) => (
     </defs>
   </Icon>
 );
+export const DiamondGryIcon = (props: IconProps) => (
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 10 11"
+    {...props}
+  >
+    <path
+      fill="#ADADAD"
+      d="M8.264 5.197C6.543 4.363 5.286 2.66 4.934.607c-.355 2.054-1.61 3.756-3.33 4.59-.337.161-1.17.411-1.17.411s.833.249 1.17.412c1.72.832 2.977 2.536 3.33 4.59.354-2.054 1.609-3.756 3.33-4.59.334-.161 1.17-.412 1.17-.412s-.836-.25-1.17-.411Z"
+    />
+  </Icon>
+);
 export const CornerLinesIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
@@ -683,6 +696,9 @@ export const StarIcon = (props: IconProps) => (
       d="M7.195.387 8.72 5.084h4.938L9.664 7.986l1.526 4.697L7.195 9.78 3.2 12.683l1.526-4.697L.73 5.084h4.938L7.195.387Z"
     />
   </Icon>
+);
+export const StarFilledIcon = (props: IconProps) => (
+<Icon xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 17" {...props}><path fill="#FFC700" d="m.883 8.717 2.373 1.733-.901 2.792a2.119 2.119 0 0 0 .79 2.408 2.118 2.118 0 0 0 2.533-.012l2.32-1.708 2.321 1.706a2.15 2.15 0 0 0 3.322-2.394l-.9-2.792 2.373-1.733a2.152 2.152 0 0 0-1.267-3.888h-2.915l-.885-2.757a2.151 2.151 0 0 0-4.097 0l-.885 2.757H2.152A2.151 2.151 0 0 0 .886 8.717H.883Z"/></Icon>
 );
 
 export const ArrowIcon = (props: IconProps) => (
@@ -1409,3 +1425,5 @@ export const MenuShapeIcon = (props: IconProps) => (
     </defs>
   </Icon>
 );
+
+// export const ExpressDeliveryIcon
