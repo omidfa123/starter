@@ -179,9 +179,9 @@ export const MegaMenuIconPurple = (props: IconProps) => (
         width="142.62"
         height="179.164"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feBlend
           mode="normal"
           in="SourceGraphic"
@@ -698,7 +698,17 @@ export const StarIcon = (props: IconProps) => (
   </Icon>
 );
 export const StarFilledIcon = (props: IconProps) => (
-<Icon xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 17" {...props}><path fill="#FFC700" d="m.883 8.717 2.373 1.733-.901 2.792a2.119 2.119 0 0 0 .79 2.408 2.118 2.118 0 0 0 2.533-.012l2.32-1.708 2.321 1.706a2.15 2.15 0 0 0 3.322-2.394l-.9-2.792 2.373-1.733a2.152 2.152 0 0 0-1.267-3.888h-2.915l-.885-2.757a2.151 2.151 0 0 0-4.097 0l-.885 2.757H2.152A2.151 2.151 0 0 0 .886 8.717H.883Z"/></Icon>
+  <Icon
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 16 17"
+    {...props}
+  >
+    <path
+      fill="#FFC700"
+      d="m.883 8.717 2.373 1.733-.901 2.792a2.119 2.119 0 0 0 .79 2.408 2.118 2.118 0 0 0 2.533-.012l2.32-1.708 2.321 1.706a2.15 2.15 0 0 0 3.322-2.394l-.9-2.792 2.373-1.733a2.152 2.152 0 0 0-1.267-3.888h-2.915l-.885-2.757a2.151 2.151 0 0 0-4.097 0l-.885 2.757H2.152A2.151 2.151 0 0 0 .886 8.717H.883Z"
+    />
+  </Icon>
 );
 
 export const ArrowIcon = (props: IconProps) => (
@@ -892,7 +902,7 @@ export const TrashIcon = (props: IconProps) => (
     viewBox="0 0 12 13"
     {...props}
   >
-    <g fill="#fff">
+    <g fill="currentColor">
       <path d="M10.5 2.775H8.95a2.505 2.505 0 0 0-2.45-2h-1a2.505 2.505 0 0 0-2.45 2H1.5a.5.5 0 1 0 0 1H2v6.5a2.503 2.503 0 0 0 2.5 2.5h3a2.503 2.503 0 0 0 2.5-2.5v-6.5h.5a.5.5 0 0 0 0-1Zm-5-1h1a1.503 1.503 0 0 1 1.415 1h-3.83a1.503 1.503 0 0 1 1.415-1Zm3.5 8.5a1.5 1.5 0 0 1-1.5 1.5h-3a1.5 1.5 0 0 1-1.5-1.5v-6.5h6v6.5Z" />
       <path d="M5 9.775a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-1 0v3a.5.5 0 0 0 .5.5Zm2 0a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-1 0v3a.5.5 0 0 0 .5.5Z" />
     </g>
@@ -906,7 +916,7 @@ export const AddIcon = (props: IconProps) => (
     {...props}
   >
     <path
-      stroke="#fff"
+      stroke="currentColor"
       strokeLinecap="round"
       d="M.799 3.731H6.53M3.576.91v5.73"
     />
@@ -919,7 +929,7 @@ export const MinusIcon = (props: IconProps) => (
     viewBox="0 0 7 2"
     {...props}
   >
-    <path stroke="#fff" strokeLinecap="round" d="M.53.731h5.73" />
+    <path stroke="CurrentColor" strokeLinecap="round" d="M.53.731h5.73" />
   </Icon>
 );
 export const EditIcon = (props: IconProps) => (
@@ -1282,9 +1292,9 @@ export const MenuShapeIcon = (props: IconProps) => (
         width="182.62"
         height="219.164"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix
           in="SourceAlpha"
           type="matrix"
@@ -1331,9 +1341,9 @@ export const MenuShapeIcon = (props: IconProps) => (
         width="163.649"
         height="195.333"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix
           in="SourceAlpha"
           type="matrix"
@@ -1380,9 +1390,9 @@ export const MenuShapeIcon = (props: IconProps) => (
         width="142.518"
         height="168.787"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix
           in="SourceAlpha"
           type="matrix"

@@ -210,7 +210,7 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                        <NextLink href="/products">
+                      <NextLink href="/products">
                         <Link>{menu}</Link>
                       </NextLink>
                     </ListItem>
@@ -227,7 +227,7 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                       <NextLink href="/products">
+                      <NextLink href="/products">
                         <Link>{menu}</Link>
                       </NextLink>
                     </ListItem>
@@ -244,7 +244,7 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                       <NextLink href="/products">
+                      <NextLink href="/products">
                         <Link>{menu}</Link>
                       </NextLink>
                     </ListItem>
@@ -261,7 +261,7 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                     <NextLink href="/products">
+                      <NextLink href="/products">
                         <Link>{menu}</Link>
                       </NextLink>
                     </ListItem>
@@ -292,7 +292,7 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                        <NextLink href="/products">
+                      <NextLink href="/products">
                         <Link>{menu}</Link>
                       </NextLink>
                     </ListItem>
@@ -309,7 +309,7 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                       <NextLink href="/products">
+                      <NextLink href="/products">
                         <Link>{menu}</Link>
                       </NextLink>
                     </ListItem>
@@ -326,7 +326,7 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                       <NextLink href="/products">
+                      <NextLink href="/products">
                         <Link>{menu}</Link>
                       </NextLink>
                     </ListItem>
@@ -343,7 +343,7 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                        <NextLink href="/products">
+                      <NextLink href="/products">
                         <Link>{menu}</Link>
                       </NextLink>
                     </ListItem>
@@ -360,7 +360,7 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                        <NextLink href="/products">
+                      <NextLink href="/products">
                         <Link>{menu}</Link>
                       </NextLink>
                     </ListItem>
@@ -377,7 +377,7 @@ export default function MegaMenu({
                       color="description"
                       pr="1"
                     >
-                       <NextLink href="/products">
+                      <NextLink href="/products">
                         <Link>{menu}</Link>
                       </NextLink>
                     </ListItem>
@@ -456,8 +456,8 @@ export default function MegaMenu({
                       result="inverse"
                     />
                     <feFlood
-                      flood-color="white"
-                      flood-opacity=".95"
+                      floodColor="white"
+                      floodOpacity=".95"
                       result="color"
                     />
                     <feComposite
