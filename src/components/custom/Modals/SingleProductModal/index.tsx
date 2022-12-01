@@ -16,6 +16,7 @@ import {
 import { useKeenSlider } from 'keen-slider/react';
 import Image from 'next/future/image';
 import { useEffect, useState } from 'react';
+import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch';
 
 export default function SingleProductModal({
   isOpen,
@@ -161,27 +162,37 @@ export default function SingleProductModal({
               ref={sliderRef}
               className="keen-slider"
               sx={{
-                '& > div': {
+                '&  div': {
                   w: '525px',
                   h: '423px',
                 },
               }}
             >
-              <Box className="keen-slider__slide number-slide1">
-                <Image src="/images/monitor.png" fill alt="monitor" />
-              </Box>
-              <Box className="keen-slider__slide number-slide2">
-                <Image src="/images/tumb2.png" fill alt="monitor" />
-              </Box>
-              <Box className="keen-slider__slide number-slide3">
-                <Image src="/images/tumb3.png" fill alt="monitor" />
-              </Box>
-              <Box className="keen-slider__slide number-slide4">
-                <Image src="/images/tumb4.png" fill alt="monitor" />
-              </Box>
-              <Box className="keen-slider__slide number-slide5">
-                <Image src="/images/tumb5.png" fill alt="monitor" />
-              </Box>
+              <TransformWrapper>
+                <TransformComponent wrapperClass="keen-slider__slide">
+                  <Image src="/images/monitor.png" fill alt="monitor" />
+                </TransformComponent>
+              </TransformWrapper>
+              <TransformWrapper>
+                <TransformComponent wrapperClass="keen-slider__slide">
+                  <Image src="/images/tumb2.png" fill alt="monitor" />
+                </TransformComponent>
+              </TransformWrapper>
+              <TransformWrapper>
+                <TransformComponent wrapperClass="keen-slider__slide">
+                  <Image src="/images/tumb3.png" fill alt="monitor" />
+                </TransformComponent>
+              </TransformWrapper>
+              <TransformWrapper>
+                <TransformComponent wrapperClass="keen-slider__slide">
+                  <Image src="/images/tumb4.png" fill alt="monitor" />
+                </TransformComponent>
+              </TransformWrapper>
+              <TransformWrapper>
+                <TransformComponent wrapperClass="keen-slider__slide">
+                  <Image src="/images/tumb5.png" fill alt="monitor" />
+                </TransformComponent>
+              </TransformWrapper>
             </Box>
           </Center>
         </ModalBody>
