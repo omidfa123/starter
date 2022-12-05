@@ -14,6 +14,7 @@ import {
   TabPanels,
   Tabs,
   Link,
+  useDisclosure,
 } from '@chakra-ui/react';
 import {
   AngleDownIcon,
@@ -113,6 +114,7 @@ export default function MegaMenu({
   >;
 }) {
   const [tabIndex, setTabIndex] = useState(0);
+  const { isOpen, onClose, onOpen } = useDisclosure();
   return (
     <Popover
       isLazy
@@ -120,6 +122,9 @@ export default function MegaMenu({
       offset={[-195, 20]}
       trigger="hover"
       openDelay={0}
+      isOpen={isOpen}
+      onClose={onClose}
+      onOpen={onOpen}
     >
       <PopoverTrigger>
         <ListItem
@@ -182,7 +187,7 @@ export default function MegaMenu({
                   gap="8px 32px"
                 >
                   <NextLink href="/products">
-                    <Link>
+                    <Link onClick={onClose}>
                       <HeadMenu>موبایل</HeadMenu>
                     </Link>
                   </NextLink>
@@ -194,12 +199,12 @@ export default function MegaMenu({
                       pr="1"
                     >
                       <NextLink href="/products">
-                        <Link>{menu}</Link>
+                        <Link onClick={onClose}>{menu}</Link>
                       </NextLink>
                     </ListItem>
                   ))}
                   <NextLink href="/products">
-                    <Link>
+                    <Link onClick={onClose}>
                       <HeadMenu>لپ تاپ</HeadMenu>
                     </Link>
                   </NextLink>
@@ -211,12 +216,12 @@ export default function MegaMenu({
                       pr="1"
                     >
                       <NextLink href="/products">
-                        <Link>{menu}</Link>
+                        <Link onClick={onClose}>{menu}</Link>
                       </NextLink>
                     </ListItem>
                   ))}
                   <NextLink href="/products">
-                    <Link>
+                    <Link onClick={onClose}>
                       <HeadMenu>تبلت</HeadMenu>
                     </Link>
                   </NextLink>
@@ -228,13 +233,13 @@ export default function MegaMenu({
                       pr="1"
                     >
                       <NextLink href="/products">
-                        <Link>{menu}</Link>
+                        <Link onClick={onClose}>{menu}</Link>
                       </NextLink>
                     </ListItem>
                   ))}
                   <NextLink href="/products">
-                    <Link>
-                      <HeadMenu>رهباب ماهواره ای</HeadMenu>
+                    <Link onClick={onClose}>
+                      <HeadMenu >رهباب ماهواره ای</HeadMenu>
                     </Link>
                   </NextLink>
                   {menus.tracking.map(menu => (
@@ -245,12 +250,12 @@ export default function MegaMenu({
                       pr="1"
                     >
                       <NextLink href="/products">
-                        <Link>{menu}</Link>
+                        <Link onClick={onClose}>{menu}</Link>
                       </NextLink>
                     </ListItem>
                   ))}
                   <NextLink href="/products">
-                    <Link>
+                    <Link onClick={onClose}>
                       <HeadMenu>ساعت هوشمند</HeadMenu>
                     </Link>
                   </NextLink>
@@ -262,12 +267,12 @@ export default function MegaMenu({
                       pr="1"
                     >
                       <NextLink href="/products">
-                        <Link>{menu}</Link>
+                        <Link onClick={onClose}>{menu}</Link>
                       </NextLink>
                     </ListItem>
                   ))}
                   <NextLink href="/products">
-                    <Link>
+                    <Link onClick={onClose}>
                       <HeadMenu>مچ بند هوشمند</HeadMenu>
                     </Link>
                   </NextLink>
@@ -281,7 +286,7 @@ export default function MegaMenu({
                     {menus.watchSmart}
                   </ListItem>
                   <NextLink href="/products">
-                    <Link>
+                    <Link onClick={onClose}>
                       <HeadMenu>کامپیوتر</HeadMenu>
                     </Link>
                   </NextLink>
@@ -293,12 +298,12 @@ export default function MegaMenu({
                       pr="1"
                     >
                       <NextLink href="/products">
-                        <Link>{menu}</Link>
+                        <Link onClick={onClose}>{menu}</Link>
                       </NextLink>
                     </ListItem>
                   ))}
                   <NextLink href="/products">
-                    <Link>
+                    <Link onClick={onClose}>
                       <HeadMenu>ماشین های اداری</HeadMenu>
                     </Link>
                   </NextLink>
@@ -310,12 +315,12 @@ export default function MegaMenu({
                       pr="1"
                     >
                       <NextLink href="/products">
-                        <Link>{menu}</Link>
+                        <Link onClick={onClose}>{menu}</Link>
                       </NextLink>
                     </ListItem>
                   ))}
                   <NextLink href="/products">
-                    <Link>
+                    <Link onClick={onClose}>
                       <HeadMenu>شبکه</HeadMenu>
                     </Link>
                   </NextLink>
@@ -332,7 +337,7 @@ export default function MegaMenu({
                     </ListItem>
                   ))}
                   <NextLink href="/products">
-                    <Link>
+                    <Link onClick={onClose}>
                       <HeadMenu>دوربین عکاسی</HeadMenu>
                     </Link>
                   </NextLink>
@@ -344,12 +349,12 @@ export default function MegaMenu({
                       pr="1"
                     >
                       <NextLink href="/products">
-                        <Link>{menu}</Link>
+                        <Link onClick={onClose}>{menu}</Link>
                       </NextLink>
                     </ListItem>
                   ))}
                   <NextLink href="/products">
-                    <Link>
+                    <Link onClick={onClose}>
                       <HeadMenu>کنسول و تجهیزات بازی</HeadMenu>
                     </Link>
                   </NextLink>
@@ -361,12 +366,12 @@ export default function MegaMenu({
                       pr="1"
                     >
                       <NextLink href="/products">
-                        <Link>{menu}</Link>
+                        <Link onClick={onClose}>{menu}</Link>
                       </NextLink>
                     </ListItem>
                   ))}
                   <NextLink href="/products">
-                    <Link>
+                    <Link onClick={onClose}>
                       <HeadMenu>لوازم جانبی</HeadMenu>
                     </Link>
                   </NextLink>
@@ -378,7 +383,7 @@ export default function MegaMenu({
                       pr="1"
                     >
                       <NextLink href="/products">
-                        <Link>{menu}</Link>
+                        <Link onClick={onClose}>{menu}</Link>
                       </NextLink>
                     </ListItem>
                   ))}

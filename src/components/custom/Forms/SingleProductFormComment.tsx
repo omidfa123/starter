@@ -39,7 +39,7 @@ const defaultValues = {
 };
 
 const options = [
-  { value: 'خیلی ضعیف', label: '💩' },
+  { value: 'خیلی ضعیف', label: '😔' },
   { value: 'ضعیف', label: '👎' },
   { value: 'خوب', label: '👍' },
   { value: 'خیلی خوب', label: '👏' },
