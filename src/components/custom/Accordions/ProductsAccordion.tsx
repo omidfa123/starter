@@ -54,7 +54,6 @@ function CustomRadio(props: any) {
 export default function ProductsAccordion({ setIsLoading }: any) {
   const { getRadioProps, getRootProps } = useRadioGroup({
     defaultValue: '20',
-    onChange: console.log,
   });
   return (
     <Flex

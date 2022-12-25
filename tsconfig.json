@@ -16,6 +16,6 @@
     "incremental": true,
     "baseUrl": "src"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/theme/components"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/theme/components", "src/components/common/Footer/FooterDesktop/index.tsx"],
   "exclude": ["node_modules"]
 }

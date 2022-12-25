@@ -74,7 +74,6 @@ function CustomRadio(props: any) {
 export default function SingleProductFormComment() {
   const { getRadioProps, getRootProps } = useRadioGroup({
     defaultValue: 'خیلی ضعیف',
-    onChange: console.log,
   });
   const [strengths, setStrengths] = useState<string[]>([]);
   const [weakness, setWeakness] = useState<string[]>([]);

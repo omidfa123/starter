@@ -19,7 +19,6 @@ const deleteAddress = async ({ id, token }: { id: number; token: string }) => {
   const { data } = await axiosInstance.delete(`/user/address/${id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
-  console.log(data);
   return data;
 };
 

@@ -1,10 +1,15 @@
 export const styles = {
   global: (props: any) => ({
-    'html , body , #__next ': {
-      minH: 'max-content',
+    'html , body': {
+      h: '100%',
+    },
+    "#__next" : {
+      display: "flex" ,
+      flexDir: 'column' ,
+      h: 'inherit'
     },
     body: {
-      bgGradient: 'linear(180deg, #FFF5F7 0%, #F5F9FF 100%)',
+      bgGradient: ["linear( white , white )" , 'linear(180deg, #FFF5F7 0%, #F5F9FF 100%)'],
       color: 'text',
       fontFamily:
         'iransansx,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
@@ -21,6 +26,9 @@ export const styles = {
       right: 'unset',
       left: '1',
     },
+    '.css-f3bt6g' : {
+      zIndex: '1 !important' ,
+    }
   }),
 };
 

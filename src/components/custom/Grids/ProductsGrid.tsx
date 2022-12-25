@@ -24,7 +24,6 @@ import NextLink from '../NextLink';
 export default function ProductsGrid({ isLoading }: { isLoading: boolean }) {
   const [hovered, setHovered] = useState(-1);
   const router = useRouter();
-  console.log(hovered);
   return (
     <Grid
       gridArea="products"

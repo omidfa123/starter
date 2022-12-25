@@ -61,7 +61,6 @@ export default function AddressForm({
   setIsUpdate: Dispatch<SetStateAction<undefined>>;
   isUpdate: any;
 }) {
-  console.log(isUpdate);
 
   const queryClient = useQueryClient();
   const {
@@ -87,7 +86,6 @@ export default function AddressForm({
     formState: { errors },
   } = useFormContext<AddressInputs>();
   const onSubmit: SubmitHandler<AddressInputs> = data => {
-    console.log(data);
     const addressInfo = {
       ...data,
       user_id: user.id,

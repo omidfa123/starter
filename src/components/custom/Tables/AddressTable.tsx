@@ -47,7 +47,6 @@ export default function AddressTable({
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { data } = useUser(token, user.id);
-  console.log(data);
   const queryClient = useQueryClient();
   const { mutate, isLoading, isError, isSuccess } = useMutation({
     mutationFn: patchAddress,

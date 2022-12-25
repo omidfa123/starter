@@ -59,7 +59,6 @@ function CustomRadio(props: any) {
 export default function SingleProductsDetails() {
   const { getRadioProps, getRootProps } = useRadioGroup({
     defaultValue: '#15121D',
-    onChange: console.log,
   });
   return (
     <>

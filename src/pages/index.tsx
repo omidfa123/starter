@@ -10,7 +10,7 @@ const Home: NextPage = () => {
         <meta content="فروشگاه" name="description" />
         <meta name="robots" content="follow, index" />
       </Head>
-      <Center py="10rem">
+      <Center as="main" flex="1">
         <Heading textColor="primary.500">صفحه اصلی</Heading>
       </Center>
     </>

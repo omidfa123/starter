@@ -6,7 +6,7 @@ import type { NextPage } from 'next';
 
 const ErrorServer: NextPage = () => {
   return (
-    <Box as="main" layerStyle="container" py={['44px', '54px', '64px']}>
+    <Box as="main" flex="1" layerStyle="container" py={['44px', '54px', '64px']}>
       <VStack gap={[2, 3, 4]}>
         <Heading as="h1" fontSize={[10, 16, 20, 24]}>
           بعضی وقتا بعضی چیزا درست کار نمیکنه، صبور باشید و چند دقیقه دیگه بهمون

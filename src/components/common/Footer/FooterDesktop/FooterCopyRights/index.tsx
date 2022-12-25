@@ -1,5 +1,5 @@
 import { Box, Center, Grid } from '@chakra-ui/react';
-import { InstagramIcon, LinkedinIcon, WhatsappIcon } from '../../Icons';
+import { InstagramIcon, LinkedinIcon, WhatsappIcon } from '../../../Icons';
 
 export default function FooterCopyRights() {
   const bgColor =
