@@ -9,7 +9,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
-import { ChakraBox } from 'components/common/Header/Naves/NavUnderLine';
+import { ChakraBox } from 'components/common/Header/HeaderNormal/Naves/NavUnderLine';
 import {
   AngleDownIcon,
   ComparisonRoundIcon,
