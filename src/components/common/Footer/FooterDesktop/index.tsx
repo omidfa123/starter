@@ -102,7 +102,9 @@ export default function FooterDesktop() {
         "about   about   about   number "`,
         ]}
         pb={[8, 12, 10]}
-        layerStyle="container"
+        maxW="1440"
+        mx={{base:10 , lg: 'auto'}}
+        px={{base:0 , lg: 9}}
         rowGap={[8, 8, 10]}
         columnGap={[5]}
         justifyItems={{ base: 'center', md: 'start' }}

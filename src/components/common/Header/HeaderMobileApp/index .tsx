@@ -55,7 +55,7 @@ function HeaderMobileApp() {
       /> 
         </Flex>
        <Box overflow="auto">
-       <List px="9" spacing="6" mb="72px" >
+       <List px="9" spacing="6" mb="12" >
         {list.map(li => (
              <ListItem  key={li.bgColor} bgColor={li.bgColor} rounded="12" boxShadow={"2px 3px 0px #15121d"} border="1.5px solid #15121d" h="10" pr="10px"  >
              <ListIcon as={li.icon}   boxSize="5" filter="drop-shadow(0px 0px 4px rgba(21, 18, 29, 0.25))" />
@@ -65,7 +65,7 @@ function HeaderMobileApp() {
         ))}
         </List>
 
-        <List display={"flex"} gap="6" px="9"  mb="135px" >
+        <List display={"flex"} gap="6" px="9" justifyContent="center" mb="135px" >
         {socials.map((social , index)=> (
             <ListItem key={index}rounded="20" bgGradient={social.bgGradient} border="1.5px solid #15121d" boxShadow={"2px 3px 0px #15121d"} boxSize="93px"><ListIcon as={social.icon} color="white" boxSize={12}  mx="auto"  /></ListItem>
         ))}

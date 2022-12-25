@@ -13,9 +13,9 @@ export default function FooterCopyRights() {
         gridTemplateRows={['20px 40px', '40px']}
         alignItems="center"
         justifyItems="center"
-        maxW="1280px"
-        mx="auto"
-        px={[0, 0, 32]}
+        maxW="1440px"
+        mx={{ lg: 'auto'}}
+        px={{base:0 , md: 9}}
         rowGap={[2, 0]}
         columnGap={[0, 0, 2]}
       >

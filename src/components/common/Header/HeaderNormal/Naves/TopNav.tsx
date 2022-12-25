@@ -23,6 +23,7 @@ export default function TopNav({ isMobile = false }: { isMobile?: boolean }) {
         '& li:active': { color: 'disableText' },
       }}
       py={3.5}
+      w="max-content"
     >
       {topNavLinks.map(link => (
         <ListItem key={link.href}>

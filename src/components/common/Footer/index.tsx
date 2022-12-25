@@ -9,9 +9,9 @@ function Footer() {
     <Show above="sm">
     <FooterDesktop/>
     </Show>
-    <Hide above="sm">
+    <Show below="sm">
    <FooterMobileApp/>
-    </Hide>
+    </Show>
     </>
   )
 }

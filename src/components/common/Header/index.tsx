@@ -1,4 +1,4 @@
-import { Box, Hide, Show } from "@chakra-ui/react";
+import { Show } from "@chakra-ui/react";
 import HeaderMobileApp from "./HeaderMobileApp/index ";
 import HeaderNormal from "./HeaderNormal";
 
@@ -10,9 +10,9 @@ export default function Header() {
     <Show above="sm">
       <HeaderNormal/>
     </Show>
-    <Hide above="sm">
+    <Show below="sm">
    <HeaderMobileApp/>
-    </Hide>
+    </Show>
     </>
   );
 }

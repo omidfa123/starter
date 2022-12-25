@@ -17,8 +17,8 @@ import {
 import NextLink from 'components/custom/NextLink';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import NavUnderLine from '../NavUnderLine';
-import MegaMenu from './MegaMenu';
+import NavUnderLine from './src/components/common/Header/HeaderNormal/Naves/NavUnderLine';
+import MegaMenu from './src/components/common/Header/HeaderNormal/Naves/NavList/MegaMenu';
 const navList = [
   { href: '/assembly', text: 'کیس اسمبل شده', position: ' -124px' },
   { href: '/assembly/online', text: 'اسمبل آنلاین', position: '-246px' },
@@ -34,12 +34,14 @@ export default function NavList({ isMobile = false }: { isMobile?: boolean }) {
       display={[display, display, 'flex']}
       flexDir={{ base: 'column', md: 'row' }}
       py={{ base: 3.5, md: 0 }}
-      gridArea="navList"
-      justifySelf="center"
+      gridColumn={{base: '1 / span 2' , lg: "2 /5"}}
+      justifySelf="end"
+      gridRow="2"
       textStyle={{ base: 'medium16', md: 'medium14' }}
       color="disableText"
       sx={{ '& li': { '&:hover': { color: 'text' }, pl: '6' } }}
       pos="relative"
+      w="max-content"
     >
       <MegaMenu setAnimate={setAnimate} />
 

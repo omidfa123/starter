@@ -30,7 +30,7 @@ import {
 import Logo from 'components/custom/Logo';
 import MobileMenu from './MobileMenu';
 import TopNav from './Naves/TopNav';
-import NavList from './Naves/NavList';
+import NavList from '../../../../..';
 import { destroyCookie, parseCookies } from 'nookies';
 import NextLink from 'components/custom/NextLink';
 import { useCallback, useEffect, useState } from 'react';
@@ -38,34 +38,35 @@ import { useRouter } from 'next/router';
 import SearchInput from './SearchInput';
 
 function HeaderNormal() {
+  const {user_info} = parseCookies()
   const { isOpen, onClose, onOpen } = useDisclosure();
-  const [cookies, setCookies] = useState<any>(undefined);
+  // const [cookies, setCookies] = useState<any>(undefined);
   const router = useRouter();
-  const checkCookies =
-    typeof window !== 'undefined' ? document.cookie : undefined;
-  const getCookies = useCallback(() => parseCookies(), [checkCookies]);
-  useEffect(() => {
-    const cookies = getCookies();
-    if (cookies.user_info !== undefined) {
-      setCookies(JSON.parse(cookies?.user_info));
-    }
-  }, [getCookies]);
-  const handleLogout = () => {
-    destroyCookie(null, 'access_token', {
-      path: '/',
-    });
-    destroyCookie(null, 'user_info', {
-      path: '/',
-    });
-    setCookies(undefined);
-    router.push('/');
-  };
+  // const checkCookies =
+  //   typeof window !== 'undefined' ? document.cookie : undefined;
+  // const getCookies = useCallback(() => parseCookies(), [checkCookies]);
+  // useEffect(() => {
+  //   const cookies = getCookies();
+  //   if (cookies.user_info !== undefined) {
+  //     setCookies(JSON.parse(cookies?.user_info));
+  //   }
+  // }, [getCookies]);
+  // const handleLogout = () => {
+  //   destroyCookie(null, 'access_token', {
+  //     path: '/',
+  //   });
+  //   destroyCookie(null, 'user_info', {
+  //     path: '/',
+  //   });
+  //   setCookies(undefined);
+  //   router.push('/');
+  // };
   return (
     <>
       <Box as="header">
         <Box
           minH={['4.5625rem', '3.625rem', '3rem']}
-          maxW="1280px"
+          maxW="1440px"
           w="full"
           bgGradient="linear(90deg, bgGradient.one 0%, bgGradient.two 100%)"
           shadow={'0px 4px 8px rgba(0, 0, 0, 0.03)'}
@@ -80,18 +81,19 @@ function HeaderNormal() {
           gridTemplateColumns={[
             'repeat(3, 1fr)',
             'repeat(3, 1fr)',
+            'repeat(2, 1fr)',
             'repeat(5, 1fr)',
           ]}
-          layerStyle="container"
-          gridTemplateAreas={[
-            `
-          " menu     logo     tel"
-          " search   search   bag "
-         `,
+          gridTemplateAreas={[ null,
             `
          " menu     logo     tel"
          " search   search   bag "
          " divider  divider  divider"
+        `,
+        `
+         " navLinks  bag    "
+         " logo     navList "
+         " search   search  "
         `,
             `
          " navLinks navLinks navLinks   ......  tel"
@@ -99,6 +101,9 @@ function HeaderNormal() {
          " search   search   search   search  search"
         `,
           ]}
+          mx={{base:10 , lg: 'auto'}}
+          px={{base:0 , lg: 9}}
+          maxWidth={1440}
           rowGap={[10, 8]}
           pt={[7, 2.5, 0]}
         >
@@ -112,8 +117,11 @@ function HeaderNormal() {
           <TopNav />
           <Link
             gridArea="tel"
+            gridColumn={{base:3 , md: 2 , lg: 5}}
+            gridRow="1"
             href="tel:0217760225"
             variant="link"
+            transform={{md: 'translateX(100px)' , lg:'none'}}
             display="flex"
             alignItems="center"
             justifyContent="end"
@@ -130,7 +138,8 @@ function HeaderNormal() {
           <Flex
             gridArea="bag"
             justify="end"
-            gap={[2.5, 4]}
+            alignSelf="center"
+           gap={[2.5, 4]}
             align={['center', 'center', 'start']}
           >
             <Box pos="relative">
@@ -158,7 +167,7 @@ function HeaderNormal() {
                 2
               </Center>
             </Box>
-            {cookies ? (
+            {user_info ? (
               <Menu isLazy lazyBehavior="keepMounted" gutter={10}>
                 <MenuButton
                   as={Button}
@@ -177,7 +186,7 @@ function HeaderNormal() {
                     bottom: '13px',
                   }}
                 >
-                  {cookies.first_name ? cookies.first_name : cookies.mobile}
+                  {/* {cookies.first_name ? cookies.first_name : cookies.mobile} */}
                 </MenuButton>
                 <Portal>
                   <MenuList
@@ -231,7 +240,7 @@ function HeaderNormal() {
                       <MenuItem
                         icon={<LogoutIcon boxSize="4" />}
                         color="#FF5E5E"
-                        onClick={handleLogout}
+                        // onClick={handleLogout}
                       >
                         خروج
                       </MenuItem>

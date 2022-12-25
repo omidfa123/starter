@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { WavesIcon } from 'components/common/Icons';
 import Logo from 'components/custom/Logo';
-import NavList from '../Naves/NavList';
+import NavList from '../../../../../..';
 import TopNav from '../Naves/TopNav';
 
 export default function MobileMenu({
@@ -26,7 +26,7 @@ export default function MobileMenu({
       placement="right"
       autoFocus={false}
     >
-      <DrawerOverlay />
+      <DrawerOverlay zIndex={0} />
       <DrawerContent rounded={'0 0 0 24px'}>
         <DrawerHeader display="flex" justifyContent="space-between">
           <Logo />

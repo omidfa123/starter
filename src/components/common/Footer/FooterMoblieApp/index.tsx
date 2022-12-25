@@ -6,7 +6,7 @@ import { AppIcon, BackupIcon, HomeIcon, ShoppingBagIcon, UserFlatIcon } from "co
 
 function FooterMobileApp() {
   return (
-    <Box as="footer" px="9" zIndex={4}>
+    <Box as="footer" px="9" >
      <List zIndex={2}  bgColor="secondary.500" rounded={20}  display="flex" alignItems="center" justifyContent="space-evenly" border="2px solid #15121D" boxShadow="3.5px 4.5px 0px #15121D" mb="32px" py="10.5px" >
      <ListItem  flexDir={'column'} py="17">
       <ListIcon as={HomeIcon} boxSize="7" />

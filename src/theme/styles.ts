@@ -1,7 +1,8 @@
 export const styles = {
   global: (props: any) => ({
     'html , body': {
-      h: '100%',
+      minH: '100%',
+      h: "100%"
     },
     "#__next" : {
       display: "flex" ,
