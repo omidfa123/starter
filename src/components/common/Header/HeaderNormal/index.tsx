@@ -63,7 +63,7 @@ function HeaderNormal() {
   // };
   return (
     <>
-      <Box as="header">
+      <Box as="header" display={['none', 'block']}>
         <Box
           minH={['4.5625rem', '3.625rem', '3rem']}
           maxW="1440px"
@@ -84,13 +84,14 @@ function HeaderNormal() {
             'repeat(2, 1fr)',
             'repeat(5, 1fr)',
           ]}
-          gridTemplateAreas={[ null,
+          gridTemplateAreas={[
+            null,
             `
          " menu     logo     tel"
          " search   search   bag "
          " divider  divider  divider"
         `,
-        `
+            `
          " navLinks  bag    "
          " logo     navList "
          " search   search  "
@@ -101,8 +102,8 @@ function HeaderNormal() {
          " search   search   search   search  search"
         `,
           ]}
-          mx={{base:10 , lg: 'auto'}}
-          px={{base:0 , lg: 9}}
+          mx={{ base: 10, lg: 'auto' }}
+          px={{ base: 0, lg: 9 }}
           maxWidth={1440}
           rowGap={[10, 8]}
           pt={[7, 2.5, 0]}
@@ -117,11 +118,11 @@ function HeaderNormal() {
           <TopNav />
           <Link
             gridArea="tel"
-            gridColumn={{base:3 , md: 2 , lg: 5}}
+            gridColumn={{ base: 3, md: 2, lg: 5 }}
             gridRow="1"
             href="tel:0217760225"
             variant="link"
-            transform={{md: 'translateX(100px)' , lg:'none'}}
+            transform={{ md: 'translateX(100px)', lg: 'none' }}
             display="flex"
             alignItems="center"
             justifyContent="end"
@@ -139,7 +140,7 @@ function HeaderNormal() {
             gridArea="bag"
             justify="end"
             alignSelf="center"
-           gap={[2.5, 4]}
+            gap={[2.5, 4]}
             align={['center', 'center', 'start']}
           >
             <Box pos="relative">
@@ -271,9 +272,9 @@ function HeaderNormal() {
           />
         </Grid>
       </Box>
-      <MobileMenu isOpen={isOpen} onClose={onClose} /> 
+      <MobileMenu isOpen={isOpen} onClose={onClose} />
     </>
-  )
+  );
 }
 
 export default HeaderNormal

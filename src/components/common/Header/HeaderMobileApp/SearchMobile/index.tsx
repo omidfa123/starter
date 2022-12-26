@@ -34,7 +34,7 @@ function SearchMobile({
 }) {
   return (
     <>
-      <InputGroup >
+      <InputGroup>
         <InputLeftElement top="1">
           <SearchIcon boxSize={4} />
         </InputLeftElement>
@@ -140,22 +140,73 @@ function SearchMobile({
           >
             برند ها
           </Center>
-          <List gap={3} display="flex" flexWrap={"wrap"} fontWeight={500} fontSize="15" mb="8">
-            <ListItem bgColor="#f5f5f5" w="76px" h="44px" display="flex" justifyContent="center" rounded="8">
-            Asus
+          <List
+            gap={3}
+            display="flex"
+            flexWrap={'wrap'}
+            fontWeight={500}
+            fontSize="15"
+            mb="8"
+          >
+            <ListItem
+              bgColor="#f5f5f5"
+              w="76px"
+              h="44px"
+              display="flex"
+              justifyContent="center"
+              rounded="8"
+            >
+              Asus
             </ListItem>
-            <ListItem bgColor="#f5f5f5" w="76px" h="44px" display="flex" justifyContent="center" rounded="8">
-            Asus
-            </ListItem>         <ListItem bgColor="#f5f5f5" w="76px" h="44px" display="flex" justifyContent="center" rounded="8">
-            Asus
-            </ListItem>         <ListItem bgColor="#f5f5f5" w="76px" h="44px" display="flex" justifyContent="center" rounded="8">
-            Asus
+            <ListItem
+              bgColor="#f5f5f5"
+              w="76px"
+              h="44px"
+              display="flex"
+              justifyContent="center"
+              rounded="8"
+            >
+              Asus
+            </ListItem>{' '}
+            <ListItem
+              bgColor="#f5f5f5"
+              w="76px"
+              h="44px"
+              display="flex"
+              justifyContent="center"
+              rounded="8"
+            >
+              Asus
+            </ListItem>{' '}
+            <ListItem
+              bgColor="#f5f5f5"
+              w="76px"
+              h="44px"
+              display="flex"
+              justifyContent="center"
+              rounded="8"
+            >
+              Asus
             </ListItem>
-            <ListItem bgColor="#f5f5f5" w="76px" h="44px" display="flex" justifyContent="center" rounded="8">
-            Asus
+            <ListItem
+              bgColor="#f5f5f5"
+              w="76px"
+              h="44px"
+              display="flex"
+              justifyContent="center"
+              rounded="8"
+            >
+              Asus
             </ListItem>
-            <ListItem bgColor="#f5f5f5" w="76px" h="44px" display="flex" justifyContent="center" rounded="8">
-            Asus
+            <ListItem
+              bgColor="#f5f5f5"
+              w="76px"
+              h="44px"
+              display="flex"
+              justifyContent="center"
+              rounded="8"
+            >
+              Asus
             </ListItem>
           </List>
           <Center
@@ -181,63 +232,139 @@ function SearchMobile({
           >
             محصولات
           </Center>
-          <Card rounded={16} mb="4" bgColor="#f5f5f5" variant="filled" py="2" px="2.5" flexDir="row" alignItems={"center"} justifyContent="space-between">
-      <CardHeader  bgColor="#fff" rounded="12" boxSize="66" p="2" ml="3">
-      <Image
-                              src="/images/Favorite.png"
-                              alt="عکس تی وی"
-                              width={136}
-                              height={110}
-                              style={{
-                                filter:
-                                  ' drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.16))',
-                              }}
-                            />
-      </CardHeader>
-      <CardBody fontSize={12} fontWeight="500" p="0" alignSelf="start" mt="2.5">کارت گرافیک ایسوس DUAL RX 6400 4G </CardBody>
-      <CardFooter p="0" alignSelf="end">
-        <IconButton aria-label='اضافه کردن به سبد خرید' icon={<AddTOCartIcon />} rounded="8" borderWidth="0.8px"  boxShadow="-1.5px 2px 0px #15121D" colorScheme="secondary" w="9" h="6"/>
-      </CardFooter>
+          <Card
+            rounded={16}
+            mb="4"
+            bgColor="#f5f5f5"
+            variant="filled"
+            py="2"
+            px="2.5"
+            flexDir="row"
+            alignItems={'center'}
+            justifyContent="space-between"
+          >
+            <CardHeader bgColor="#fff" rounded="12" boxSize="66" p="2" ml="3">
+              <Image
+                src="/images/Favorite.png"
+                alt="عکس تی وی"
+                width={136}
+                height={110}
+                style={{
+                  filter: ' drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.16))',
+                }}
+              />
+            </CardHeader>
+            <CardBody
+              fontSize={12}
+              fontWeight="500"
+              p="0"
+              alignSelf="start"
+              mt="2.5"
+            >
+              کارت گرافیک ایسوس DUAL RX 6400 4G{' '}
+            </CardBody>
+            <CardFooter p="0" alignSelf="end">
+              <IconButton
+                aria-label="اضافه کردن به سبد خرید"
+                icon={<AddTOCartIcon color="white" />}
+                rounded="8"
+                borderWidth="0.8px"
+                boxShadow="-1.5px 2px 0px #15121D"
+                colorScheme="secondary"
+                w="9"
+                h="6"
+              />
+            </CardFooter>
           </Card>
-          <Card rounded={16}  mb="4"  bgColor="#f5f5f5" variant="filled" py="2" px="2.5" flexDir="row" alignItems={"center"} justifyContent="space-between">
-      <CardHeader  bgColor="#fff" rounded="12" boxSize="66" p="2" ml="3">
-      <Image
-                              src="/images/Favorite.png"
-                              alt="عکس تی وی"
-                              width={136}
-                              height={110}
-                              style={{
-                                filter:
-                                  ' drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.16))',
-                              }}
-                            />
-      </CardHeader>
-      <CardBody fontSize={12} fontWeight="500" p="0" alignSelf="start" mt="2.5">کارت گرافیک ایسوس DUAL RX 6400 4G </CardBody>
-      <CardFooter p="0" alignSelf="end">
-        <IconButton aria-label='اضافه کردن به سبد خرید' icon={<AddTOCartIcon />} rounded="8" borderWidth="0.8px"  boxShadow="-1.5px 2px 0px #15121D" colorScheme="secondary" w="9" h="6"/>
-      </CardFooter>
+          <Card
+            rounded={16}
+            mb="4"
+            bgColor="#f5f5f5"
+            variant="filled"
+            py="2"
+            px="2.5"
+            flexDir="row"
+            alignItems={'center'}
+            justifyContent="space-between"
+          >
+            <CardHeader bgColor="#fff" rounded="12" boxSize="66" p="2" ml="3">
+              <Image
+                src="/images/Favorite.png"
+                alt="عکس تی وی"
+                width={136}
+                height={110}
+                style={{
+                  filter: ' drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.16))',
+                }}
+              />
+            </CardHeader>
+            <CardBody
+              fontSize={12}
+              fontWeight="500"
+              p="0"
+              alignSelf="start"
+              mt="2.5"
+            >
+              کارت گرافیک ایسوس DUAL RX 6400 4G{' '}
+            </CardBody>
+            <CardFooter p="0" alignSelf="end">
+              <IconButton
+                aria-label="اضافه کردن به سبد خرید"
+                icon={<AddTOCartIcon color="white" />}
+                rounded="8"
+                borderWidth="0.8px"
+                boxShadow="-1.5px 2px 0px #15121D"
+                colorScheme="secondary"
+                w="9"
+                h="6"
+              />
+            </CardFooter>
           </Card>
-          <Card rounded={16}  mb="18"  bgColor="#f5f5f5" variant="filled" py="2" px="2.5" flexDir="row" alignItems={"center"} justifyContent="space-between">
-      <CardHeader  bgColor="#fff" rounded="12" boxSize="66" p="2" ml="3">
-      <Image
-                              src="/images/Favorite.png"
-                              alt="عکس تی وی"
-                              width={136}
-                              height={110}
-                              style={{
-                                filter:
-                                  ' drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.16))',
-                              }}
-                            />
-      </CardHeader>
-      <CardBody fontSize={12} fontWeight="500" p="0" alignSelf="start" mt="2.5">کارت گرافیک ایسوس DUAL RX 6400 4G </CardBody>
-      <CardFooter p="0" alignSelf="end">
-        <IconButton aria-label='اضافه کردن به سبد خرید' icon={<AddTOCartIcon />} rounded="8" borderWidth="0.8px"  boxShadow="-1.5px 2px 0px #15121D" colorScheme="secondary" w="9" h="6"/>
-      </CardFooter>
+          <Card
+            rounded={16}
+            mb="18"
+            bgColor="#f5f5f5"
+            variant="filled"
+            py="2"
+            px="2.5"
+            flexDir="row"
+            alignItems={'center'}
+            justifyContent="space-between"
+          >
+            <CardHeader bgColor="#fff" rounded="12" boxSize="66" p="2" ml="3">
+              <Image
+                src="/images/Favorite.png"
+                alt="عکس تی وی"
+                width={136}
+                height={110}
+                style={{
+                  filter: ' drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.16))',
+                }}
+              />
+            </CardHeader>
+            <CardBody
+              fontSize={12}
+              fontWeight="500"
+              p="0"
+              alignSelf="start"
+              mt="2.5"
+            >
+              کارت گرافیک ایسوس DUAL RX 6400 4G{' '}
+            </CardBody>
+            <CardFooter p="0" alignSelf="end">
+              <IconButton
+                aria-label="اضافه کردن به سبد خرید"
+                icon={<AddTOCartIcon  color="white"/>}
+                rounded="8"
+                borderWidth="0.8px"
+                boxShadow="-1.5px 2px 0px #15121D"
+                colorScheme="secondary"
+                w="9"
+                h="6"
+              />
+            </CardFooter>
           </Card>
-          
         </DrawerContent>
-
       </Drawer>
     </>
   );

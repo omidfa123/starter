@@ -76,7 +76,7 @@ const EnamadPics = [
 
 export default function FooterDesktop() {
   return (
-    <Box as="footer">
+    <Box as="footer" display={['none', 'block']}>
       <Grid
         gridTemplateColumns={[
           'repeat(2 ,1fr)',
@@ -103,8 +103,8 @@ export default function FooterDesktop() {
         ]}
         pb={[8, 12, 10]}
         maxW="1440"
-        mx={{base:10 , lg: 'auto'}}
-        px={{base:0 , lg: 9}}
+        mx={{ base: 10, lg: 'auto' }}
+        px={{ base: 0, lg: 9 }}
         rowGap={[8, 8, 10]}
         columnGap={[5]}
         justifyItems={{ base: 'center', md: 'start' }}

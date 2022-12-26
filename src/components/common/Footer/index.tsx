@@ -6,14 +6,10 @@ import FooterMobileApp from "./FooterMoblieApp"
 function Footer() {
   return (
     <>
-    <Show above="sm">
-    <FooterDesktop/>
-    </Show>
-    <Show below="sm">
-   <FooterMobileApp/>
-    </Show>
+      <FooterDesktop />
+      <FooterMobileApp />
     </>
-  )
+  );
 }
 
 export default Footer
