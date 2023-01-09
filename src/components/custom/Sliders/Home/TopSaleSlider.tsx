@@ -69,6 +69,7 @@ function TopSaleSlider() {
           pt={['1.5', '2']}
           bgColor="white"
           rounded="24"
+          align="center"
           overflow="visible !important"
           _hover={{
             borderColor: ['#7288FF', 'text'],

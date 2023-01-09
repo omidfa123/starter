@@ -169,7 +169,7 @@ export default function SingleProductsBlogSlider() {
   );
 }
 
-const Arrow = ({
+export const Arrow = ({
   disable,
   onClick,
   left,

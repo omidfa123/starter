@@ -36,10 +36,12 @@ import NextLink from 'components/custom/NextLink';
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import SearchInput from './SearchInput';
+import CartModal from './CartModal';
 
 function HeaderNormal() {
-  const {user_info} = parseCookies()
+  const { user_info } = parseCookies();
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const disClos = useDisclosure();
   // const [cookies, setCookies] = useState<any>(undefined);
   const router = useRouter();
   // const checkCookies =
@@ -143,7 +145,7 @@ function HeaderNormal() {
             gap={[2.5, 4]}
             align={['center', 'center', 'start']}
           >
-            <Box pos="relative">
+            <Box pos="relative" onClick={disClos.onOpen}>
               <ShoppingBagRoundIcon
                 boxSize={[7, 9]}
                 cursor="pointer"
@@ -273,6 +275,7 @@ function HeaderNormal() {
         </Grid>
       </Box>
       <MobileMenu isOpen={isOpen} onClose={onClose} />
+      <CartModal isOpen={disClos.isOpen} onClose={disClos.onClose} />
     </>
   );
 }
