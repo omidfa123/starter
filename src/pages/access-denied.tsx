@@ -78,7 +78,11 @@ export default function AccessDenied() {
           sx={{ '&:not(:placeholder-shown)': { direction: 'ltr' } }}
           focusBorderColor="primary.500"
         />
-        <Button type="submit" isLoading={isLoading}>
+        <Button
+          type="submit"
+          isLoading={isLoading}
+          onClick={() => setMessage(undefined)}
+        >
           ورود
         </Button>
       </Flex>
