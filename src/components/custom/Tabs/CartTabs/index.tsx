@@ -34,7 +34,7 @@ import {
   AddIcon,
 } from 'components/common/Icons';
 import { EmptyCartVector } from 'components/common/Icons/Vectors';
-import Image from 'next/future/image';
+import Image from "next/image";
 
 export default function CartTab() {
   return (

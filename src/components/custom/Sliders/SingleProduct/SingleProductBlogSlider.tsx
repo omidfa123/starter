@@ -14,7 +14,7 @@ import {
   TimeQuatreIcon,
 } from 'components/common/Icons';
 import { useKeenSlider } from 'keen-slider/react';
-import Image from 'next/future/image';
+import Image from "next/image";
 import { useState } from 'react';
 
 export default function SingleProductsBlogSlider() {

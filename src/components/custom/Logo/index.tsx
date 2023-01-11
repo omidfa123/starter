@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import Image from 'next/future/image';
+import Image from "next/image";
 import NextLink from '../NextLink';
 
 export default function Logo() {

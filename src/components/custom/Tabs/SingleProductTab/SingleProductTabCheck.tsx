@@ -1,5 +1,5 @@
 import { Text } from '@chakra-ui/react';
-import Image from 'next/future/image';
+import Image from "next/image";
 
 export default function SingleProductTabCheck() {
   return (

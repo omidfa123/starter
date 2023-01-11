@@ -10,7 +10,7 @@ import Head from 'next/head';
 import TopSaleTab from 'components/custom/Tabs/HomeTab/TopSaleTab';
 import DisCountSlider from 'components/custom/Sliders/Home/DiscountSlider';
 import TopBanners from 'components/custom/Banners/TopBanners';
-import Image from 'next/future/image';
+import Image from "next/image";
 import MiddleBanners from 'components/custom/Banners/MiddleBanners';
 
 const Home: NextPage = () => {

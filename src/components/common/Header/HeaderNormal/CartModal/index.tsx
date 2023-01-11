@@ -31,7 +31,7 @@ import {
   DisCountIcon,
 } from 'components/common/Icons';
 import NextLink from 'components/custom/NextLink';
-import Image from 'next/future/image';
+import Image from "next/image";
 
 export default function CartModal({
   isOpen,

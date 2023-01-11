@@ -5,7 +5,7 @@ import {
   KeenSliderPlugin,
   useKeenSlider,
 } from 'keen-slider/react';
-import Image from 'next/future/image';
+import Image from "next/image";
 import { MutableRefObject, useState } from 'react';
 
 export function ThumbnailPlugin(

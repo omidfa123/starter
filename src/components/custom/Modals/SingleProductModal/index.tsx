@@ -14,7 +14,7 @@ import {
   Textarea,
 } from '@chakra-ui/react';
 import { useKeenSlider } from 'keen-slider/react';
-import Image from 'next/future/image';
+import Image from "next/image";
 import { useEffect, useState } from 'react';
 import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch';
 

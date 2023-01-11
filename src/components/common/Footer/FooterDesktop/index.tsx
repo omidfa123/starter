@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import Logo from 'components/custom/Logo';
 import NextLink from 'components/custom/NextLink';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import { EnvelopIcon, TelIcon } from '../../Icons';
 import dynamic from 'next/dynamic';
 

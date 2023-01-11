@@ -27,6 +27,7 @@ export default function NextLink({
       replace={replace}
       shallow={shallow}
       scroll={scroll}
+      legacyBehavior
     >
       {children}
     </Link>

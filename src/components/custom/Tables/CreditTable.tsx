@@ -1,6 +1,6 @@
 import { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 
-import Image from 'next/future/image';
+import Image from "next/image";
 
 export default function CreditTable() {
   return (

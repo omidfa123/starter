@@ -9,7 +9,6 @@ import {
 } from '@chakra-ui/react';
 import {
   AngleDownIcon,
-  LampIcon,
   LaptopIcon,
   PcIcon,
   PhoneIcon,

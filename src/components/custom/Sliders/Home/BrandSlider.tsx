@@ -1,6 +1,6 @@
 import { Box, Center } from "@chakra-ui/react";
 import { useKeenSlider } from "keen-slider/react"
-import Image from "next/future/image";
+import Image from "next/image";
 
 const animation = { duration: 11000, easing: (t: number) => t };
 function BrandSlider() {

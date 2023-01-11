@@ -28,7 +28,7 @@ import {
   SearchIcon,
   ShoppingBagIcon,
 } from 'components/common/Icons';
-import Image from 'next/future/image';
+import Image from "next/image";
 import { useRef } from 'react';
 
 export default function SearchInput() {
