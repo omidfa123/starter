@@ -60,7 +60,6 @@ function CustomRadio(props: any) {
 export default function Products() {
   const { getRadioProps, getRootProps } = useRadioGroup({
     defaultValue: 'ویترین',
-    onChange: console.log,
   });
   const [isLoading, setIsLoading] = useState(false);
   return (

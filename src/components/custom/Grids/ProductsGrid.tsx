@@ -9,20 +9,21 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
-import { ChakraBox } from 'components/common/Header/Naves/NavUnderLine';
+import { ChakraBox } from 'components/common/Header/HeaderNormal/Naves/NavUnderLine';
 import {
   AngleDownIcon,
   ComparisonRoundIcon,
   HartRoundedIcon,
   StarIcon,
 } from 'components/common/Icons';
-import Image from 'next/future/image';
+import Image from "next/image";
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import NextLink from '../NextLink';
 
 export default function ProductsGrid({ isLoading }: { isLoading: boolean }) {
   const [hovered, setHovered] = useState(-1);
-  console.log(hovered);
+  const router = useRouter();
   return (
     <Grid
       gridArea="products"
@@ -184,6 +185,10 @@ export default function ProductsGrid({ isLoading }: { isLoading: boolean }) {
                     initial={{ y: 6, opacity: 0.5 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ bounce: '0' }}
+                    onClick={() => {
+                      router.push('/product');
+                    }}
+                    cursor="pointer"
                   >
                     افزودن به سبد خرید
                   </ChakraBox>

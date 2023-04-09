@@ -24,7 +24,7 @@ interface IPropsInside {
 interface IPropsLabel {
   gridArea?: string;
   isInvalid: boolean;
-  register: UseFormRegister<userInfoInputs>;
+  register: UseFormRegister<any>;
   name: any;
   placeholder: string;
   errorMessage: string | undefined;

@@ -15,7 +15,7 @@ import {
   ShoppingBagIcon,
   TrashIcon,
 } from 'components/common/Icons';
-import Image from 'next/future/image';
+import Image from "next/image";
 
 export default function OrderList() {
   return (

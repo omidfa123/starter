@@ -7,24 +7,27 @@ import Layout from 'components/common/layout';
 import theme from 'theme';
 import type { AppProps } from 'next/app';
 import type { DehydratedState } from '@tanstack/react-query';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import 'styles/global.css';
-
+import 'keen-slider/keen-slider.min.css';
 function MyApp({
   Component,
   pageProps,
+  router,
 }: AppProps<{ dehydratedState: DehydratedState }>) {
   const queryClientRef = useRef(queryClient);
+  const isLayoutNeeded = [`/access-denied`].includes(router.route);
+  const LayoutComponent = !isLayoutNeeded ? Layout : React.Fragment;
   return (
     <ChakraProvider theme={theme}>
       <QueryClientProvider client={queryClientRef.current}>
         <LoadingProgressProvider>
-          <Layout>
-            <Hydrate state={pageProps.dehydratedState}>
+          <Hydrate state={pageProps.dehydratedState}>
+            <LayoutComponent>
               <Component {...pageProps} />
-            </Hydrate>
-            <ReactQueryDevtools panelProps={{ style: { direction: 'ltr' } }} />
-          </Layout>
+            </LayoutComponent>
+          </Hydrate>
+          <ReactQueryDevtools panelProps={{ style: { direction: 'ltr' } }} />
         </LoadingProgressProvider>
       </QueryClientProvider>
     </ChakraProvider>

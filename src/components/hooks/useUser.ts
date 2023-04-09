@@ -4,7 +4,6 @@ import { axiosInstance } from './../../libs/axios/axiosInstance';
 import { useQuery } from '@tanstack/react-query';
 
 const getUserInfo = async (token: string, id: string) => {
-  console.log(token, id);
   const { data } = await axiosInstance.get('/user/user', {
     headers: { Authorization: `Bearer ${token}` },
     params: { id },

@@ -6,7 +6,7 @@ import type { NextPage } from 'next';
 
 const NotFind: NextPage = () => {
   return (
-    <Box as="main" layerStyle="container" py={['44px', '54px', '64px']}>
+    <Box as="main" flex="1"  layerStyle="container" py={['44px', '54px', '64px']}>
       <VStack gap={[2, 3, 4]}>
         <Heading as="h1" fontSize={[20, 24, 28, 36]}>
           صفحه ای که دنبال آن بودید پیدا نشد!

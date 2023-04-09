@@ -65,7 +65,6 @@ const options = [
 export default function WalletList() {
   const { getRadioProps, getRootProps } = useRadioGroup({
     defaultValue: '۱۰٬۰۰۰',
-    onChange: console.log,
   });
   return (
     <Grid h="max-content" gridTemplateColumns="3fr 4fr" p="20px 0 16px 24px">

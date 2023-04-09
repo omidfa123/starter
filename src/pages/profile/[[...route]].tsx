@@ -52,7 +52,6 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
       },
     };
   }
-  console.log(activeTab);
   const { access_token, user_info } = nookies.get(ctx);
   if (!access_token && !user_info) {
     return {

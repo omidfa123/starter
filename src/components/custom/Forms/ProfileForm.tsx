@@ -96,7 +96,6 @@ export default function ProfileForm({
       }, 1000);
     });
   };
-  console.log(mut);
   useEffect(() => {
     if (isSuccess && mut?.status === 'update') {
       toast({
