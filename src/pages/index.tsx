@@ -6,9 +6,9 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>آرتامارت</title>
+        <title>آترامارت</title>
         <meta content="فروشگاه" name="description" />
-        <meta name="robots" content="follow, index" />
+        <meta name="robots" content="nofollow, noindex" />
       </Head>
       <Center py="10rem">
         <Heading textColor="primary.500">صفحه اصلی</Heading>
