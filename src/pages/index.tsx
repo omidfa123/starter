@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       <Head>
         <title>آترامارت</title>
         <meta content="فروشگاه" name="description" />
-        <meta name="robots" content="follow, index" />
+        <meta name="robots" content="nofollow, noindex" />
       </Head>
       <Box as="main" flex="1" pt="8">
         <HomeSliderMain />
