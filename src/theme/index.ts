@@ -10,35 +10,33 @@ import { Divider } from './components/divider';
 import { List } from './components/list';
 import { Button } from './components/button';
 import { layerStyles, textStyles, styles } from './styles';
-import { colors, fonts, fontSizes, config } from './foundations/index';
+import { colors, fontSizes, config } from './foundations/index';
 import { extendTheme, withDefaultColorScheme } from '@chakra-ui/react';
 
-const overrides = {
-  colors,
-  fonts,
-  fontSizes,
-  config,
-  styles,
-  layerStyles,
-  textStyles,
-  components: {
-    List,
-    Button,
-    Divider,
-    Container,
-    Link,
-    PinInput,
-    Input,
-    Checkbox,
-    Tabs,
-    Select,
-    Accordion,
-  },
-};
-
-export default extendTheme(
-  overrides,
-  withDefaultColorScheme({
-    colorScheme: 'primary',
-  })
-);
+export default function overrides(fontVar: string) {
+  return {
+    fonts: {
+      heading: fontVar,
+      body: fontVar,
+    },
+    colors,
+    fontSizes,
+    config,
+    styles,
+    layerStyles,
+    textStyles,
+    components: {
+      List,
+      Button,
+      Divider,
+      Container,
+      Link,
+      PinInput,
+      Input,
+      Checkbox,
+      Tabs,
+      Select,
+      Accordion,
+    },
+  };
+}

@@ -25,7 +25,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       const cookieOptions: CookieSerializeOptions = {
         httpOnly: true,
         path: '/',
-        maxAge: 2400,
+        maxAge: 240000,
       };
       if (username === 'admin' && password === 'admin1234') {
         setCookie(

@@ -1,5 +1,3 @@
-import { theme } from '@chakra-ui/react';
-
 export const colors = {
   primary: {
     '50 ': '#FFF5E5',
@@ -54,10 +52,6 @@ export const colors = {
   comparison: '#98AFFF',
   break: '#AFAFAF',
   divider: '#eee',
-};
-export const fonts = {
-  body: `"iransansxv",${theme.fonts.body}`,
-  heading: `"iransansxv",${theme.fonts.heading}`,
 };
 export const fontSizes = {
   '10': '0.625rem',

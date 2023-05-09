@@ -1,15 +1,4 @@
 @font-face {
-  font-family: 'iransansxv';
-  src: url('/fonts/iransansxv.woff') format('woff-variations'),
-  /* will be the standard and works in Safari now */
-  url('/fonts/iransansxv.woff') format('woff');
-  /* for the other supporting browsers */
-  font-weight: 100 900;
-  font-display: fallback;
-
-}
-
-@font-face {
   font-family: iransansx;
   src: url('/fonts/staticfonts/iransansx-regular.woff') format('woff');
 }

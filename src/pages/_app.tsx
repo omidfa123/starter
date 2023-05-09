@@ -1,15 +1,34 @@
-import { ChakraProvider } from '@chakra-ui/react';
+import {
+  ChakraProvider,
+  extendTheme,
+  withDefaultColorScheme,
+} from '@chakra-ui/react';
 import { LoadingProgressProvider } from 'components/custom/LoadingProgress';
 import { Hydrate, QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from 'libs/react-query/queryClient';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Layout from 'components/common/layout';
-import theme from 'theme';
+
 import type { AppProps } from 'next/app';
 import type { DehydratedState } from '@tanstack/react-query';
 import React, { useRef } from 'react';
-import 'styles/global.css';
 import 'keen-slider/keen-slider.min.css';
+import localFont from 'next/font/local';
+import overrides from 'theme';
+import 'styles/global.css';
+
+const iranSansXV = localFont({
+  src: '../../public/fonts/iransansxv.woff',
+  variable: '--font-iransans',
+});
+
+const theme = extendTheme(
+  overrides(iranSansXV.style.fontFamily),
+  withDefaultColorScheme({
+    colorScheme: 'primary',
+  })
+);
+
 function MyApp({
   Component,
   pageProps,
@@ -23,9 +42,11 @@ function MyApp({
       <QueryClientProvider client={queryClientRef.current}>
         <LoadingProgressProvider>
           <Hydrate state={pageProps.dehydratedState}>
-            <LayoutComponent>
-              <Component {...pageProps} />
-            </LayoutComponent>
+            <main className={iranSansXV.variable}>
+              <LayoutComponent>
+                <Component {...pageProps} />
+              </LayoutComponent>
+            </main>
           </Hydrate>
           <ReactQueryDevtools panelProps={{ style: { direction: 'ltr' } }} />
         </LoadingProgressProvider>
@@ -35,4 +56,3 @@ function MyApp({
 }
 
 export default MyApp;
- 
