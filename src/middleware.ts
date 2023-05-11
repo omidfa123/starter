@@ -1,9 +1,16 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { userAgent } from 'next/server';
 
 export function middleware(req: NextRequest) {
+  const deviceType = userAgent(req).device.type;
+
   if (!req.cookies.has('admin_key')) {
     return NextResponse.redirect(new URL('/access-denied', req.url));
+  }
+
+  if (deviceType === 'mobile' || deviceType === 'tablet') {
+    return NextResponse.rewrite(new URL('/m', req.url));
   }
 
   return NextResponse.next();

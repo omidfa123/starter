@@ -1,0 +1,3 @@
+type ObjType = {
+  name: string;
+};
