@@ -1,3 +1,6 @@
+import Footer from "../components/footer";
+import Header from "../components/header-pc";
+
 export default function ShopLayout({
   children,
 }: {
@@ -5,9 +8,10 @@ export default function ShopLayout({
 }) {
   return (
     <main className="flex min-h-screen flex-col bg-body-gradient">
-      <header>هدر</header>
+      {/* @ts-expect-error Async Server Component */}
+      <Header />
       <main className="flex-1">{children}</main>
-      <footer>فوتر</footer>
+      <Footer />
     </main>
   );
 }

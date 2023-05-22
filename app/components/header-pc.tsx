@@ -1,0 +1,92 @@
+import Image from "next/image";
+import Link from "next/link";
+import logo from "../../public/images/atramart_logo.png";
+import Search from "./search";
+import { CategoryPopover } from "./category-popover";
+import CategoryTabs from "./category-tabs";
+
+interface ReducerResult {
+  mainCategories: string[];
+  subCategories: SubCategoryEntity[][];
+}
+
+async function fetchHeaderInfo(): Promise<header> {
+  const res = await fetch("https://ms2.atramart.com/api/v1/header");
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  return res.json() as Promise<header>;
+}
+
+export default async function Header() {
+  const {
+    top_menus: topNav,
+    info,
+    menus,
+    categories,
+  } = await fetchHeaderInfo();
+  const { mainCategories, subCategories } = categories.reduce<ReducerResult>(
+    (result, category) => {
+      result.mainCategories.push(category.name);
+      result.subCategories.push(category.sub_category);
+      return result;
+    },
+    { mainCategories: [], subCategories: [] }
+  );
+
+  return (
+    <header>
+      <nav className="grid-container ss02 mb-6 rounded-b-3xl bg-header-gradient shadow-header">
+        <div className="flex items-center justify-between  py-[14px]">
+          <ul className="  flex gap-6 text-xs font-medium text-text-100  ">
+            {topNav.map((nav) => (
+              <li key={nav.id} className="transition-colors hover:text-text">
+                <Link href={`/${nav.link}`}>{nav.title}</Link>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="tel:02177602250"
+            title={info.name}
+            className="flex gap-2 text-sm text-text"
+          >
+            {info.phone_number}
+            <span className="">icon</span>
+          </a>
+        </div>
+      </nav>
+      <nav className="grid-container  ">
+        <div className="relative mb-8 flex items-center   justify-between">
+          <Link href="/" id="logo" className="scroll-m-20">
+            <Image alt="atramart logo" src={logo} />
+          </Link>
+          <ul className="  flex gap-6 text-sm font-medium text-text-200  ">
+            <CategoryPopover labelText="محصولات ما">
+              <CategoryTabs
+                mainCategories={mainCategories}
+                subCategories={subCategories}
+              />
+            </CategoryPopover>
+
+            {menus.map((nav) => (
+              <li key={nav.id} className="transition-colors hover:text-text">
+                <Link href={`/${nav.link}`}>{nav.title}</Link>
+              </li>
+            ))}
+          </ul>
+          <div className="flex items-center gap-4">
+            <div>زبان</div>
+            <div className="h-5 border-l border-text-200" />
+            <div>سبد خرید</div>
+            <Link href="/users/login">
+              <span>لاگین</span>
+            </Link>
+          </div>
+        </div>
+        <Search />
+      </nav>
+    </header>
+  );
+}

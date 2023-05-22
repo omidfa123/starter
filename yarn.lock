@@ -497,6 +497,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/next-js@npm:^2.1.3":
+  version: 2.1.3
+  resolution: "@chakra-ui/next-js@npm:2.1.3"
+  dependencies:
+    "@emotion/cache": ^11.10.5
+  peerDependencies:
+    "@chakra-ui/react": ">=2.4.0"
+    "@emotion/react": ">=11"
+    next: ">=13"
+    react: ">=18"
+  checksum: b59bd183c20950b4cc65513c074908b3950e78e2af202b118695fa8063b995170434f71423d432c60d433aef827d2891d01d454ada05bc465709282dde2258f0
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/number-input@npm:2.0.19":
   version: 2.0.19
   resolution: "@chakra-ui/number-input@npm:2.0.19"
@@ -1274,7 +1288,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/cache@npm:^11.11.0, @emotion/cache@npm:^11.4.0":
+"@emotion/cache@npm:^11.10.5, @emotion/cache@npm:^11.11.0, @emotion/cache@npm:^11.4.0":
   version: 11.11.0
   resolution: "@emotion/cache@npm:11.11.0"
   dependencies:
@@ -1454,6 +1468,27 @@ __metadata:
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
   checksum: 4059f790e2d07bf3c3ff3e0fec0daa8144fe35c1f6e0111c9921bd32106adaa97a4ab096ad7dab1e28ee6a9060083c4d1a4ada42a7f5f3f7a96b8812e2b757c1
+  languageName: node
+  linkType: hard
+
+"@headlessui/react@npm:^1.7.14":
+  version: 1.7.14
+  resolution: "@headlessui/react@npm:1.7.14"
+  dependencies:
+    client-only: ^0.0.1
+  peerDependencies:
+    react: ^16 || ^17 || ^18
+    react-dom: ^16 || ^17 || ^18
+  checksum: 9122114d7a618877a8da2ada000422ce82e6af47195e414076fa5cf45687709479eb30b0df414eed52079be6e5904151bc92e4acfafbdde2592c608f015c490e
+  languageName: node
+  linkType: hard
+
+"@headlessui/tailwindcss@npm:^0.1.3":
+  version: 0.1.3
+  resolution: "@headlessui/tailwindcss@npm:0.1.3"
+  peerDependencies:
+    tailwindcss: ^3.0
+  checksum: 65a2cfdf8560d83824fa8d350ea9799b95bc79aefa7c20b4be7c73cd285de8d3d652b26f2cfdb82d225d8d922e28ca898179bdaf6a0f7b88408e6ad831808959
   languageName: node
   linkType: hard
 
@@ -2195,9 +2230,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "atramart@workspace:."
   dependencies:
+    "@chakra-ui/next-js": ^2.1.3
     "@chakra-ui/react": ^2.5.5
     "@emotion/react": ^11.10.6
     "@emotion/styled": ^11.10.6
+    "@headlessui/react": ^1.7.14
+    "@headlessui/tailwindcss": ^0.1.3
     "@tailwindcss/forms": ^0.5.3
     "@tailwindcss/line-clamp": ^0.4.4
     "@tanstack/react-query": ^4.14.5
@@ -2527,7 +2565,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"client-only@npm:0.0.1":
+"client-only@npm:0.0.1, client-only@npm:^0.0.1":
   version: 0.0.1
   resolution: "client-only@npm:0.0.1"
   checksum: 0c16bf660dadb90610553c1d8946a7fdfb81d624adea073b8440b7d795d5b5b08beb3c950c6a2cf16279365a3265158a236876d92bce16423c485c322d7dfaf8
