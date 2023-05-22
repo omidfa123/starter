@@ -10,7 +10,7 @@ import { Divider } from './components/divider';
 import { List } from './components/list';
 import { Button } from './components/button';
 import { layerStyles, textStyles, styles } from './styles';
-import { colors, fontSizes, config } from './foundations/index';
+import { colors, fontSizes, config } from './foundations';
 import { extendTheme, withDefaultColorScheme } from '@chakra-ui/react';
 
 export default function overrides(fontVar: string) {

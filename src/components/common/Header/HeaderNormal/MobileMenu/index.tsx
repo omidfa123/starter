@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { WavesIcon } from 'components/common/Icons';
 import Logo from 'components/custom/Logo';
-import NavList from '../../../../../..';
+import NavList from '../../../../../../index';
 import TopNav from '../Naves/TopNav';
 
 export default function MobileMenu({

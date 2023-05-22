@@ -2,7 +2,7 @@ import { useLoadingProgress } from 'components/custom/LoadingProgress';
 import { Router } from 'next/router';
 import { useEffect, useCallback } from 'react';
 import type { ReactNode } from 'react';
-import Footer from '../Footer/';
+import Footer from '../Footer';
 import Header from '../Header';
 import Loading from '../Loading';
 
