@@ -2,7 +2,8 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import SingleProductTabCheck from './SingleProductTabCheck';
 import SingleProductTabDetails from './SingleProductTabDetails';
 import SingleProductTabComments from './SingleProductTabComments';
-import SingleProductTabQuestions from './SingleProductTabQuestions  ';
+import SingleProductTabQuestions from 'components/custom/Tabs/SingleProductTab/SingleProductTabQuestions ';
+
 
 export default function SingleProductTab() {
   return (
