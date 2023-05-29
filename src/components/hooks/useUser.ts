@@ -1,6 +1,6 @@
-import { queryKeys } from './../../libs/react-query/constants';
+import { queryKeys } from '../../libs/react-query/constants';
 
-import { axiosInstance } from './../../libs/axios/axiosInstance';
+import { axiosInstance } from '../../libs/axios/axiosInstance';
 import { useQuery } from '@tanstack/react-query';
 
 const getUserInfo = async (token: string, id: string) => {

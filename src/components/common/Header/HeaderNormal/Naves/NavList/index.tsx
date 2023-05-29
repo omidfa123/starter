@@ -16,8 +16,13 @@ import {
 import NextLink from "components/custom/NextLink";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+<<<<<<< HEAD:src/components/common/Header/HeaderNormal/Naves/NavList/index.tsx
 import NavUnderLine from "../NavUnderLine";
 import MegaMenu from "./MegaMenu";
+=======
+import NavUnderLine from "./src/components/common/Header/HeaderNormal/Naves/NavUnderLine";
+import MegaMenu from "./src/components/common/Header/HeaderNormal/Naves/NavList/MegaMenu";
+>>>>>>> d7d871d22490353884ccd4210328c3c84f27241a:index.tsx
 const navList = [
   { href: "/assembly", text: "کیس اسمبل شده", position: " -124px" },
   { href: "/assembly/online", text: "اسمبل آنلاین", position: "-246px" },

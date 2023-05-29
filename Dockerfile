@@ -6,13 +6,13 @@ WORKDIR /app
 
 # Copy package.json and package-lock.json
 # to the /app working directory
-COPY ./package.json /app
+COPY package.json /app
 
 # Install dependencies in /app
 RUN yarn install
 
 # Copy the rest of our Next.js folder into /app
-COPY . /app
+COPY ms5 /app
 
 RUN yarn run build
 
