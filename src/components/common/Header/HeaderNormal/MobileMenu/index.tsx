@@ -6,11 +6,12 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-} from '@chakra-ui/react';
-import { WavesIcon } from 'components/common/Icons';
-import Logo from 'components/custom/Logo';
-import NavList from '../../../../../..';
-import TopNav from '../Naves/TopNav';
+} from "@chakra-ui/react";
+import { WavesIcon } from "components/common/Icons";
+import Logo from "components/custom/Logo";
+
+import TopNav from "../Naves/TopNav";
+import NavList from "components/common/Header/HeaderNormal/Naves/NavList";
 
 export default function MobileMenu({
   isOpen,
@@ -27,11 +28,11 @@ export default function MobileMenu({
       autoFocus={false}
     >
       <DrawerOverlay zIndex={0} />
-      <DrawerContent rounded={'0 0 0 24px'}>
+      <DrawerContent rounded={"0 0 0 24px"}>
         <DrawerHeader display="flex" justifyContent="space-between">
           <Logo />
           <DrawerCloseButton
-            position={'static'}
+            position={"static"}
             color="white"
             bgColor="black"
             w={6}

@@ -1,3 +1,8 @@
+import { createElement } from "react";
+
 export default function MagePage() {
-  return <div>Mage</div>;
+  return createElement("div", null, [
+    createElement("h1", null, "Mage Page"),
+    "h1",
+  ]);
 }

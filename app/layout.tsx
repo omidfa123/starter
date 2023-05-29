@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./styles/globals.css";
+import "./styles/icon.css";
 
 export const metadata = {
   title: "آترامارت",
@@ -8,6 +9,10 @@ export const metadata = {
 const iranSansXV = localFont({
   src: "../public/fonts/iransansxv.woff",
   variable: "--iransansXV",
+});
+const atraIcon = localFont({
+  src: "../public/fonts/icomoon.woff",
+  variable: "--font-icon",
 });
 
 export default function RootLayout({
@@ -19,7 +24,7 @@ export default function RootLayout({
     <html
       lang="fa-IR"
       dir="rtl"
-      className={`${iranSansXV.variable} antialiased`}
+      className={`${iranSansXV.variable} ${atraIcon.variable} antialiased`}
     >
       <body>{children}</body>
     </html>

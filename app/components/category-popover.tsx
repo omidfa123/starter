@@ -38,8 +38,12 @@ export const CategoryPopover = ({
             onMouseEnter={() => handleEnter(open)}
             onMouseLeave={() => handleLeave(open)}
           >
-            <Popover.Button className="outline-none" ref={triggerRef}>
-              {labelText}
+            <Popover.Button
+              className="flex items-center gap-2 outline-none transition-colors hover:text-text"
+              ref={triggerRef}
+            >
+              <span>{labelText}</span>
+              <span className="atra-icon-arrow-down text-[8px]"></span>
             </Popover.Button>
             <Transition
               as={Fragment}

@@ -30,7 +30,7 @@ import {
 import Logo from "components/custom/Logo";
 import MobileMenu from "./MobileMenu";
 import TopNav from "./Naves/TopNav";
-import NavList from "../../../../..";
+import NavList from "./Naves/NavList";
 import { destroyCookie, parseCookies } from "nookies";
 import NextLink from "components/custom/NextLink";
 import { useCallback, useEffect, useState } from "react";

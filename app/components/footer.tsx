@@ -113,27 +113,42 @@ export default function Footer() {
               راه های ارتباطی
             </h6>
             <div className="flex  gap-8">
-              <div className="space-x-2 text-sm">
-                <span>icon</span>
-                <span>021-77602250</span>
-              </div>
-              <div className="space-x-2 text-sm">
-                <span>icon</span>
+              <a
+                href="tel:02177602250"
+                className="flex items-center justify-center  gap-2 text-sm"
+              >
+                <span className="atra-icon-call flex h-8 w-8 items-center justify-center  rounded-full border border-text text-lg"></span>
+                <span className="ss02">021-77602250</span>
+              </a>
+              <a
+                href="mailto:your-email@example.com"
+                className="flex items-center justify-center gap-2 text-sm "
+              >
+                <span className="atra-icon-envelop flex h-8 w-8 items-center justify-center  rounded-full border border-text text-lg"></span>
                 <span>ehsanamani7878@gmail.com</span>
-              </div>
+              </a>
             </div>
           </div>
         </div>
       </div>
       <div className=" grid-container bg-primary">
-        <div className="flex justify-between py-2 ">
+        <div className="flex items-center justify-between  py-2 ">
           <p className="font-medium">
             تمامی حقوق مادی و معنوی این وبسایت برای آترامارت محفوظ می باشد
           </p>
-          <div className="space-x-6">
-            <span>icon</span>
-            <span>icon</span>
-            <span>icon</span>
+          <div className="flex h-6 gap-6 ">
+            <Link href="/">
+              <span className="sr-only">اینستا</span>
+              <span className="atra-icon-instagram text-2xl"></span>
+            </Link>
+            <Link href="/">
+              <span className="sr-only">اینستا</span>
+              <span className="atra-icon-whatsapp text-2xl"></span>
+            </Link>
+            <Link href="/">
+              <span className="sr-only">اینستا</span>
+              <span className="atra-icon-linkedin text-2xl"></span>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,0 +1,94 @@
+[class^="atra-"],
+[class*=" atra-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: var(--font-icon) !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.atra-icon-arrow-down:before {
+  content: "\e900";
+}
+.atra-icon-arrow-left:before {
+  content: "\e901";
+}
+.atra-icon-arrow-left-1:before {
+  content: "\e902";
+}
+.atra-icon-arrow-right:before {
+  content: "\e903";
+}
+.atra-icon-arrow-up:before {
+  content: "\e904";
+}
+.atra-icon-call:before {
+  content: "\e905";
+}
+.atra-icon-coine:before {
+  content: "\e906";
+}
+.atra-icon-comment:before {
+  content: "\e907";
+}
+.atra-icon-compersion:before {
+  content: "\e908";
+}
+.atra-icon-diamond:before {
+  content: "\e909";
+}
+.atra-icon-envelop:before {
+  content: "\e90a";
+}
+.atra-icon-flower-pot:before {
+  content: "\e90b";
+}
+.atra-icon-hands:before {
+  content: "\e90c";
+}
+.atra-icon-hart:before {
+  content: "\e90d";
+}
+.atra-icon-instagram:before {
+  content: "\e90e";
+}
+.atra-icon-lcall:before {
+  content: "\e90f";
+}
+.atra-icon-linkedin:before {
+  content: "\e910";
+}
+.atra-icon-phone:before {
+  content: "\e911";
+}
+.atra-icon-product:before {
+  content: "\e912";
+}
+.atra-icon-search:before {
+  content: "\e913";
+}
+.atra-icon-shopping-bag:before {
+  content: "\e914";
+}
+.atra-icon-track:before {
+  content: "\e915";
+}
+.atra-icon-user:before {
+  content: "\e916";
+}
+.atra-icon-watch:before {
+  content: "\e917";
+}
+.atra-icon-watch-1:before {
+  content: "\e918";
+}
+.atra-icon-whatsapp:before {
+  content: "\e919";
+}
