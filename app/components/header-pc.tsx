@@ -6,6 +6,7 @@ import { CategoryPopover } from "./category-popover";
 import CategoryTabs from "./category-tabs";
 
 import SearchCombobox from "./search-combobox";
+import { BASE_URL } from "../lib/constants/baseURL";
 
 interface ReducerResult {
   mainCategories: string[];
@@ -13,7 +14,7 @@ interface ReducerResult {
 }
 
 async function fetchHeaderInfo(): Promise<header> {
-  const res = await fetch("https://ms2.atramart.com/api/v1/header", {
+  const res = await fetch(`${BASE_URL}/header`, {
     next: { revalidate: 360 },
   });
 
@@ -41,7 +42,7 @@ export default async function Header() {
   );
 
   return (
-    <header>
+    <header className="mb-6">
       <nav className="grid-container ss02 mb-6 rounded-b-3xl bg-header-gradient shadow-header">
         <div className="flex items-center justify-between py-2.5  ">
           <ul className="  flex gap-6 text-xs font-medium text-text-100  ">

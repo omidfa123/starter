@@ -8,7 +8,6 @@ export default function ShopLayout({
 }) {
   return (
     <main className="flex min-h-screen flex-col bg-body-gradient">
-      {/* @ts-expect-error Async Server Component */}
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />

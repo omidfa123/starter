@@ -30,6 +30,7 @@ module.exports = {
           300: "#B8B8B8",
           400: "#EEEEEE",
           500: "#F5F5F5",
+          600: "#C7C7C7",
         },
         primary: {
           DEFAULT: "#FFA826",

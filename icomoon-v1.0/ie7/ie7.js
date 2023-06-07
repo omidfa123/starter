@@ -13,6 +13,8 @@
 		el.innerHTML = '<span style="font-family: \'icomoon\'">' + entity + '</span>' + html;
 	}
 	var icons = {
+		'atra-icon-24': '&#xe918;',
+		'atra-icon-star': '&#xe91a;',
 		'atra-icon-arrow-down': '&#xe900;',
 		'atra-icon-arrow-left': '&#xe901;',
 		'atra-icon-arrow-left-1': '&#xe902;',
@@ -37,7 +39,6 @@
 		'atra-icon-track': '&#xe915;',
 		'atra-icon-user': '&#xe916;',
 		'atra-icon-watch': '&#xe917;',
-		'atra-icon-watch-1': '&#xe918;',
 		'atra-icon-whatsapp': '&#xe919;',
 		'0': 0
 		},
