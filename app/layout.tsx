@@ -13,6 +13,7 @@ const iranSansXV = localFont({
 const atraIcon = localFont({
   src: "../public/fonts/icomoon.woff",
   variable: "--font-icon",
+  display: "block",
 });
 
 export default function RootLayout({

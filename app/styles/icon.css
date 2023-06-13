@@ -14,14 +14,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+.atra-icon-laptop:before {
+  content: "\e91b";
+}
+.atra-icon-pc-laptop:before {
+  content: "\e91c";
+}
 .atra-icon-24:before {
   content: "\e918";
 }
 .atra-icon-star:before {
   content: "\e91a";
 }
-
 .atra-icon-arrow-down:before {
   content: "\e900";
 }
@@ -100,5 +104,3 @@
 .atra-icon-whatsapp:before {
   content: "\e919";
 }
-
-

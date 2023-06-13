@@ -2,6 +2,8 @@
 
 import { Popover, Transition } from "@headlessui/react";
 import { Fragment, ReactNode, useRef } from "react";
+import { classNames } from "../utils";
+import NavAnimateDiv from "./nav-animate-div";
 
 interface CategoryPopoverProps {
   className?: string;
@@ -39,15 +41,18 @@ export const CategoryPopover = ({
             onMouseLeave={() => handleLeave(open)}
           >
             <Popover.Button
-              className="flex items-center gap-2 outline-none transition-colors hover:text-text"
+              className={classNames(
+                "relative  flex items-center gap-2 outline-none transition-colors hover:text-text",
+                open ? "text-text" : ""
+              )}
               ref={triggerRef}
             >
               <span>{labelText}</span>
               <span className="atra-icon-arrow-down text-[8px]"></span>
+              <NavAnimateDiv open={open} />
             </Popover.Button>
             <Transition
               as={Fragment}
-              // show={true}
               enter="transition ease-out duration-200"
               enterFrom="opacity-0 translate-y-1"
               enterTo="opacity-100 translate-y-0"

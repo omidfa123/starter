@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?mxihq7');
-  src:  url('fonts/icomoon.eot?mxihq7#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?mxihq7') format('truetype'),
-    url('fonts/icomoon.woff?mxihq7') format('woff'),
-    url('fonts/icomoon.svg?mxihq7#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?xey218');
+  src:  url('fonts/icomoon.eot?xey218#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?xey218') format('truetype'),
+    url('fonts/icomoon.woff?xey218') format('woff'),
+    url('fonts/icomoon.svg?xey218#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.atra-laptop:before {
+  content: "\e91b";
+}
+.atra-pc-laptop:before {
+  content: "\e91c";
+}
 .atra-icon-24:before {
   content: "\e918";
 }

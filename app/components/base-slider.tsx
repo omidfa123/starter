@@ -2,6 +2,7 @@
 
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 import { useCallback, useEffect, useState, ReactNode } from "react";
+import { classNames } from "../utils";
 type DotButtonPropType = {
   selected: boolean;
   onClick: () => void;
@@ -23,23 +24,18 @@ type PropType = {
   containerStyles?: string;
 };
 
-// واسه  شرطی کردن استایل میتونیم ازین  فانکشن استفاده کنیم
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
+
+
 
 export const DotButton: React.FC<DotButtonPropType> = (props) => {
   const { selected, onClick } = props;
 
   return (
     <button
-      className={classNames(
-        // اینا استایل های شرطی مونه
-        selected
+      className={classNames(selected
           ? "w-7 rounded-[22px] bg-secondary shadow-[0px_0px_4px_rgba(151,115,255,0.65)] "
           : "w-3 rounded-full bg-text-600 ",
-        //  این ها استایل ها دیفالته که باید داشته باشه هر دو حالت سیلکت شده و معمولی
         "h-3   touch-manipulation border-none opacity-[0.7] transition-all  duration-200 ease-in-out  hover:opacity-100 focus:opacity-100  "
       )}
       type="button"

@@ -26,8 +26,6 @@ const gridDetails: Record<string, gridDetails> = {
 };
 
 const Banner = ({ grid, images }: BannerProps) => {
-  console.log(grid);
-
   return (
     <section className="grid-container mb-24">
       <div className="flex justify-between ">

@@ -7,9 +7,17 @@ import CategoryTabs from "./category-tabs";
 
 import SearchCombobox from "./search-combobox";
 import { BASE_URL } from "../lib/constants/baseURL";
+import { NavList } from "./nav-animate-div";
+import LanguageMenu from "./language-menu";
+
+interface MainCategories {
+  name: string;
+  link: any;
+  icon: string;
+}
 
 interface ReducerResult {
-  mainCategories: string[];
+  mainCategories: MainCategories[];
   subCategories: SubCategoryEntity[][];
 }
 
@@ -24,7 +32,7 @@ async function fetchHeaderInfo(): Promise<header> {
   }
   return res.json() as Promise<header>;
 }
-
+const icons = ["phone", "coine", "phone", "flower-pot", "pc-laptop"];
 export default async function Header() {
   const {
     top_menus: topNav,
@@ -33,8 +41,12 @@ export default async function Header() {
     categories,
   } = await fetchHeaderInfo();
   const { mainCategories, subCategories } = categories.reduce<ReducerResult>(
-    (result, category) => {
-      result.mainCategories.push(category.name);
+    (result, category, index) => {
+      result.mainCategories.push({
+        name: category.name,
+        link: category.link,
+        icon: icons[index],
+      });
       result.subCategories.push(category.sub_category);
       return result;
     },
@@ -62,6 +74,7 @@ export default async function Header() {
           </a>
         </div>
       </nav>
+
       <nav className="grid-container  ">
         <div className="relative mb-8 flex items-center   justify-between">
           <Link href="/" id="logo" className="scroll-m-20">
@@ -76,13 +89,13 @@ export default async function Header() {
             </CategoryPopover>
 
             {menus.map((nav) => (
-              <li key={nav.id} className="transition-colors hover:text-text">
+              <NavList key={nav.id}>
                 <Link href={`/${nav.link}`}>{nav.title}</Link>
-              </li>
+              </NavList>
             ))}
           </ul>
           <div className="flex items-center gap-4">
-            <div>زبان</div>
+            <LanguageMenu />
             <div className="h-5 border-l border-text-200" />
             <div className="relative">
               <span className="atra-icon-shopping-bag flex h-9  w-9 items-center justify-center rounded-full border border-text hover:bg-black  hover:text-white" />
@@ -96,6 +109,7 @@ export default async function Header() {
             </Link>
           </div>
         </div>
+
         <SearchCombobox />
       </nav>
     </header>

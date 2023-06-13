@@ -13,6 +13,8 @@
 		el.innerHTML = '<span style="font-family: \'icomoon\'">' + entity + '</span>' + html;
 	}
 	var icons = {
+		'atra-laptop': '&#xe91b;',
+		'atra-pc-laptop': '&#xe91c;',
 		'atra-icon-24': '&#xe918;',
 		'atra-icon-star': '&#xe91a;',
 		'atra-icon-arrow-down': '&#xe900;',

@@ -6,32 +6,43 @@ import Image from "next/image";
 
 import menuPic1 from "../../public/images/menus-pic-1.png";
 import menuPic2 from "../../public/images/menus-pic-2.png";
-import {
-  MegaMenuIconPurple,
-  MegaMenuIconRed,
-  MegaMenuIconYellow,
-} from "components/common/Icons";
+
+interface MainCategories {
+  name: string;
+  link: any;
+  icon: string;
+}
 export default function CategoryTabs({
   mainCategories,
   subCategories,
 }: {
-  mainCategories: String[];
+  mainCategories: MainCategories[];
   subCategories: SubCategoryEntity[][];
 }) {
   function handleHover(e: MouseEvent<HTMLButtonElement>) {
     e.currentTarget.click();
   }
+
   return (
     <Tab.Group as="div" className="relative flex gap-6 " vertical>
-      <Tab.List className="flex  flex-col gap-6 text-[13px] font-medium text-text ">
+      <Tab.List className="flex  flex-col gap-8 text-[13px] font-medium text-text ">
         {mainCategories.map((category, index) => (
           <Tab
             key={index}
             onMouseEnter={handleHover}
-            className="relative flex w-full  items-center justify-start gap-1  whitespace-nowrap font-semibold outline-none transition-all before:absolute before:-left-[26px]  before:h-full before:border-l-2 before:content-[''] ui-selected:text-secondary ui-selected:before:border-secondary"
+            className="relative w-full    whitespace-nowrap font-semibold outline-none transition-all before:absolute before:-left-[26px]  before:h-full before:border-l-2 before:content-[''] ui-selected:text-secondary ui-selected:before:border-secondary"
           >
-            <span className="atra-icon-phone text-2xl"></span>
-            <div>{category}</div>
+            <Link
+              href={category.link || "/"}
+              className="flex items-center gap-2"
+            >
+              <span
+                className={`atra-icon-${
+                  category.icon || "diamond"
+                } h-6 w-6 text-2xl`}
+              ></span>
+              <div>{category.name}</div>
+            </Link>
           </Tab>
         ))}
         {/* <Image src={menuPic1} alt=";" className="mt-auto" /> */}
