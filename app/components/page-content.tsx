@@ -3,29 +3,7 @@ import Slider from "./slider";
 import SpecialOffer from "./special-offer";
 import Vitrin from "./vitrin";
 import Banner from "./banner";
-
-interface StylesObject {
-  style: { [key: string]: string };
-}
-
-function parseStyles(stylesString: string): StylesObject {
-  const stylesArray = stylesString.split(";").filter(Boolean);
-
-  const stylesObject: StylesObject = {
-    style: {},
-  };
-
-  stylesArray.forEach((style) => {
-    const [property, value] = style.split(":").map((item) => item.trim());
-    const formattedProperty = property.replace(/-([a-z])/g, (match, letter) =>
-      letter.toUpperCase()
-    );
-
-    stylesObject.style[formattedProperty] = value;
-  });
-
-  return stylesObject;
-}
+import { parseStyles } from "../utils";
 
 const CustomComponents: Record<string, React.FC<any>> = {
   slider: (props) => <Slider {...props} />,
@@ -37,6 +15,7 @@ const CustomComponents: Record<string, React.FC<any>> = {
     ),
   banner: (props) => <Banner {...props} />,
 };
+
 const renderElement = (elementData: any) => {
   const { tag, children, style, html } = elementData;
   if (html && typeof CustomComponents[tag] !== "undefined") {
@@ -62,11 +41,7 @@ const renderElement = (elementData: any) => {
 
 export default async function PageContent({ page }: { page: Promise<Page> }) {
   const pageData = await page;
-
   const pageContent = renderElement(pageData.page.original.children?.at(0));
-
-  // const pageContent2 = renderElement(content);
-
   if (!isValidElement(pageContent)) {
     return <div>Error</div>;
   }
