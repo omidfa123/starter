@@ -46,3 +46,96 @@ export default function LoadingCircleSvg() {
     </svg>
   );
 }
+
+{
+  /* <svg
+                aria-labelledby="li97cgj-aria"
+                role="img"
+                viewBox="0 0 320 530"
+                className="m-auto h-full w-full"
+              >
+                <title id="li97cgj-aria">Loading...</title>
+                <rect
+                  role="presentation"
+                  x="0"
+                  y="0"
+                  width="100%"
+                  height="100%"
+                  clip-path="url(#li97cgj-diff)"
+                  style={{ fill: "url(#li97cgj-animated-diff)" }}
+                ></rect>
+                <defs>
+                  <clipPath id="li97cgj-diff">
+                    <rect
+                      x="16"
+                      y="16"
+                      rx="8"
+                      ry="8"
+                      width="288"
+                      height="272"
+                    ></rect>
+                    <rect
+                      x="16"
+                      y="308"
+                      rx="2"
+                      ry="2"
+                      width="288"
+                      height="20"
+                    ></rect>
+                    <rect
+                      x="164"
+                      y="344"
+                      rx="2"
+                      ry="2"
+                      width="140"
+                      height="20"
+                    ></rect>
+                    <rect
+                      x="16"
+                      y="400"
+                      rx="2"
+                      ry="2"
+                      width="98"
+                      height="20"
+                    ></rect>
+                    <rect
+                      x="16"
+                      y="454"
+                      rx="2"
+                      ry="2"
+                      width="136"
+                      height="20"
+                    ></rect>
+                  </clipPath>
+                  <linearGradient id="li97cgj-animated-diff">
+                    <stop offset="0%" stopColor="#f3f3f3" stopOpacity="1">
+                      <animate
+                        attributeName="offset"
+                        values="-2; -2; 1"
+                        keyTimes="0; 0.25; 1"
+                        dur="2s"
+                        repeatCount="indefinite"
+                      ></animate>
+                    </stop>
+                    <stop offset="50%" stopColor="#ecebeb" stopOpacity="1">
+                      <animate
+                        attributeName="offset"
+                        values="-1; -1; 2"
+                        keyTimes="0; 0.25; 1"
+                        dur="2s"
+                        repeatCount="indefinite"
+                      ></animate>
+                    </stop>
+                    <stop offset="100%" stopColor="#f3f3f3" stopOpacity="1">
+                      <animate
+                        attributeName="offset"
+                        values="0; 0; 3"
+                        keyTimes="0; 0.25; 1"
+                        dur="2s"
+                        repeatCount="indefinite"
+                      ></animate>
+                    </stop>
+                  </linearGradient>
+                </defs>
+              </svg> */
+}
