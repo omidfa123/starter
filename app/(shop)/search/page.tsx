@@ -1,6 +1,6 @@
 import { BASE_URL } from "../../lib/constants/baseURL";
 
-export async function getSearchData(query: string) {
+async function getSearchData(query: string): Promise<any> {
   const url = new URL(BASE_URL + "/search");
   url.searchParams.set("q", query);
   url.searchParams.set("type", "product_category");
