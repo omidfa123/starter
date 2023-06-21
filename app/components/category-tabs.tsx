@@ -46,7 +46,7 @@ export default function CategoryTabs({
           </Tab>
         ))}
         {/* <Image src={menuPic1} alt=";" className="mt-auto" /> */}
-        <Image src={menuPic2} alt=";" className="mt-auto" />
+        <Image src={menuPic2} alt="dcd" className="mt-auto" />
       </Tab.List>
       <div className="h-full border-l-2 border-text-400" />
       <Tab.Panels className="w-full">

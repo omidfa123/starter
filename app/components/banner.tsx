@@ -4,6 +4,7 @@ import Link from "next/link";
 interface image {
   title: string;
   link: string;
+
   name: string;
   path: string;
 }

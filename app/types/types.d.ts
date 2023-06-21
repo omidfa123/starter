@@ -127,3 +127,41 @@ interface SpecialPrice {
   from_date: string;
   to_date: string;
 }
+interface Answers {
+  categories: CategoriesEntity[] | null;
+  products: ProductsEntity[] | null;
+}
+interface CategoriesEntity {
+  id: number;
+  name: string;
+  link: string;
+  meta_title: string;
+  meta_keywords: string;
+  meta_description: string;
+  banners?: null;
+  slider?: null;
+  products?: (ProductsEntity1 | null)[] | null;
+}
+interface ProductsEntity1 {
+  name: string;
+  sku: string;
+  en_name: string;
+  new: boolean;
+  new_from_date?: null;
+  new_to_date?: null;
+  prices: Prices;
+  link?: null;
+}
+interface Prices {
+  price: number;
+  from_date?: null;
+  to_date?: null;
+}
+interface ProductsEntity {
+  id: number;
+  name: string;
+  link: string;
+  meta_title: string;
+  meta_keywords: string;
+  meta_description: string;
+}

@@ -50,6 +50,50 @@ module.exports = {
       boxShadow: {
         header: "0px 4px 8px rgba(0, 0, 0, 0.03)",
       },
+      keyframes: {
+        circle1: {
+          " 0%": {
+            opacity: ".9",
+          },
+          "33.3333%": {
+            opacity: ".6",
+          },
+          "66.6667%": {
+            opacity: ".3",
+          },
+          "100%": {
+            opacity: ".9",
+          },
+        },
+        circle2: {
+          " 0%": {
+            opacity: ".6",
+          },
+          "33.3333%": {
+            opacity: ".3",
+          },
+          "66.6667%": {
+            opacity: ".9",
+          },
+          "100%": {
+            opacity: ".6",
+          },
+        },
+        circle3: {
+          " 0%": {
+            opacity: ".3",
+          },
+          "33.3333%": {
+            opacity: ".9",
+          },
+          "66.6667%": {
+            opacity: ".6",
+          },
+          "100%": {
+            opacity: ".3",
+          },
+        },
+      },
     },
   },
   plugins: [require("@headlessui/tailwindcss")],
