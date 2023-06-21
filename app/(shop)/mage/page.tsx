@@ -1,8 +1,12 @@
+"use client";
 import { createElement } from "react";
-
+import graphic from "../../../public/images/graphicCart.png";
+import Image from "next/image";
 export default function MagePage() {
-  return createElement("div", null, [
-    createElement("h1", null, "Mage Page"),
-    "h1",
-  ]);
+  return (
+    <div>
+      <p>picture</p>
+      <Image src={graphic} alt="sd" className="hover:animate-bounce" />
+    </div>
+  );
 }

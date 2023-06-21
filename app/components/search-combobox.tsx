@@ -76,7 +76,7 @@ export default function SearchCombobox() {
         leaveFrom="transform scale-100 opacity-100"
         leaveTo="transform scale-95 opacity-0"
       >
-        <Combobox.Options className=" absolute   z-10 flex h-80 w-full scroll-p-44 items-start  gap-8  overflow-y-auto rounded-b-2xl bg-white p-5 shadow-[0px_8px_24px_rgba(0,0,0,0.08)]">
+        <Combobox.Options className=" absolute   z-10 flex h-80 w-full scroll-pt-2 items-start  gap-8  overflow-y-auto rounded-b-2xl bg-white p-5 shadow-[0px_8px_24px_rgba(0,0,0,0.08)]">
           <div className=" flex w-1/2 max-w-[336px] flex-col gap-4">
             <div className="relative mb-2  flex items-center justify-between rounded-lg border border-text bg-primary px-3 py-1.5  text-white  before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:-rotate-1 before:rounded-lg before:bg-text before:content-['']">
               <span className="text-[13px] font-medium ">دسته بندی</span>
