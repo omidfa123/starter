@@ -4,6 +4,7 @@ import { Popover, Transition } from "@headlessui/react";
 import { Fragment, ReactNode, useRef } from "react";
 import { classNames } from "../utils";
 import NavAnimateDiv from "./nav-animate-div";
+import Link from "next/link";
 
 interface CategoryPopoverProps {
   className?: string;

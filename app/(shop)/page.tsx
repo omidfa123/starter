@@ -20,7 +20,7 @@ export default async function Home() {
   return (
     <>
       <Suspense fallback="loading...">
-        <PageContent page={content} />
+        {/* <PageContent page={content} /> */}
       </Suspense>
       <Features />
     </>
