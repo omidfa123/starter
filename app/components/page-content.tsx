@@ -39,9 +39,9 @@ const renderElement = (elementData: any) => {
   return renderedElement;
 };
 
-export default async function PageContent({ page }: { page: Promise<Page> }) {
+export default async function PageContent({ page }: { page: Promise<any> }) {
   const pageData = await page;
-  const pageContent = renderElement(pageData.page.original.children?.at(0));
+  const pageContent = renderElement(pageData.page.children?.at(0));
   if (!isValidElement(pageContent)) {
     return <div>Error</div>;
   }
