@@ -132,15 +132,13 @@ interface Answers {
   products: ProductsEntity[] | null;
 }
 interface CategoriesEntity {
-  id: number;
-  name: string;
-  link: string;
-  meta_title: string;
-  meta_keywords: string;
-  meta_description: string;
-  banners?: null;
-  slider?: null;
-  products?: (ProductsEntity1 | null)[] | null;
+  detail: {
+    name: string;
+    en_name: null;
+    id: number;
+    position: number;
+    sort_order: number;
+  };
 }
 interface ProductsEntity1 {
   name: string;
@@ -158,10 +156,10 @@ interface Prices {
   to_date?: null;
 }
 interface ProductsEntity {
-  id: number;
-  name: string;
-  link: string;
-  meta_title: string;
-  meta_keywords: string;
-  meta_description: string;
+  product: {
+    link: string;
+    name: string;
+    en_name: string;
+    id: number;
+  };
 }

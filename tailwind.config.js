@@ -26,6 +26,7 @@ module.exports = {
         text: {
           DEFAULT: "#15121D",
           100: "#CACACA",
+          150: "#A1A1A1",
           200: "#ADADAD",
           300: "#B8B8B8",
           400: "#EEEEEE",
