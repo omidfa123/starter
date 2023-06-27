@@ -1,5 +1,5 @@
 import Accordion from "./ui/accordion";
-import LinkWithQuery from "./ui/link-with-query";
+
 import Switch from "./ui/switch";
 
 export default function SearchAside() {
@@ -9,8 +9,14 @@ export default function SearchAside() {
         فیلتر ها
       </div>
       <Accordion />
-      <Switch text="کالای تخفیف دار" />
-      <Switch text="فقط کالاهای موجود" />
+      <Switch
+        text="کالای تخفیف دار"
+        attributes={{ id: "3", value: "غیر فعال" }}
+      />
+      <Switch
+        text="فقط کالاهای موجود"
+        attributes={{ id: "2", value: "فعال" }}
+      />
     </aside>
   );
 }

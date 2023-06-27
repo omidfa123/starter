@@ -63,7 +63,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="grid-container ">
-        <div className="flex justify-between gap-[220px] border-y border-y-text-200 py-10">
+        <div className="flex justify-between  border-y border-y-text-200 py-10">
           <div className="grid flex-1 grid-cols-fluid ">
             {footerList.map((item, index) => (
               <ul key={index} className="space-y-4">

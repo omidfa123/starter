@@ -128,8 +128,11 @@ interface SpecialPrice {
   to_date: string;
 }
 interface Answers {
-  categories: CategoriesEntity[] | null;
-  products: ProductsEntity[] | null;
+  result: string;
+  response: {
+    categories: CategoriesEntity[] | null;
+    products: ProductsEntity[] | null;
+  };
 }
 interface CategoriesEntity {
   detail: {
@@ -144,10 +147,6 @@ interface ProductsEntity1 {
   name: string;
   sku: string;
   en_name: string;
-  new: boolean;
-  new_from_date?: null;
-  new_to_date?: null;
-  prices: Prices;
   link?: null;
 }
 interface Prices {

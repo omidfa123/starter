@@ -3,8 +3,10 @@
 import { Disclosure } from "@headlessui/react";
 import LinkWithQuery from "./link-with-query";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 const options = [
+  { text: "۱۰ تایی", id: 10 },
   { text: "۲۰ تایی", id: 20 },
   { text: "۴۰ تایی", id: 40 },
   { text: "۶۰ تایی", id: 60 },
@@ -12,13 +14,15 @@ const options = [
 
 export default function Accordion() {
   const [selected, setSelected] = useState(20);
+  const productLimit = useSearchParams()?.get("product_limit");
+
   return (
     <Disclosure>
       {({ open }) => (
         <>
           <Disclosure.Button className="mb-2 flex w-full items-center justify-between px-4">
             <span className="font-medium">
-              نمایش تعداد : {selected.toLocaleString("fa-IR")}
+              نمایش تعداد : {productLimit || selected}
             </span>
             <span className="atra-icon-arrow-up -rotate-180 transform text-lg font-medium transition-transform ui-open:rotate-0 " />
           </Disclosure.Button>
@@ -26,8 +30,9 @@ export default function Accordion() {
             <div className="mx-auto mb-4 w-[88%] border-t border-[#D9D9D9]" />
           )}
           <Disclosure.Panel className="mb-4 flex flex-col gap-3 bg-text-500 px-4 py-2 text-xs">
-            {options.map((option) => (
+            {options.map((option, index) => (
               <LinkWithQuery
+                isDefault={index === 0}
                 key={option.id}
                 text={option.text}
                 searchParams={{ product_limit: option.id.toString() }}

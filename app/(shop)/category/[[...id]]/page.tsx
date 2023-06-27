@@ -21,8 +21,6 @@ async function Category({ params }: { params: { id: string[] } }) {
   }
   const categories = await getCategories();
 
-  console.log(categories);
-
   return <div>Category</div>;
 }
 export default Category;

@@ -39,9 +39,15 @@ module.exports = {
         secondary: {
           DEFAULT: "#9773FF",
         },
+        red: {
+          150: "#FF5E5E",
+        },
+        blue: {
+          150: "#98AFFF",
+        },
       },
       gridTemplateColumns: {
-        fluid: "repeat(auto-fit , minmax(134px , 1fr))",
+        fluid: "repeat(auto-fit , minmax(283px , 1fr))",
         container: "minmax(auto , 1440px)",
       },
       backgroundImage: {
@@ -92,6 +98,14 @@ module.exports = {
           },
           "100%": {
             opacity: ".3",
+          },
+        },
+        grow: {
+          from: {
+            width: "87px",
+          },
+          to: {
+            width: "144px",
           },
         },
       },

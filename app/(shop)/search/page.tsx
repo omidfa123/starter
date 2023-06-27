@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { BASE_URL } from "../../lib/constants/baseURL";
+import InfiniteScrollComponent from "../../components/infinit-scroll-component";
 type Props = {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
@@ -20,6 +21,7 @@ interface Params {
   type: string;
   q: string;
   sort: string;
+  attributes: string;
 }
 
 async function getSearchData({
@@ -28,19 +30,18 @@ async function getSearchData({
   q,
   type,
   sort,
-}: Params): Promise<any> {
+  attributes,
+}: Params): Promise<Answers | any> {
   const params = {
     product_limit,
     category_limit,
     type,
     q,
     sort,
+    attributes,
   };
 
-  const res = await fetch(
-    `${BASE_URL}/search?${new URLSearchParams(params)}`,
-    {}
-  );
+  const res = await fetch(`${BASE_URL}/search?${new URLSearchParams(params)}`);
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -52,15 +53,13 @@ async function getSearchData({
 async function Search({ searchParams }: Props) {
   const data = await getSearchData({
     category_limit: searchParams.category_limit?.toString() || "10",
-    product_limit: searchParams.product_limit?.toString() || "20",
+    product_limit: searchParams.product_limit?.toString() || "10",
     q: searchParams.q?.toString() || "",
-    type: searchParams.type?.toString() || "product_category",
+    type: "product_category",
     sort: searchParams.sort?.toString() || "",
+    attributes: searchParams.attributes?.toString() || "",
   });
 
-  console.log(data);
-  return (
-    <div className="  flex-1 bg-red-500">{JSON.stringify(data, null, 2)}</div>
-  );
+  return <InfiniteScrollComponent initialItems={data.response.products} />;
 }
 export default Search;

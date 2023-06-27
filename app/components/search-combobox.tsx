@@ -21,8 +21,6 @@ async function startSearch(query: string) {
   const searchParams = new URLSearchParams(params).toString();
   const url = BASE_URL + "/search?" + searchParams;
 
-  console.log(url);
-
   const res = await fetch(url);
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -46,7 +44,7 @@ export default function SearchCombobox() {
     startTransition(async () => {
       setQuery(value);
       const res = await startSearch(value);
-      setAnswers(res.response);
+      setAnswers(res);
     });
   }, 300);
   const router = useRouter();
@@ -58,8 +56,6 @@ export default function SearchCombobox() {
       closeBtnRef.current?.click();
     }
   };
-
-  console.log(answers);
 
   return (
     <Combobox
@@ -180,12 +176,10 @@ export default function SearchCombobox() {
                   </defs>
                 </svg>
               ))
-            ) : answers?.categories?.length === 0 ? (
+            ) : answers?.response?.categories?.length === 0 ? (
               <div>دسته بندی پیدا نشد</div>
             ) : (
-              answers?.categories?.map((cat) => {
-                console.log(cat);
-
+              answers?.response?.categories?.map((cat) => {
                 return (
                   <Combobox.Option
                     value={cat.detail.name}
@@ -258,10 +252,10 @@ export default function SearchCombobox() {
                   </defs>
                 </svg>
               ))
-            ) : answers?.products?.length === 0 ? (
+            ) : answers?.response?.products?.length === 0 ? (
               <div>محصولی پیدا نشد</div>
             ) : (
-              answers?.products?.map((detail) => (
+              answers?.response?.products?.map((detail) => (
                 <Combobox.Option
                   as={Link}
                   className="flex h-[104px] w-max rounded-2xl bg-text-500 p-2 ui-active:ring "

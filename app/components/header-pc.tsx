@@ -75,7 +75,7 @@ export default async function Header() {
         </div>
       </nav>
 
-      <nav className="grid-container  ">
+      <nav className="grid-container">
         <div className="relative mb-8 flex items-center   justify-between">
           <Link href="/" id="logo" className="scroll-m-20">
             <Image alt="atramart logo" src={logo} priority />

@@ -3,17 +3,18 @@ import LinkWithQuery from "./ui/link-with-query";
 import { classNames } from "../utils";
 
 const sortOptions = [
-  { name: "مرتبط‌ترین", id: "_0" },
-  { name: "پربازدیدترین", id: "_1" },
   { name: "جدیدترین", id: "_2" },
+  { name: "پربازدیدترین", id: "_1" },
   { name: "پرفروش‌ترین", id: "_3" },
   { name: "بیشترین‌تخفیف", id: "_4" },
   { name: "ارزان‌ترین", id: "_5" },
+  { name: "گران‌ترین", id: "_6" },
+  { name: "قدیمی‌ترین", id: "_7" },
 ];
 
 export default function SortBy() {
   return (
-    <nav className="mb-4  flex items-center gap-6">
+    <nav className="mb-8  flex items-center gap-6">
       <span className="flex h-[69px] w-[69px] items-center justify-center rounded-3xl bg-secondary px-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +31,9 @@ export default function SortBy() {
       <div className="flex items-center  rounded-3xl  bg-white px-4 py-2.5">
         <span className="pl-4 font-medium">مرتب سازی :</span>
         <span className="flex items-center text-[#BDBDBD]">
-          {sortOptions.map((option) => (
+          {sortOptions.map((option, index) => (
             <LinkWithQuery
+              isDefault={index === 0}
               key={option.id}
               className={
                 "rounded-2xl px-5 py-3 text-[#BDBDBD] data-[sort='true']:bg-secondary data-[sort='true']:text-white"
